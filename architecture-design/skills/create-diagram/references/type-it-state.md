@@ -141,9 +141,9 @@ Three visual kinds:
 
 | `kind` | Fill | Stroke | Stroke width | Stroke dash | Name ink | Sub ink |
 | --- | --- | --- | --- | --- | --- | --- |
-| `standard` | `#FFFFFF` | `ink` | 1 | — | `ink` | `muted` |
+| `standard` | `paper-2` | `ink` | 1 | — | `ink` | `muted` |
 | `focal` | `accent @ 0.07` | `accent` | 1.4 | — | `ink` | `accent` (line 1) + `muted` (line 2) |
-| `external` | `#FFFFFF` | `muted` | 1 | `4,3` | `ink` | `muted` |
+| `external` | `paper-2` | `muted` | 1 | `4,3` | `ink` | `muted` |
 | `concern` | `ink @ 0.06` | `ink @ 0.45` | 1 | — | `ink` | `muted` |
 
 **Icon placement** (24×24, monochrome via `currentColor` — see `references/primitive-icons.md`):
@@ -348,7 +348,7 @@ If your diagram needs more than 2 focal components, you've collapsed two narrati
 | accent | `accent` | `accent` |
 | zone background | `ink @ 0.02` | `paper @ 0.04` |
 | zone border | `ink @ 0.10` | `paper @ 0.14` |
-| standard component fill | `#FFFFFF` | `paper @ 0.04` |
+| standard component fill | `paper-2` | `paper @ 0.04` |
 | standard component stroke | `ink` | `paper @ 0.32` |
 | focal fill | `accent @ 0.07` | `accent @ 0.12` |
 | focal stroke | `accent` | `accent` |

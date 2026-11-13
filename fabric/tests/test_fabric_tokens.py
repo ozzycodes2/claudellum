@@ -14,8 +14,9 @@ THEME = ROOT / "fabric/hooks/themes/fabric.ts"
 ROW = re.compile(r"^\| `([a-z0-9-]+)` \|.*\| `(#[0-9a-f]{6})` \| `(#[0-9a-f]{6})` \|$")
 INK_SLOTS = ("read", "write", "run", "search", "web", "mcp", "other", "user", "fg", "ok")
 # Slot -> guide role. `zebra` is `accent-tint` composited on paper, `err` has no guide role,
-# `codeBg` is transparent, and `command` is white on the accent band in both polarities.
+# and `codeBg` is transparent.
 ROLE = {
+    "command": "ink-strong",
     "muted": "soft",
     "surface": "paper-2",
     "warn": "muted",

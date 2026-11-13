@@ -12,7 +12,7 @@ Create diagrams as self-contained HTML files with inline SVG, skinned to Fabric.
 
 A fork of Cathryn Lavery's [diagram-design](https://github.com/cathrynlavery/diagram-design) (MIT). The layout grammar is unchanged — same forty-five types, same connector rules, same complexity budget. The skin is not, and three of its rules override what the original ships:
 
-- **The accent paints objects, never type.** At 3.06:1 on the light paper it clears the 3:1 a graphical object needs and misses the 4.5:1 a word needs. An accent arrow's label is `ink`; an accent bar's value is `ink`.
+- **The accent paints objects, never type.** At 2.47:1 on the light paper it misses even the 3:1 a graphical object needs, so it never stands alone there: an accent mark is emphasis on a mark that `ink` already identifies. An accent arrow's label is `ink`; an accent bar's value is `ink`.
 - **There is no second chroma, so there is no `link` role.** An external or HTTP call is `ink` at 1.2; an internal one is `muted` at 1. The distinction survives as weight. Series separate by dash, not hue, and three is the cap.
 - **An essential mark is not a hairline.** A node border encloses a label the reader can already see, so it takes `rule`. An axis, a baseline or a lifeline is *traced*, which puts it over the 3:1 floor every hairline here is under — those take `soft`.
 
@@ -28,7 +28,7 @@ Do not silently ship default-skinned diagrams into a branded project.
 
 First resolve any project `.diagram-design` marker per [`references/profiles.md`](references/profiles.md); a successfully resolved marker selects its profile and bypasses this gate. That reference owns failures, the protected default, and save behavior.
 
-Open [`references/style-guide.md`](references/style-guide.md) and check the default tokens. If they are still the shipped defaults (paper `#f8f8f8`, ink `#171717`, accent `#ef6306`), **pause and ask the user**:
+Open [`references/style-guide.md`](references/style-guide.md) and check the default tokens. If they are still the shipped defaults (paper `#eceef0`, ink `#171717`, accent `#ff6a13`), **pause and ask the user**:
 
 > *"This is your first diagram in this project and the style guide is still default. Customize now? Options: (a) website URL, (b) installed skill, (c) local folder/design-system, (d) paste tokens, (e) keep default, (f) load saved profile."*
 
@@ -176,7 +176,7 @@ These mark "AI slop" schematics of any type:
 | Shadow on any element | Shadows are out. Borders are in. |
 | `rounded-2xl` on boxes | Max radius 6–10px or none |
 | The accent on every "important" node | The accent is 1–2 editorial marks, not a signaling system |
-| A word in the accent | 3.06:1 on the light paper. It is an object color; a label wearing it is the least legible thing on the page |
+| A word in the accent | 2.47:1 on the light paper. It is an object color; a label wearing it is the least legible thing on the page |
 | A second hue for series, status, or links | One chroma. Series separate by dash, external calls by weight |
 | Reproducing Mermaid's renderer layout | Imports automatic spacing and routing instead of making an editorial layout |
 | Any breach of the six §6 connector rules | Automatic fail: diagonal slants, labels touching their stroke, masks clipped by a later node, overlapping paths, shared attach points, transit behind a non-endpoint box |
@@ -207,7 +207,7 @@ There is no `link` role. Where a type reference keeps `link` as an edge-*style* 
 
 **Focal rule:** `accent` goes on 1–2 elements max. Everything else is `ink` / `muted` / `soft`. If you're tempted to accent 4 things, you haven't decided what's focal yet.
 
-**Traced-mark rule:** anything the reader follows to read a value — a chart axis, a baseline, a lifeline, a line of visibility — takes `soft`. `rule` is 1.33:1 light and 1.69:1 dark, under the 3:1 an essential mark needs.
+**Traced-mark rule:** anything the reader follows to read a value — a chart axis, a baseline, a lifeline, a line of visibility — takes `soft`. `rule` is 1.37:1 light and 1.36:1 dark, under the 3:1 an essential mark needs.
 
 **Node treatments** (focal, backend/API/step, store/state, external/cloud, input/user, optional/async, security/boundary): fill and stroke per [style-guide.md § Node type → treatment](references/style-guide.md#node-type--treatment).
 
@@ -322,7 +322,7 @@ Run before producing any diagram.
 - [ ] **§6 rule 4:** a distinct attach point per connector on a shared edge, 12px or more apart, none hiding another?
 - [ ] **§6 rule 5:** no transit behind a non-endpoint box, except the unavoidable case (dashed, label at the visible end)?
 - [ ] **§6 rule 6:** no label mask overlapping a node drawn after it? (From a repository checkout, run `python3 <repo-root>/scripts/verify-geometry.py <file>`.)
-- [ ] Every arrow label has an opaque `fill="#f8f8f8"` rect behind it (`#010102` on dark)?
+- [ ] Every arrow label has an opaque `fill="#eceef0"` rect behind it (`#101214` on dark)?
 - [ ] Legend only for what can't be labelled in place; when present, a horizontal bottom strip, not floating, with no "LEGEND" heading?
 - [ ] No vertical `writing-mode` text and no `rotate` transform on text?
 - [ ] `viewBox` expanded for the legend strip (~60px) when one is present?

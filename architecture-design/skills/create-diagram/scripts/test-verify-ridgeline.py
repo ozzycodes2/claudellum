@@ -58,7 +58,7 @@ FOCAL_D = ('d="M320,320 L350,317.6 L380,305.6 L410,279.2 L440,269.6 L470,286.4 '
 FOCAL_PATH = ('<path data-ridge="checkout-api" data-baseline="320" '
               'data-bins="0,1,6,17,21,14,8,6,7,9,7,4,0" '
               + FOCAL_D +
-              ' fill="rgba(239,99,6,0.16)" stroke="#ef6306" stroke-width="2.4" '
+              ' fill="rgba(255,106,19,0.16)" stroke="#ff6a13" stroke-width="2.4" '
               'stroke-linejoin="round"/>')
 # The same ridge redrawn at 3.6px per unit instead of the figure's 2.4. Every
 # vertex still sits on a straight, closed outline over the same bins; only the
@@ -67,7 +67,7 @@ PRIVATE_AMPLITUDE_D = ('d="M320,320 L350,316.4 L380,298.4 L410,258.8 L440,244.4 
                        'L470,269.6 L500,291.2 L530,298.4 L560,294.8 L590,287.6 '
                        'L620,294.8 L650,305.6 L680,320 Z"')
 REPORT_RULE = ('<line data-ridge="report-export" data-role="baseline" x1="320" y1="376" '
-               'x2="680" y2="376" stroke="#616161" stroke-width="1"/>')
+               'x2="680" y2="376" stroke="#606060" stroke-width="1"/>')
 
 
 def invoke(argv):
@@ -144,11 +144,11 @@ def synthetic(n_ridges, n_bins, top=100, pitch=40, amp=2.0, x0=200, dx=20, unit=
         pts = ["%g,%g" % (x, baseline - amp * v) for x, v in zip(xs, values)]
         d = "M" + pts[0] + " " + " ".join("L" + p for p in pts[1:]) + " Z"
         focal = s == 0
-        stroke = "#ef6306" if focal else "rgba(23,23,23,0.70)"
+        stroke = "#ff6a13" if focal else "rgba(23,23,23,0.70)"
         width = "2.4" if focal else "1.2"
         live = [i for i, v in enumerate(values) if v > 0]
         parts.append('<line data-ridge="r%d" data-role="baseline" x1="%d" y1="%g" '
-                     'x2="%d" y2="%g" stroke="#616161" stroke-width="1"/>'
+                     'x2="%d" y2="%g" stroke="#606060" stroke-width="1"/>'
                      % (s, xs[0], baseline, xs[-1], baseline))
         parts.append('<path data-ridge="r%d" data-baseline="%g" data-bins="%s" d="%s" '
                      'fill="rgba(23,23,23,0.12)" stroke="%s" stroke-width="%s"/>'
@@ -341,7 +341,7 @@ def main() -> int:
         case(
             failures, directory, "unlabelled",
             source.replace('      <text data-ridge="checkout-api" data-role="range" '
-                           'x="696" y="323.5" fill="#4d4d4d" font-size="9" '
+                           'x="696" y="323.5" fill="#2c2c2c" font-size="9" '
                            'font-family="\'SF Mono\', monospace">40–440 ms</text>\n',
                            "", 1),
             source, "prints no range label",
@@ -402,14 +402,14 @@ def main() -> int:
         case(
             failures, directory, "two-focal",
             source.replace('stroke="rgba(23,23,23,0.80)" stroke-width="1.2"',
-                           'stroke="#ef6306" stroke-width="2.4"', 1),
+                           'stroke="#ff6a13" stroke-width="2.4"', 1),
             source, "exactly one editorially focal",
             "two ridges carrying the accent stroke",
         )
         case(
             failures, directory, "weight-mismatch",
-            source.replace('stroke="#ef6306" stroke-width="2.4"',
-                           'stroke="#ef6306" stroke-width="1.2"', 1),
+            source.replace('stroke="#ff6a13" stroke-width="2.4"',
+                           'stroke="#ff6a13" stroke-width="1.2"', 1),
             source, "focus cue",
             "a focal stroke at non-focal weight",
         )

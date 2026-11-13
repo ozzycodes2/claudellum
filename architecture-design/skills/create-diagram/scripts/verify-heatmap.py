@@ -142,14 +142,14 @@ def _parse_color(
 
     For rgba() values with alpha < 1, blend the color against the actual canvas
     underlay rather than assuming the light paper background. In dark heatmaps, the
-    underlay is the dark paper color (#010102), not #f8f8f8.
+    underlay is the dark paper color (#101214), not #eceef0.
     """
     value = color.strip()
     if not value:
         return None
 
     if underlay is None:
-        underlay = (248, 248, 248)
+        underlay = (236, 238, 240)
 
     def blend(rgb: tuple[int, int, int], alpha: float) -> tuple[int, int, int]:
         if alpha >= 1.0:
@@ -589,7 +589,7 @@ def check_file(path: Path) -> list[str]:
                 canvas_underlay = parsed
                 break
     if canvas_underlay is None:
-        canvas_underlay = (248, 248, 248)
+        canvas_underlay = (236, 238, 240)
 
     text_labels = parse_text_labels(source, geometry_errors)
     errors.extend(f"{path.name}: {finding}" for finding in geometry_errors)

@@ -31,29 +31,29 @@ SKILL_ROOT = Path(__file__).resolve().parent.parent
 
 # Old role -> new role, per polarity. Keys are lowercase #rrggbb.
 LIGHT_HEX = {
-    "#f5f5f5": "#f8f8f8",  # paper
-    "#ececec": "#ffffff",  # paper-2
+    "#f5f5f5": "#eceef0",  # paper
+    "#ececec": "#f7f8f8",  # paper-2
     "#2d3142": "#171717",  # ink
     "#111111": "#171717",  # ink-strong
-    "#4f5d75": "#4d4d4d",  # muted
-    "#5a6580": "#616161",  # soft
-    "#bfc0c0": "#c6c6c6",  # rule-solid
-    "#bf4520": "#ef6306",  # accent
+    "#4f5d75": "#2c2c2c",  # muted
+    "#5a6580": "#606060",  # soft
+    "#bfc0c0": "#b8b8bf",  # rule-solid
+    "#bf4520": "#ff6a13",  # accent
     "#2e5aa8": "#171717",  # link -> ink; the caller must also set width 1.2
     # The gallery index ships its own warm paper, outside the role table. It is
     # a catalogue page rather than a diagram, so it joins the light polarity.
-    "#f5f4ed": "#f8f8f8",
-    "#efeee5": "#ffffff",
+    "#f5f4ed": "#eceef0",
+    "#efeee5": "#f7f8f8",
 }
 
 DARK_HEX = {
-    "#2d3142": "#010102",  # paper
-    "#393e53": "#0f1011",  # paper-2
+    "#2d3142": "#101214",  # paper
+    "#393e53": "#1a1c1d",  # paper-2
     "#f5f5f5": "#f7f8f8",  # ink
     "#111111": "#171717",  # ink-strong
     "#bfc0c0": "#d0d6e0",  # muted
     "#949eb2": "#8a8f98",  # soft
-    "#f08a59": "#ef6306",  # accent
+    "#f08a59": "#ff6a13",  # accent
     "#739fdf": "#f7f8f8",  # link -> ink
 }
 
@@ -62,17 +62,17 @@ DARK_HEX = {
 # triplet matches a declared role, which is why re-basing is enough.
 LIGHT_RGB = {
     (45, 49, 66): (23, 23, 23),  # ink
-    (191, 69, 32): (239, 99, 6),  # accent
-    (245, 245, 245): (248, 248, 248),  # paper
-    (79, 93, 117): (77, 77, 77),  # muted
-    (90, 101, 128): (97, 97, 97),  # soft
+    (191, 69, 32): (255, 106, 19),  # accent
+    (245, 245, 245): (236, 238, 240),  # paper
+    (79, 93, 117): (44, 44, 44),  # muted
+    (90, 101, 128): (96, 96, 96),  # soft
     (191, 192, 192): (198, 198, 198),  # rule-solid
 }
 
 DARK_RGB = {
     (245, 245, 245): (247, 248, 248),  # ink
-    (240, 138, 89): (239, 99, 6),  # accent
-    (45, 49, 66): (1, 1, 2),  # paper
+    (240, 138, 89): (255, 106, 19),  # accent
+    (45, 49, 66): (16, 18, 20),  # paper
     (191, 192, 192): (208, 214, 224),  # muted
     (148, 158, 178): (138, 143, 152),  # soft
 }
@@ -102,18 +102,18 @@ PAPER_RE = re.compile(r"--(?:color-)?paper:\s*(#[0-9a-fA-F]{6})")
 OLD_LIGHT_PAPER = "#f5f5f5"
 GALLERY_PAPER = "#f5f4ed"
 OLD_DARK_PAPER = {"#2d3142", "#393e53"}
-NEW_PAPER = {"#f8f8f8": "light", "#010102": "dark", "#0f1011": "dark"}
+NEW_PAPER = {"#eceef0": "light", "#101214": "dark", "#1a1c1d": "dark"}
 
 # Values that mean the same role in both polarities, so they can be cleaned up
 # without knowing which skin a file belongs to. A handful of assets were partly
 # converted by an earlier pass and carry a light paper beside a dark accent;
 # this is what catches the remainder.
-RESIDUAL = {"#bf4520": "#ef6306", "#f08a59": "#ef6306"}
+RESIDUAL = {"#bf4520": "#ff6a13", "#f08a59": "#ff6a13"}
 RESIDUAL_LINK = {"#2e5aa8", "#739fdf"}
 RESIDUAL_RGB = {
-    (191, 69, 32): (239, 99, 6),  # accent, light
-    (240, 138, 89): (239, 99, 6),  # accent, dark
-    (90, 101, 128): (97, 97, 97),  # soft, light — only ever appears light
+    (191, 69, 32): (255, 106, 19),  # accent, light
+    (240, 138, 89): (255, 106, 19),  # accent, dark
+    (90, 101, 128): (96, 96, 96),  # soft, light — only ever appears light
 }
 
 
@@ -217,7 +217,7 @@ def structural_findings(original: str, polarity: str) -> list[str]:
     """What substitution cannot fix, named so a human can finish it.
 
     Read against the *original*: substitution has already collapsed `link` into
-    `ink` and the old accent into `#ef6306` by the time the file is written, so
+    `ink` and the old accent into `#ff6a13` by the time the file is written, so
     the evidence for both only exists before the rewrite.
     """
     lowered = original.lower()

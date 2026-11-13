@@ -8,10 +8,10 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --color-paper:   #f8f8f8;   /* white-smoke */
+      --color-paper:   #eceef0;   /* white-smoke */
       --color-ink:     #171717;   /* jet-black */
-      --color-muted:   #4d4d4d;
-      --color-accent:  #ef6306;   /* burnt-tangerine */
+      --color-muted:   #2c2c2c;
+      --color-accent:  #ff6a13;   /* burnt-tangerine */
       --font-sans:     'Inter', system-ui, sans-serif;
       --font-mono:     'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     }
@@ -61,22 +61,22 @@
       <title id="import-drawio-title">Order platform — request path</title>
       <desc id="import-drawio-desc">Architecture diagram showing web and mobile clients entering through an API Gateway, then reaching authentication, orders, Postgres, object storage, and Redis.</desc>
       <defs>
-        <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4d4d4d"/></marker>
-        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ef6306"/></marker>
+        <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2c2c2c"/></marker>
+        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ff6a13"/></marker>
         <marker id="arrow-ink" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#171717"/></marker>
       </defs>
 
-      <rect width="100%" height="100%" fill="#f8f8f8"/>
+      <rect width="100%" height="100%" fill="#eceef0"/>
 
       <!-- Zones -->
       <rect x="40" y="96" width="200" height="224" rx="8" fill="none" stroke="rgba(23,23,23,0.12)" stroke-width="1"/>
-      <text x="56" y="120" fill="#616161" font-size="8" font-family="'SF Mono', monospace">Edge</text>
+      <text x="56" y="120" fill="#606060" font-size="8" font-family="'SF Mono', monospace">Edge</text>
 
       <rect x="320" y="96" width="560" height="224" rx="8" fill="none" stroke="rgba(23,23,23,0.12)" stroke-width="1"/>
-      <text x="336" y="120" fill="#616161" font-size="8" font-family="'SF Mono', monospace">Core services</text>
+      <text x="336" y="120" fill="#606060" font-size="8" font-family="'SF Mono', monospace">Core services</text>
 
       <rect x="320" y="368" width="560" height="112" rx="8" fill="none" stroke="rgba(23,23,23,0.12)" stroke-width="1"/>
-      <text x="336" y="392" fill="#616161" font-size="8" font-family="'SF Mono', monospace">Data</text>
+      <text x="336" y="392" fill="#606060" font-size="8" font-family="'SF Mono', monospace">Data</text>
 
       <!-- Connectors (drawn before boxes) -->
       <!-- Web App -> API Gateway -->
@@ -84,99 +84,99 @@
       <!-- Mobile App -> API Gateway -->
       <path d="M220,252 H296 A8,8 0 0 0 304,244 V232 A8,8 0 0 1 312,224 H360" fill="none" stroke="#171717" stroke-width="1.2" marker-end="url(#arrow-ink)"/>
       <!-- API Gateway -> Auth Service -->
-      <path d="M560,192 H592 A8,8 0 0 0 600,184 V164 A8,8 0 0 1 608,156 H640" fill="none" stroke="#4d4d4d" stroke-width="1" marker-end="url(#arrow)"/>
+      <path d="M560,192 H592 A8,8 0 0 0 600,184 V164 A8,8 0 0 1 608,156 H640" fill="none" stroke="#2c2c2c" stroke-width="1" marker-end="url(#arrow)"/>
       <!-- API Gateway -> Orders Service -->
-      <path d="M560,232 H640" fill="none" stroke="#4d4d4d" stroke-width="1" marker-end="url(#arrow)"/>
+      <path d="M560,232 H640" fill="none" stroke="#2c2c2c" stroke-width="1" marker-end="url(#arrow)"/>
       <!-- Orders Service -> Postgres -->
-      <path d="M680,280 V320 A8,8 0 0 1 672,328 H432 A8,8 0 0 0 424,336 V392" fill="none" stroke="#4d4d4d" stroke-width="1" marker-end="url(#arrow)"/>
+      <path d="M680,280 V320 A8,8 0 0 1 672,328 H432 A8,8 0 0 0 424,336 V392" fill="none" stroke="#2c2c2c" stroke-width="1" marker-end="url(#arrow)"/>
       <!-- Orders Service -> Object Store (async) -->
-      <path d="M760,280 V344 A8,8 0 0 1 752,352 H616 A8,8 0 0 0 608,360 V392" fill="none" stroke="#4d4d4d" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+      <path d="M760,280 V344 A8,8 0 0 1 752,352 H616 A8,8 0 0 0 608,360 V392" fill="none" stroke="#2c2c2c" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
       <!-- Auth Service -> Redis (async) -->
-      <path d="M840,156 H848 A8,8 0 0 1 856,164 V392" fill="none" stroke="#4d4d4d" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+      <path d="M840,156 H848 A8,8 0 0 1 856,164 V392" fill="none" stroke="#2c2c2c" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
 
       <!-- Arrow labels -->
-      <rect x="232" y="144" width="36" height="12" rx="2" fill="#f8f8f8"/>
-      <text x="250" y="153" fill="#616161" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">HTTPS</text>
+      <rect x="232" y="144" width="36" height="12" rx="2" fill="#eceef0"/>
+      <text x="250" y="153" fill="#606060" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">HTTPS</text>
 
-      <rect x="232" y="232" width="36" height="12" rx="2" fill="#f8f8f8"/>
-      <text x="250" y="241" fill="#616161" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">HTTPS</text>
+      <rect x="232" y="232" width="36" height="12" rx="2" fill="#eceef0"/>
+      <text x="250" y="241" fill="#606060" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">HTTPS</text>
 
-      <rect x="570" y="172" width="40" height="12" rx="2" fill="#f8f8f8"/>
-      <text x="590" y="181" fill="#616161" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Verify</text>
+      <rect x="570" y="172" width="40" height="12" rx="2" fill="#eceef0"/>
+      <text x="590" y="181" fill="#606060" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Verify</text>
 
-      <rect x="572" y="212" width="36" height="12" rx="2" fill="#f8f8f8"/>
-      <text x="590" y="221" fill="#616161" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Route</text>
+      <rect x="572" y="212" width="36" height="12" rx="2" fill="#eceef0"/>
+      <text x="590" y="221" fill="#606060" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Route</text>
 
-      <rect x="540" y="308" width="24" height="12" rx="2" fill="#f8f8f8"/>
-      <text x="552" y="317" fill="#616161" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">SQL</text>
+      <rect x="540" y="308" width="24" height="12" rx="2" fill="#eceef0"/>
+      <text x="552" y="317" fill="#606060" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">SQL</text>
 
-      <rect x="774" y="326" width="44" height="12" rx="2" fill="#f8f8f8"/>
-      <text x="796" y="335" fill="#616161" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Archive</text>
+      <rect x="774" y="326" width="44" height="12" rx="2" fill="#eceef0"/>
+      <text x="796" y="335" fill="#606060" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Archive</text>
 
-      <rect x="802" y="196" width="36" height="12" rx="2" fill="#f8f8f8"/>
-      <text x="820" y="205" fill="#616161" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Cache</text>
+      <rect x="802" y="196" width="36" height="12" rx="2" fill="#eceef0"/>
+      <text x="820" y="205" fill="#606060" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Cache</text>
 
       <!-- Nodes: Edge -->
-      <rect x="60" y="136" width="160" height="56" rx="6" fill="#f8f8f8"/>
-      <rect x="60" y="136" width="160" height="56" rx="6" fill="rgba(77,77,77,0.10)" stroke="#616161" stroke-width="1"/>
+      <rect x="60" y="136" width="160" height="56" rx="6" fill="#eceef0"/>
+      <rect x="60" y="136" width="160" height="56" rx="6" fill="rgba(44,44,44,0.10)" stroke="#606060" stroke-width="1"/>
       <text x="140" y="169" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Web App</text>
 
-      <rect x="60" y="224" width="160" height="56" rx="6" fill="#f8f8f8"/>
-      <rect x="60" y="224" width="160" height="56" rx="6" fill="rgba(77,77,77,0.10)" stroke="#616161" stroke-width="1"/>
+      <rect x="60" y="224" width="160" height="56" rx="6" fill="#eceef0"/>
+      <rect x="60" y="224" width="160" height="56" rx="6" fill="rgba(44,44,44,0.10)" stroke="#606060" stroke-width="1"/>
       <text x="140" y="257" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Mobile App</text>
 
       <!-- Nodes: Core -->
-      <rect x="360" y="176" width="200" height="64" rx="6" fill="#f8f8f8"/>
-      <rect x="360" y="176" width="200" height="64" rx="6" fill="rgba(239,99,6,0.08)" stroke="#ef6306" stroke-width="1"/>
+      <rect x="360" y="176" width="200" height="64" rx="6" fill="#eceef0"/>
+      <rect x="360" y="176" width="200" height="64" rx="6" fill="rgba(255,106,19,0.08)" stroke="#ff6a13" stroke-width="1"/>
       <text x="460" y="204" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">API Gateway</text>
-      <text x="460" y="220" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">single entry point</text>
+      <text x="460" y="220" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">single entry point</text>
 
-      <rect x="640" y="128" width="200" height="56" rx="6" fill="#f8f8f8"/>
-      <rect x="640" y="128" width="200" height="56" rx="6" fill="#ffffff" stroke="#171717" stroke-width="1"/>
+      <rect x="640" y="128" width="200" height="56" rx="6" fill="#eceef0"/>
+      <rect x="640" y="128" width="200" height="56" rx="6" fill="#f7f8f8" stroke="#171717" stroke-width="1"/>
       <text x="740" y="153" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Auth Service</text>
-      <text x="740" y="169" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">token check</text>
+      <text x="740" y="169" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">token check</text>
 
-      <rect x="640" y="224" width="200" height="56" rx="6" fill="#f8f8f8"/>
-      <rect x="640" y="224" width="200" height="56" rx="6" fill="#ffffff" stroke="#171717" stroke-width="1"/>
+      <rect x="640" y="224" width="200" height="56" rx="6" fill="#eceef0"/>
+      <rect x="640" y="224" width="200" height="56" rx="6" fill="#f7f8f8" stroke="#171717" stroke-width="1"/>
       <text x="740" y="249" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Orders Service</text>
-      <text x="740" y="265" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">order write</text>
+      <text x="740" y="265" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">order write</text>
 
       <!-- Nodes: Data -->
-      <rect x="344" y="392" width="160" height="64" rx="6" fill="#f8f8f8"/>
-      <rect x="344" y="392" width="160" height="64" rx="6" fill="rgba(23,23,23,0.05)" stroke="#4d4d4d" stroke-width="1"/>
+      <rect x="344" y="392" width="160" height="64" rx="6" fill="#eceef0"/>
+      <rect x="344" y="392" width="160" height="64" rx="6" fill="rgba(23,23,23,0.05)" stroke="#2c2c2c" stroke-width="1"/>
       <text x="424" y="420" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Postgres</text>
-      <text x="424" y="436" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">orders</text>
+      <text x="424" y="436" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">orders</text>
 
-      <rect x="528" y="392" width="160" height="64" rx="6" fill="#f8f8f8"/>
-      <rect x="528" y="392" width="160" height="64" rx="6" fill="rgba(23,23,23,0.05)" stroke="#4d4d4d" stroke-width="1"/>
+      <rect x="528" y="392" width="160" height="64" rx="6" fill="#eceef0"/>
+      <rect x="528" y="392" width="160" height="64" rx="6" fill="rgba(23,23,23,0.05)" stroke="#2c2c2c" stroke-width="1"/>
       <text x="608" y="420" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Object Store</text>
-      <text x="608" y="436" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">archive</text>
+      <text x="608" y="436" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">archive</text>
 
-      <rect x="712" y="392" width="160" height="64" rx="6" fill="#f8f8f8"/>
-      <rect x="712" y="392" width="160" height="64" rx="6" fill="rgba(23,23,23,0.05)" stroke="#4d4d4d" stroke-width="1"/>
+      <rect x="712" y="392" width="160" height="64" rx="6" fill="#eceef0"/>
+      <rect x="712" y="392" width="160" height="64" rx="6" fill="rgba(23,23,23,0.05)" stroke="#2c2c2c" stroke-width="1"/>
       <text x="792" y="420" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Redis</text>
-      <text x="792" y="436" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">sessions</text>
+      <text x="792" y="436" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">sessions</text>
 
       <!-- Legend -->
       <line x1="40" y1="512" x2="920" y2="512" stroke="rgba(23,23,23,0.10)" stroke-width="0.8"/>
 
-      <rect x="120" y="524" width="16" height="10" rx="2" fill="rgba(239,99,6,0.08)" stroke="#ef6306" stroke-width="1"/>
-      <text x="144" y="532" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace">Focal</text>
+      <rect x="120" y="524" width="16" height="10" rx="2" fill="rgba(255,106,19,0.08)" stroke="#ff6a13" stroke-width="1"/>
+      <text x="144" y="532" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace">Focal</text>
 
-      <rect x="240" y="524" width="16" height="10" rx="2" fill="#ffffff" stroke="#171717" stroke-width="1"/>
-      <text x="264" y="532" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace">Service</text>
+      <rect x="240" y="524" width="16" height="10" rx="2" fill="#f7f8f8" stroke="#171717" stroke-width="1"/>
+      <text x="264" y="532" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace">Service</text>
 
-      <rect x="376" y="524" width="16" height="10" rx="2" fill="rgba(23,23,23,0.05)" stroke="#4d4d4d" stroke-width="1"/>
-      <text x="400" y="532" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace">Store</text>
+      <rect x="376" y="524" width="16" height="10" rx="2" fill="rgba(23,23,23,0.05)" stroke="#2c2c2c" stroke-width="1"/>
+      <text x="400" y="532" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace">Store</text>
 
-      <rect x="496" y="524" width="16" height="10" rx="2" fill="rgba(77,77,77,0.10)" stroke="#616161" stroke-width="1"/>
-      <text x="520" y="532" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace">Client</text>
+      <rect x="496" y="524" width="16" height="10" rx="2" fill="rgba(44,44,44,0.10)" stroke="#606060" stroke-width="1"/>
+      <text x="520" y="532" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace">Client</text>
 
       <line x1="616" y1="529" x2="648" y2="529" stroke="#171717" stroke-width="1.2"/>
-      <text x="656" y="532" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace">HTTP call</text>
+      <text x="656" y="532" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace">HTTP call</text>
 
-      <line x1="772" y1="529" x2="804" y2="529" stroke="#4d4d4d" stroke-width="1" stroke-dasharray="5,4"/>
-      <text x="812" y="532" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace">Async</text>
+      <line x1="772" y1="529" x2="804" y2="529" stroke="#2c2c2c" stroke-width="1" stroke-dasharray="5,4"/>
+      <text x="812" y="532" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace">Async</text>
     </svg>
   </div>
 </body>

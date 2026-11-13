@@ -1,8 +1,12 @@
 # Fabric
 
-Skins for Claude Code, in the Fabric palette: one chroma, ink on near-black or on paper,
-and a single signal orange reserved for objects, never type. The same tokens draw the
-diagrams in `architecture-design`, so the transcript and the figures match.
+Skins for Claude Code, in the [Fabric](https://github.com/ozzycodes2/fabric-theme)
+palette (v0.2.3): one chroma, ink on the dusk or dawn ground, and a single signal orange
+reserved for objects, never type. The same tokens draw the diagrams in
+`architecture-design`, so the transcript and the figures match. Pair it with
+[Fabric for Ghostty](https://github.com/ozzycodes2/fabric-ghostty) so the terminal
+behind the transcript is the same ground, and see every value on the
+[Fabric site](https://github.com/ozzycodes2/fabric-site).
 
 Fabric is a mod, not a skill. It redraws the transcript: tool rows that open onto their
 input and answer, diff, table, code, math, Mermaid and shell cards, links, folding, a
@@ -45,11 +49,13 @@ Ask Claude to design a skin and the `skin-designer` skill drives the `mcp__fabri
 | `surface` | `paper-2` |
 | `warn` | `muted` |
 | `code`, `commandBg`, `shimmer` | `accent` |
+| `command` | `ink-strong` |
 | `zebra` | `accent-tint` on paper |
 
-`err` is the only hue, because a failed call has to read as a failure. `codeBg` is
-`transparent`, so inline code is accent text with no band. The shell card's command
-sits on the accent in white, and its output never takes the accent. Every other skin
+`err` is the only hue, Fabric's terminal red, because a failed call has to read as a
+failure. `codeBg` is `transparent`, so inline code is accent text with no band. The
+shell card's command sits on the accent in `ink-strong`, since white on the accent reads
+2.87:1, and its output never takes the accent. Every other skin
 sets `codeBg` and `commandBg` to its `surface`, `command` to its `fg`, and `shimmer`
 to its `user`. The spinner word is `shimmer`, and its sweep lifts that colour toward `fg`.
 

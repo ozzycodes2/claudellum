@@ -8,10 +8,10 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --color-paper:   #010102;
+      --color-paper:   #101214;
       --color-ink:     #f7f8f8;
       --color-muted:   #d0d6e0;
-      --color-accent:  #ef6306;
+      --color-accent:  #ff6a13;
       --font-sans:     'Inter', system-ui, sans-serif;
       --font-mono:     'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     }
@@ -63,10 +63,10 @@
         <defs>
 
           <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#d0d6e0"/></marker>
-          <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ef6306"/></marker>
+          <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ff6a13"/></marker>
         </defs>
 
-        <rect width="100%" height="100%" fill="#010102"/>
+        <rect width="100%" height="100%" fill="#101214"/>
 
         <!-- Lane dividers -->
         <line x1="40" y1="80" x2="960" y2="80" stroke="#8a8f98" stroke-width="1"/>
@@ -94,63 +94,63 @@
         <!-- 4. Polish → Approve (within Editor) -->
         <line x1="640" y1="280" x2="680" y2="280" stroke="#d0d6e0" stroke-width="1.2" marker-end="url(#arrow)"/>
         <!-- 5. Approve → Build (Editor → CI/CD, accent handoff, straight down) -->
-        <line x1="720" y1="304" x2="720" y2="336" stroke="#ef6306" stroke-width="1.4" marker-end="url(#arrow-accent)"/>
+        <line x1="720" y1="304" x2="720" y2="336" stroke="#ff6a13" stroke-width="1.4" marker-end="url(#arrow-accent)"/>
         <!-- 6. Build → Deploy (within CI/CD) -->
         <line x1="760" y1="360" x2="800" y2="360" stroke="#d0d6e0" stroke-width="1.2" marker-end="url(#arrow)"/>
 
         <!-- Arrow labels -->
-        <rect x="536" y="140" width="44" height="12" rx="2" fill="#010102"/>
+        <rect x="536" y="140" width="44" height="12" rx="2" fill="#101214"/>
         <text x="558" y="150" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Handoff</text>
 
-        <rect x="584" y="234" width="40" height="12" rx="2" fill="#0f1011"/>
+        <rect x="584" y="234" width="40" height="12" rx="2" fill="#1a1c1d"/>
         <text x="604" y="244" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Revise</text>
 
-        <rect x="728" y="314" width="80" height="12" rx="2" fill="#010102"/>
+        <rect x="728" y="314" width="80" height="12" rx="2" fill="#101214"/>
         <text x="768" y="324" fill="#f7f8f8" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Deploy trigger</text>
 
         <!-- Steps -->
         <!-- Author: Draft MDX -->
-        <rect x="180" y="96" width="120" height="48" rx="6" fill="#0f1011" stroke="#f7f8f8" stroke-width="1"/>
+        <rect x="180" y="96" width="120" height="48" rx="6" fill="#1a1c1d" stroke="#f7f8f8" stroke-width="1"/>
         <text x="240" y="118" fill="#f7f8f8" font-size="11" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Draft MDX</text>
         <text x="240" y="132" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">src/content/…</text>
 
         <!-- Author: Open PR -->
-        <rect x="340" y="96" width="120" height="48" rx="6" fill="#0f1011" stroke="#f7f8f8" stroke-width="1"/>
+        <rect x="340" y="96" width="120" height="48" rx="6" fill="#1a1c1d" stroke="#f7f8f8" stroke-width="1"/>
         <text x="400" y="118" fill="#f7f8f8" font-size="11" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Open PR</text>
         <text x="400" y="132" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">gh pr create</text>
 
         <!-- Reviewer: Review content -->
-        <rect x="500" y="176" width="140" height="48" rx="6" fill="#0f1011" stroke="#f7f8f8" stroke-width="1"/>
+        <rect x="500" y="176" width="140" height="48" rx="6" fill="#1a1c1d" stroke="#f7f8f8" stroke-width="1"/>
         <text x="570" y="198" fill="#f7f8f8" font-size="11" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Review content</text>
         <text x="570" y="212" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">fact-check · voice</text>
 
         <!-- Editor: Polish copy -->
-        <rect x="500" y="256" width="140" height="48" rx="6" fill="#0f1011" stroke="#f7f8f8" stroke-width="1"/>
+        <rect x="500" y="256" width="140" height="48" rx="6" fill="#1a1c1d" stroke="#f7f8f8" stroke-width="1"/>
         <text x="570" y="278" fill="#f7f8f8" font-size="11" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Polish copy</text>
         <text x="570" y="292" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">style · line edits</text>
 
         <!-- Editor: Approve merge -->
-        <rect x="680" y="256" width="140" height="48" rx="6" fill="#0f1011" stroke="#f7f8f8" stroke-width="1"/>
+        <rect x="680" y="256" width="140" height="48" rx="6" fill="#1a1c1d" stroke="#f7f8f8" stroke-width="1"/>
         <text x="750" y="278" fill="#f7f8f8" font-size="11" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Approve merge</text>
         <text x="750" y="292" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">squash · main</text>
 
         <!-- CI/CD: Build -->
-        <rect x="680" y="336" width="80" height="48" rx="6" fill="#0f1011" stroke="#f7f8f8" stroke-width="1"/>
+        <rect x="680" y="336" width="80" height="48" rx="6" fill="#1a1c1d" stroke="#f7f8f8" stroke-width="1"/>
         <text x="720" y="358" fill="#f7f8f8" font-size="11" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Build</text>
         <text x="720" y="372" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">astro build</text>
 
         <!-- CI/CD: Deploy (accent focal) -->
-        <rect x="800" y="336" width="120" height="48" rx="6" fill="rgba(239,99,6,0.08)" stroke="#ef6306" stroke-width="1"/>
+        <rect x="800" y="336" width="120" height="48" rx="6" fill="rgba(255,106,19,0.08)" stroke="#ff6a13" stroke-width="1"/>
         <text x="860" y="358" fill="#f7f8f8" font-size="11" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Deploy</text>
         <text x="860" y="372" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">cloudflare pages</text>
 
         <!-- Legend -->
         <line x1="40" y1="428" x2="960" y2="428" stroke="rgba(247,248,248,0.10)" stroke-width="0.8"/>
 
-        <rect x="40" y="460" width="14" height="10" rx="2" fill="#0f1011" stroke="#f7f8f8" stroke-width="1"/>
+        <rect x="40" y="460" width="14" height="10" rx="2" fill="#1a1c1d" stroke="#f7f8f8" stroke-width="1"/>
         <text x="60" y="468" fill="#d0d6e0" font-size="8.5" font-family="'Inter', sans-serif">Step</text>
 
-        <rect x="132" y="460" width="14" height="10" rx="2" fill="rgba(239,99,6,0.08)" stroke="#ef6306" stroke-width="1"/>
+        <rect x="132" y="460" width="14" height="10" rx="2" fill="rgba(255,106,19,0.08)" stroke="#ff6a13" stroke-width="1"/>
         <text x="152" y="468" fill="#d0d6e0" font-size="8.5" font-family="'Inter', sans-serif">Focal outcome</text>
 
         <line x1="268" y1="466" x2="296" y2="466" stroke="#d0d6e0" stroke-width="1.2" marker-end="url(#arrow)"/>
@@ -159,7 +159,7 @@
         <line x1="444" y1="466" x2="472" y2="466" stroke="#d0d6e0" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
         <text x="480" y="468" fill="#d0d6e0" font-size="8.5" font-family="'Inter', sans-serif">Revision loop</text>
 
-        <line x1="608" y1="466" x2="636" y2="466" stroke="#ef6306" stroke-width="1.4" marker-end="url(#arrow-accent)"/>
+        <line x1="608" y1="466" x2="636" y2="466" stroke="#ff6a13" stroke-width="1.4" marker-end="url(#arrow-accent)"/>
         <text x="644" y="468" fill="#d0d6e0" font-size="8.5" font-family="'Inter', sans-serif">Critical handoff</text>
       </svg>
   </div>

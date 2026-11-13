@@ -8,10 +8,10 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --color-paper:   #f8f8f8;
+      --color-paper:   #eceef0;
       --color-ink:     #171717;
-      --color-muted:   #4d4d4d;
-      --color-accent:  #ef6306;
+      --color-muted:   #2c2c2c;
+      --color-accent:  #ff6a13;
       --font-sans:     'Inter', system-ui, sans-serif;
       --font-mono:     'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     }
@@ -61,53 +61,53 @@
       <title id="journey-title">Trial to paid: the first week</title>
       <desc id="journey-desc">User journey map of a new trial user across five stages, showing actions, touchpoints, and a sentiment curve that dips at the usage-limit stage before recovering at upgrade.</desc>
 
-      <rect width="100%" height="100%" fill="#f8f8f8"/>
+      <rect width="100%" height="100%" fill="#eceef0"/>
 
       <!-- Stage headers -->
-      <text x="164"  y="40" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Stage 1</text>
+      <text x="164"  y="40" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Stage 1</text>
       <text x="164"  y="60" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Sign up</text>
 
-      <text x="388"  y="40" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Stage 2</text>
+      <text x="388"  y="40" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Stage 2</text>
       <text x="388"  y="60" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">First run</text>
 
-      <text x="612"  y="40" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Stage 3</text>
+      <text x="612"  y="40" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Stage 3</text>
       <text x="612"  y="60" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Invite team</text>
 
-      <text x="836"  y="40" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Stage 4</text>
+      <text x="836"  y="40" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Stage 4</text>
       <text x="836"  y="60" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Hit the limit</text>
 
-      <text x="1060" y="40" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Stage 5</text>
+      <text x="1060" y="40" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Stage 5</text>
       <text x="1060" y="60" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Upgrade</text>
 
       <!-- Sentiment band: value baselines. The reader traces these to read
            the curve against High/Neutral/Low, so they are soft, not a
            hairline rule. The row separators below only divide two bands
            whose labels are already visible, so those stay rule. -->
-      <line x1="64" y1="100" x2="1160" y2="100" stroke="#616161" stroke-width="0.8"/>
-      <line x1="64" y1="180" x2="1160" y2="180" stroke="#616161" stroke-width="0.8"/>
-      <line x1="64" y1="260" x2="1160" y2="260" stroke="#616161" stroke-width="0.8"/>
-      <text x="56" y="104" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">High</text>
-      <text x="56" y="184" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">Neutral</text>
-      <text x="56" y="264" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">Low</text>
+      <line x1="64" y1="100" x2="1160" y2="100" stroke="#606060" stroke-width="0.8"/>
+      <line x1="64" y1="180" x2="1160" y2="180" stroke="#606060" stroke-width="0.8"/>
+      <line x1="64" y1="260" x2="1160" y2="260" stroke="#606060" stroke-width="0.8"/>
+      <text x="56" y="104" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">High</text>
+      <text x="56" y="184" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">Neutral</text>
+      <text x="56" y="264" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">Low</text>
 
       <!-- Sentiment curve (data curve — not a connector, §6 rule 1 exempt) -->
-      <polyline points="164,100 388,180 612,100" fill="none" stroke="#4d4d4d" stroke-width="1.5" stroke-linejoin="round"/>
-      <polyline points="612,100 836,260" fill="none" stroke="#ef6306" stroke-width="1.5" stroke-linejoin="round"/>
-      <polyline points="836,260 1060,180" fill="none" stroke="#4d4d4d" stroke-width="1.5" stroke-linejoin="round"/>
+      <polyline points="164,100 388,180 612,100" fill="none" stroke="#2c2c2c" stroke-width="1.5" stroke-linejoin="round"/>
+      <polyline points="612,100 836,260" fill="none" stroke="#ff6a13" stroke-width="1.5" stroke-linejoin="round"/>
+      <polyline points="836,260 1060,180" fill="none" stroke="#2c2c2c" stroke-width="1.5" stroke-linejoin="round"/>
 
-      <circle cx="164"  cy="100" r="5" fill="#4d4d4d"/>
-      <circle cx="388"  cy="180" r="5" fill="#4d4d4d"/>
-      <circle cx="612"  cy="100" r="5" fill="#4d4d4d"/>
-      <circle cx="836"  cy="260" r="5" fill="#ef6306"/>
-      <circle cx="1060" cy="180" r="5" fill="#4d4d4d"/>
+      <circle cx="164"  cy="100" r="5" fill="#2c2c2c"/>
+      <circle cx="388"  cy="180" r="5" fill="#2c2c2c"/>
+      <circle cx="612"  cy="100" r="5" fill="#2c2c2c"/>
+      <circle cx="836"  cy="260" r="5" fill="#ff6a13"/>
+      <circle cx="1060" cy="180" r="5" fill="#2c2c2c"/>
 
       <!-- Row separators (full plot width) -->
       <line x1="64" y1="280" x2="1160" y2="280" stroke="rgba(23,23,23,0.10)" stroke-width="0.8"/>
       <line x1="64" y1="376" x2="1160" y2="376" stroke="rgba(23,23,23,0.10)" stroke-width="0.8"/>
 
       <!-- Row labels -->
-      <text x="56" y="328" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">Actions</text>
-      <text x="72" y="408" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">Touchpoints</text>
+      <text x="56" y="328" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">Actions</text>
+      <text x="72" y="408" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">Touchpoints</text>
 
       <!-- Actions -->
       <text x="164"  y="300" fill="#171717" font-size="12" font-family="'Inter', sans-serif" text-anchor="middle">Create workspace</text>
@@ -117,32 +117,32 @@
       <text x="1060" y="300" fill="#171717" font-size="12" font-family="'Inter', sans-serif" text-anchor="middle">Pick annual plan</text>
 
       <!-- Pain markers (Hit the limit only) -->
-      <rect x="744" y="312" width="184" height="16" rx="2" fill="rgba(239,99,6,0.08)" stroke="rgba(239,99,6,0.50)" stroke-width="0.8" stroke-dasharray="3,3"/>
+      <rect x="744" y="312" width="184" height="16" rx="2" fill="rgba(255,106,19,0.08)" stroke="rgba(255,106,19,0.50)" stroke-width="0.8" stroke-dasharray="3,3"/>
       <text x="836" y="324" fill="#171717" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">No warning at 80%</text>
 
-      <rect x="744" y="332" width="184" height="16" rx="2" fill="rgba(239,99,6,0.08)" stroke="rgba(239,99,6,0.50)" stroke-width="0.8" stroke-dasharray="3,3"/>
+      <rect x="744" y="332" width="184" height="16" rx="2" fill="rgba(255,106,19,0.08)" stroke="rgba(255,106,19,0.50)" stroke-width="0.8" stroke-dasharray="3,3"/>
       <text x="836" y="344" fill="#171717" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Pricing page is 3 clicks away</text>
 
       <!-- Touchpoints -->
-      <text x="164"  y="412" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">signup form</text>
-      <text x="388"  y="412" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">onboarding wizard</text>
-      <text x="612"  y="412" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">email invite</text>
-      <text x="836"  y="412" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">in-app modal</text>
-      <text x="1060" y="412" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">billing page</text>
+      <text x="164"  y="412" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">signup form</text>
+      <text x="388"  y="412" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">onboarding wizard</text>
+      <text x="612"  y="412" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">email invite</text>
+      <text x="836"  y="412" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">in-app modal</text>
+      <text x="1060" y="412" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">billing page</text>
 
       <!-- Legend -->
       <line x1="40" y1="464" x2="1160" y2="464" stroke="rgba(23,23,23,0.10)" stroke-width="0.8"/>
 
-      <line x1="40" y1="496" x2="56" y2="496" stroke="#4d4d4d" stroke-width="1.5"/>
-      <circle cx="48" cy="496" r="3" fill="#4d4d4d"/>
-      <text x="64" y="500" fill="#4d4d4d" font-size="8.5" font-family="'Inter', sans-serif">Sentiment curve</text>
+      <line x1="40" y1="496" x2="56" y2="496" stroke="#2c2c2c" stroke-width="1.5"/>
+      <circle cx="48" cy="496" r="3" fill="#2c2c2c"/>
+      <text x="64" y="500" fill="#2c2c2c" font-size="8.5" font-family="'Inter', sans-serif">Sentiment curve</text>
 
-      <line x1="220" y1="496" x2="236" y2="496" stroke="#ef6306" stroke-width="1.5"/>
-      <circle cx="228" cy="496" r="3" fill="#ef6306"/>
-      <text x="244" y="500" fill="#4d4d4d" font-size="8.5" font-family="'Inter', sans-serif">Trough stage</text>
+      <line x1="220" y1="496" x2="236" y2="496" stroke="#ff6a13" stroke-width="1.5"/>
+      <circle cx="228" cy="496" r="3" fill="#ff6a13"/>
+      <text x="244" y="500" fill="#2c2c2c" font-size="8.5" font-family="'Inter', sans-serif">Trough stage</text>
 
-      <rect x="384" y="492" width="16" height="8" rx="2" fill="rgba(239,99,6,0.08)" stroke="rgba(239,99,6,0.50)" stroke-width="0.8" stroke-dasharray="3,3"/>
-      <text x="408" y="500" fill="#4d4d4d" font-size="8.5" font-family="'Inter', sans-serif">Pain marker</text>
+      <rect x="384" y="492" width="16" height="8" rx="2" fill="rgba(255,106,19,0.08)" stroke="rgba(255,106,19,0.50)" stroke-width="0.8" stroke-dasharray="3,3"/>
+      <text x="408" y="500" fill="#2c2c2c" font-size="8.5" font-family="'Inter', sans-serif">Pain marker</text>
     </svg>
   </div>
 </body>

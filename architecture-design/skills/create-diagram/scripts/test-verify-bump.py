@@ -46,7 +46,7 @@ CHILD_ENV = {**os.environ, "PYTHONIOENCODING": "utf-8"}
 FOCAL_D = 'd="M320,88 L440,144 L560,256 L680,368"'
 FOCAL_PATH = ('<path data-series="legacy-http" data-ranks="1,2,4,6" '
               'd="M320,88 L440,144 L560,256 L680,368" fill="none" '
-              'stroke="#ef6306" stroke-width="2.4"/>')
+              'stroke="#ff6a13" stroke-width="2.4"/>')
 # The focal series' left-gutter name label, and the gutter it shares with the
 # five other series. The shipped left gutter is x=272 (names) against a first
 # column at x=320; the right gutter mirrors it from x=728.
@@ -105,7 +105,7 @@ def synthetic(n_series, n_cols, top=100, pitch=40, x0=200, dx=150):
         pts = ["%d,%d" % (x, top + (r - 1) * pitch) for x, r in zip(xs, ranks)]
         d = "M" + pts[0] + " " + " ".join("L" + p for p in pts[1:])
         focal = s == 0
-        stroke = "#ef6306" if focal else "rgba(23,23,23,0.70)"
+        stroke = "#ff6a13" if focal else "rgba(23,23,23,0.70)"
         width = "2.4" if focal else "1.2"
         parts.append('<path data-series="s%d" data-ranks="%s" d="%s" fill="none" '
                      'stroke="%s" stroke-width="%s"/>'
@@ -166,8 +166,8 @@ def main() -> int:
                   .replace("L560,200 L680,144", "L560,200 L680,88")
                   .replace('<circle cx="680" cy="144" r="3" fill="rgba(23,23,23,0.80)"/>',
                            '<circle cx="680" cy="88" r="3" fill="rgba(23,23,23,0.80)"/>')
-                  .replace('data-series="authx" data-end="last" data-role="rank" x="696" y="147.5" fill="#4d4d4d" font-size="9" font-family="\'SF Mono\', monospace">#2<',
-                           'data-series="authx" data-end="last" data-role="rank" x="696" y="91.5" fill="#4d4d4d" font-size="9" font-family="\'SF Mono\', monospace">#1<')
+                  .replace('data-series="authx" data-end="last" data-role="rank" x="696" y="147.5" fill="#2c2c2c" font-size="9" font-family="\'SF Mono\', monospace">#2<',
+                           'data-series="authx" data-end="last" data-role="rank" x="696" y="91.5" fill="#2c2c2c" font-size="9" font-family="\'SF Mono\', monospace">#1<')
                   .replace('data-series="authx" data-end="last" data-role="name" x="728" y="147.5"',
                            'data-series="authx" data-end="last" data-role="name" x="728" y="91.5"'),
             source, "tie-break",
@@ -234,7 +234,7 @@ def main() -> int:
         # 9. A missing label: the reader traces a line to an unlabelled end.
         case(
             failures, directory, "unlabelled",
-            source.replace('      <text data-series="legacy-http" data-end="first" data-role="rank" x="304" y="91.5" fill="#4d4d4d" font-size="9" font-family="\'SF Mono\', monospace" text-anchor="end">#1</text>\n', "", 1),
+            source.replace('      <text data-series="legacy-http" data-end="first" data-role="rank" x="304" y="91.5" fill="#2c2c2c" font-size="9" font-family="\'SF Mono\', monospace" text-anchor="end">#1</text>\n', "", 1),
             source, "prints no first rank",
             "a series with no first rank label",
         )
@@ -377,7 +377,7 @@ def main() -> int:
         )
         case(
             failures, directory, "caption-gone",
-            source.replace('      <text data-axis="2" data-state="Q3" x="560" y="416" fill="#4d4d4d" font-size="9" font-family="\'SF Mono\', monospace" text-anchor="middle">Q3</text>\n', "", 1),
+            source.replace('      <text data-axis="2" data-state="Q3" x="560" y="416" fill="#2c2c2c" font-size="9" font-family="\'SF Mono\', monospace" text-anchor="middle">Q3</text>\n', "", 1),
             source, "no caption for snapshot 3",
             "a snapshot with no caption",
         )
@@ -386,7 +386,7 @@ def main() -> int:
         case(
             failures, directory, "two-focal",
             source.replace('d="M320,144 L440,200 L560,200 L680,144" fill="none" stroke="rgba(23,23,23,0.80)" stroke-width="1.2"',
-                           'd="M320,144 L440,200 L560,200 L680,144" fill="none" stroke="#ef6306" stroke-width="2.4"'),
+                           'd="M320,144 L440,200 L560,200 L680,144" fill="none" stroke="#ff6a13" stroke-width="2.4"'),
             source, "exactly one editorially focal",
             "two series carrying the accent stroke",
         )
@@ -394,8 +394,8 @@ def main() -> int:
         # 13. Colour and weight sending focus to different series.
         case(
             failures, directory, "weight-mismatch",
-            source.replace('stroke="#ef6306" stroke-width="2.4"/>',
-                           'stroke="#ef6306" stroke-width="1.2"/>', 1),
+            source.replace('stroke="#ff6a13" stroke-width="2.4"/>',
+                           'stroke="#ff6a13" stroke-width="1.2"/>', 1),
             source, "focus cue",
             "a focal stroke at non-focal weight",
         )
@@ -403,14 +403,14 @@ def main() -> int:
         # 14. Dots: a vertex with no dot, and a focal dot at non-focal size.
         case(
             failures, directory, "dotless",
-            source.replace('      <circle cx="560" cy="256" r="4" fill="#ef6306"/>\n', "", 1),
+            source.replace('      <circle cx="560" cy="256" r="4" fill="#ff6a13"/>\n', "", 1),
             source, "no dot at",
             "a vertex with no dot",
         )
         case(
             failures, directory, "small-dot",
-            source.replace('<circle cx="680" cy="368" r="4" fill="#ef6306"/>',
-                           '<circle cx="680" cy="368" r="3" fill="#ef6306"/>'),
+            source.replace('<circle cx="680" cy="368" r="4" fill="#ff6a13"/>',
+                           '<circle cx="680" cy="368" r="3" fill="#ff6a13"/>'),
             source, "dot size",
             "a focal vertex with a non-focal dot",
         )

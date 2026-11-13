@@ -8,10 +8,10 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --color-paper:   #f8f8f8;
+      --color-paper:   #eceef0;
       --color-ink:     #171717;
-      --color-muted:   #4d4d4d;
-      --color-accent:  #ef6306;
+      --color-muted:   #2c2c2c;
+      --color-accent:  #ff6a13;
       --font-sans:     'Inter', system-ui, sans-serif;
       --font-mono:     'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     }
@@ -60,42 +60,42 @@
     <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pyramid-title pyramid-desc">
       <title id="pyramid-title">Each layer ships less often than the one below</title>
       <desc id="pyramid-desc">Each layer ships less often than the one below. Content pyramid showing short posts, essays, long-form guides, and a flagship book ordered by shipping cadence and leverage.</desc>
-        <rect width="100%" height="100%" fill="#f8f8f8"/>
+        <rect width="100%" height="100%" fill="#eceef0"/>
 
         <!-- Left axis: direction of rarity -->
-        <line x1="100" y1="40" x2="100" y2="320" stroke="#616161" stroke-width="1"/>
-        <polygon points="96,40 104,40 100,28" fill="#616161"/>
-        <text x="100" y="16" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace">Rarer, fewer, compounds</text>
+        <line x1="100" y1="40" x2="100" y2="320" stroke="#606060" stroke-width="1"/>
+        <polygon points="96,40 104,40 100,28" fill="#606060"/>
+        <text x="100" y="16" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace">Rarer, fewer, compounds</text>
 
         <!-- Base layer: Short posts -->
-        <polygon points="244,280 756,280 820,344 180,344" fill="#ffffff" stroke="rgba(23,23,23,0.12)" stroke-width="1"/>
+        <polygon points="244,280 756,280 820,344 180,344" fill="#f7f8f8" stroke="rgba(23,23,23,0.12)" stroke-width="1"/>
         <text x="500" y="308" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Short posts</text>
-        <text x="500" y="324" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">daily · ~200 words</text>
-        <text x="836" y="316" fill="#616161" font-size="9" font-family="'SF Mono', monospace">~240/yr</text>
+        <text x="500" y="324" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">daily · ~200 words</text>
+        <text x="836" y="316" fill="#606060" font-size="9" font-family="'SF Mono', monospace">~240/yr</text>
 
         <!-- L3: Essays -->
-        <polygon points="308,216 692,216 756,280 244,280" fill="#ffffff" stroke="rgba(23,23,23,0.12)" stroke-width="1"/>
+        <polygon points="308,216 692,216 756,280 244,280" fill="#f7f8f8" stroke="rgba(23,23,23,0.12)" stroke-width="1"/>
         <text x="500" y="244" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Essays</text>
-        <text x="500" y="260" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">weekly · 800–1,500 words</text>
-        <text x="776" y="252" fill="#616161" font-size="9" font-family="'SF Mono', monospace">~48/yr</text>
+        <text x="500" y="260" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">weekly · 800–1,500 words</text>
+        <text x="776" y="252" fill="#606060" font-size="9" font-family="'SF Mono', monospace">~48/yr</text>
 
         <!-- L2: Long-form guides -->
-        <polygon points="372,152 628,152 692,216 308,216" fill="#ffffff" stroke="rgba(23,23,23,0.12)" stroke-width="1"/>
+        <polygon points="372,152 628,152 692,216 308,216" fill="#f7f8f8" stroke="rgba(23,23,23,0.12)" stroke-width="1"/>
         <text x="500" y="180" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Long-form guides</text>
-        <text x="500" y="196" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">quarterly · 4,000+ words</text>
-        <text x="716" y="188" fill="#616161" font-size="9" font-family="'SF Mono', monospace">~4/yr</text>
+        <text x="500" y="196" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">quarterly · 4,000+ words</text>
+        <text x="716" y="188" fill="#606060" font-size="9" font-family="'SF Mono', monospace">~4/yr</text>
 
         <!-- Apex: Flagship book — ACCENT FOCAL (true pyramid peak — single triangle, consistent slope with layers below) -->
-        <polygon points="500,24 628,152 372,152" fill="rgba(239,99,6,0.08)" stroke="#ef6306" stroke-width="1"/>
+        <polygon points="500,24 628,152 372,152" fill="rgba(255,106,19,0.08)" stroke="#ff6a13" stroke-width="1"/>
         <text x="500" y="120" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Flagship book</text>
-        <text x="500" y="136" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">every 3–5 years</text>
-        <text x="656" y="112" fill="#616161" font-size="9" font-family="'SF Mono', monospace">the apex</text>
+        <text x="500" y="136" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">every 3–5 years</text>
+        <text x="656" y="112" fill="#606060" font-size="9" font-family="'SF Mono', monospace">the apex</text>
 
         <!-- Footnote under pyramid -->
-        <text x="500" y="384" fill="#4d4d4d" font-size="8.5" font-family="'Inter', sans-serif" text-anchor="middle" font-style="italic">The base funds the apex. The apex defines the base.</text>
+        <text x="500" y="384" fill="#2c2c2c" font-size="8.5" font-family="'Inter', sans-serif" text-anchor="middle" font-style="italic">The base funds the apex. The apex defines the base.</text>
 
         <!-- Source line. Width is rank, not quantity; no key needed, every layer is named in place. -->
-        <text data-role="source" x="40" y="472" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace">Source: illustrative publishing cadence, one working year. Pieces per year, printed on each layer.<tspan x="40" dy="12">Width is rank, not quantity; layer area encodes nothing.</tspan></text>
+        <text data-role="source" x="40" y="472" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace">Source: illustrative publishing cadence, one working year. Pieces per year, printed on each layer.<tspan x="40" dy="12">Width is rank, not quantity; layer area encodes nothing.</tspan></text>
       </svg>
   </div>
 </body>

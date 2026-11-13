@@ -24,10 +24,10 @@ SHIPPED = sorted((ROOT / "assets").glob("example-gantt*.html"))
 GOOD_TEXT = (ROOT / "assets/example-gantt.html").read_text(encoding="utf-8")
 FAKE = Path("example-gantt-fixture.html")
 
-WIRE = ('<rect x="389" y="192" width="126" height="24" rx="4" fill="rgba(77,77,77,0.15)" '
-        'stroke="#4d4d4d" stroke-width="1" data-name="Wireframes" data-start="3" data-end="5"/>')
+WIRE = ('<rect x="389" y="192" width="126" height="24" rx="4" fill="rgba(44,44,44,0.15)" '
+        'stroke="#2c2c2c" stroke-width="1" data-name="Wireframes" data-start="3" data-end="5"/>')
 GROUP = '<g data-plot="gantt" data-domain="0 12" data-range="200 956">'
-TODAY = ('<line x1="515" y1="60" x2="515" y2="416" stroke="#616161" stroke-width="1" '
+TODAY = ('<line x1="515" y1="60" x2="515" y2="416" stroke="#606060" stroke-width="1" '
          'stroke-dasharray="4,3" data-at="5" data-kind="today"/>')
 WIRE_NAME = '>Wireframes</text>'
 

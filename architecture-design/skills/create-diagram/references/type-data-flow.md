@@ -322,7 +322,7 @@ declaring a second focus.
 
 The code is `ink` at 5px/700 in every slot, never paper and never the accent:
 text contrast is measured against the page paper, where paper type reads 1:1 and
-the accent reads 3.06:1. Chip body is `rx=3`, as shipped. The skin's radius
+the accent reads 2.47:1. Chip body is `rx=3`, as shipped. The skin's radius
 ladder (0/5/8/11/18) sizes HTML surfaces; an 8px-tall SVG badge sits under its
 smallest step, so small in-diagram shapes keep the tight radii in
 [`layout-budget.md`](layout-budget.md) instead.

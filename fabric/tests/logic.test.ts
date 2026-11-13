@@ -477,7 +477,7 @@ test('inline code takes its own slots, and a transparent band stays transparent 
   expect(toLight(tokyoNight.palette).code).toBe(deepen(tokyoNight.palette.code, 0.45))
   expect(toLight(tokyoNight.palette).codeBg).toBe('#ffffff')
   expect(toLight({ ...tokyoNight.palette, codeBg: 'transparent' }).codeBg).toBe('transparent')
-  expect(fabric.palette.code).toBe('#ef6306')
+  expect(fabric.palette.code).toBe('#ff6a13')
   expect(fabric.palette.codeBg).toBe('transparent')
   expect(fabric.light?.codeBg).toBe('transparent')
 })
@@ -493,8 +493,8 @@ test('a command band on the surface turns white on light; one in its own colour 
   expect(toLight(tokyoNight.palette)).toMatchObject({ command: '#1f1f1f', commandBg: '#ffffff' })
   expect(toLight({ ...tokyoNight.palette, commandBg: 'transparent' })).toMatchObject({ command: '#1f1f1f', commandBg: 'transparent' })
   expect(toLight({ ...tokyoNight.palette, command: '#ffffff', commandBg: '#ef6306' })).toMatchObject({ command: '#ffffff', commandBg: '#ef6306' })
-  expect(fabric.palette).toMatchObject({ command: '#f7f8f8', commandBg: '#ef6306', zebra: '#220f03' })
-  expect(fabric.light).toMatchObject({ command: '#ffffff', commandBg: '#ef6306', zebra: '#f7e9e0' })
+  expect(fabric.palette).toMatchObject({ command: '#171717', commandBg: '#ff6a13', zebra: '#311e14' })
+  expect(fabric.light).toMatchObject({ command: '#171717', commandBg: '#ff6a13', zebra: '#eee1da' })
 })
 
 test('SKINS_THEME wins, then the theme, then the terminal and the system for auto', async () => {

@@ -10,15 +10,15 @@
 
     /* ── Tokens ─────────────────────────────────────────────────── */
     :root {
-      --color-paper:       #f8f8f8;
-      --color-paper-2:     #ffffff;
+      --color-paper:       #eceef0;
+      --color-paper-2:     #f7f8f8;
       --color-ink:         #171717;
-      --color-muted:       #4d4d4d;
-      --color-soft:        #616161;
+      --color-muted:       #2c2c2c;
+      --color-soft:        #606060;
       --color-rule:        rgba(23,23,23,0.12);
-      --color-rule-solid:  rgba(77,77,77,0.25);
-      --color-accent:      #ef6306;
-      --color-accent-tint: rgba(239,99,6,0.08);
+      --color-rule-solid:  rgba(44,44,44,0.25);
+      --color-accent:      #ff6a13;
+      --color-accent-tint: rgba(255,106,19,0.08);
       --font-sans:   'Inter', system-ui, sans-serif;
       --font-mono:   'SF Mono', ui-monospace, Menlo, monospace;
     }
@@ -97,7 +97,7 @@
     }
 
     .card {
-      background: #ffffff;
+      background: #f7f8f8;
       border-radius: 18px;
       border: 1px solid var(--color-rule);
       padding: 1.25rem;
@@ -188,12 +188,12 @@
 
           <!-- Arrow: muted (default — generic / internal connections) -->
           <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-            <polygon points="0 0, 8 3, 0 6" fill="#4d4d4d"/>
+            <polygon points="0 0, 8 3, 0 6" fill="#2c2c2c"/>
           </marker>
 
           <!-- Arrow: accent (accent — primary / highlighted flows) -->
           <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-            <polygon points="0 0, 8 3, 0 6" fill="#ef6306"/>
+            <polygon points="0 0, 8 3, 0 6" fill="#ff6a13"/>
           </marker>
 
           <!-- Arrow: ink (HTTP/API / external calls). The link role is gone;
@@ -205,7 +205,7 @@
         </defs>
 
         <!-- Background: paper -->
-        <rect width="100%" height="100%" fill="#f8f8f8"/>
+        <rect width="100%" height="100%" fill="#eceef0"/>
         <!-- =================================================================
              DRAW ARROWS FIRST — they paint behind boxes (SVG document order).
              ================================================================= -->
@@ -215,19 +215,19 @@
         <text x="162" y="297" fill="#171717" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">HTTPS</text>
 
         <!-- Generic internal arrow -->
-        <line x1="310" y1="305" x2="356" y2="305" stroke="#4d4d4d" stroke-width="1" marker-end="url(#arrow)"/>
+        <line x1="310" y1="305" x2="356" y2="305" stroke="#2c2c2c" stroke-width="1" marker-end="url(#arrow)"/>
 
         <!-- Vertical arrow -->
-        <line x1="253" y1="332" x2="253" y2="376" stroke="#4d4d4d" stroke-width="1" marker-end="url(#arrow)"/>
+        <line x1="253" y1="332" x2="253" y2="376" stroke="#2c2c2c" stroke-width="1" marker-end="url(#arrow)"/>
 
         <!-- Auth / security flow (dashed accent) -->
         <path d="M 80 140 L 80 200 Q 80 218 98 218 L 200 218 Q 218 218 218 236 L 218 276"
-              fill="none" stroke="#ef6306" stroke-width="1.2" stroke-dasharray="5,4"
+              fill="none" stroke="#ff6a13" stroke-width="1.2" stroke-dasharray="5,4"
               marker-end="url(#arrow-accent)"/>
         <text x="148" y="212" fill="#171717" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">JWT</text>
 
         <!-- Primary data flow (accent) -->
-        <line x1="620" y1="305" x2="696" y2="305" stroke="#ef6306" stroke-width="1.2" marker-end="url(#arrow-accent)"/>
+        <line x1="620" y1="305" x2="696" y2="305" stroke="#ff6a13" stroke-width="1.2" marker-end="url(#arrow-accent)"/>
         <text x="655" y="297" fill="#171717" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">TLS</text>
 
         <!-- =================================================================
@@ -237,81 +237,81 @@
              ================================================================= -->
 
         <!-- ── External / User ──────────────────────────────────────── -->
-        <rect x="30" y="278" width="100" height="54" rx="5" fill="#f8f8f8"/>
-        <rect x="30" y="278" width="100" height="54" rx="5" fill="rgba(77,77,77,0.10)" stroke="#616161" stroke-width="1"/>
+        <rect x="30" y="278" width="100" height="54" rx="5" fill="#eceef0"/>
+        <rect x="30" y="278" width="100" height="54" rx="5" fill="rgba(44,44,44,0.10)" stroke="#606060" stroke-width="1"/>
         <!-- Rectangular type tag (not rounded — brand rule) -->
-        <rect x="38" y="284" width="26" height="12" rx="0" fill="transparent" stroke="rgba(97,97,97,0.4)" stroke-width="0.8"/>
-        <text x="51" y="293" fill="#616161" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.08em">EXT</text>
+        <rect x="38" y="284" width="26" height="12" rx="0" fill="transparent" stroke="rgba(96,96,96,0.4)" stroke-width="0.8"/>
+        <text x="51" y="293" fill="#606060" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.08em">EXT</text>
         <!-- Main label -->
         <text x="80" y="308" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Users</text>
-        <text x="80" y="323" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">Browser / Mobile</text>
+        <text x="80" y="323" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">Browser / Mobile</text>
 
         <!-- ── Security / Auth ──────────────────────────────────────── -->
-        <rect x="30" y="78" width="100" height="56" rx="5" fill="#f8f8f8"/>
-        <rect x="30" y="78" width="100" height="56" rx="5" fill="rgba(239,99,6,0.06)" stroke="rgba(239,99,6,0.50)" stroke-width="1"/>
-        <rect x="38" y="84" width="28" height="12" rx="0" fill="transparent" stroke="rgba(239,99,6,0.40)" stroke-width="0.8"/>
+        <rect x="30" y="78" width="100" height="56" rx="5" fill="#eceef0"/>
+        <rect x="30" y="78" width="100" height="56" rx="5" fill="rgba(255,106,19,0.06)" stroke="rgba(255,106,19,0.50)" stroke-width="1"/>
+        <rect x="38" y="84" width="28" height="12" rx="0" fill="transparent" stroke="rgba(255,106,19,0.40)" stroke-width="0.8"/>
         <text x="52" y="93" fill="#171717" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.06em">AUTH</text>
         <text x="80" y="110" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Auth Provider</text>
-        <text x="80" y="125" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">OAuth 2.0</text>
+        <text x="80" y="125" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">OAuth 2.0</text>
 
         <!-- ── Region boundary (dashed) ─────────────────────────────── -->
-        <rect x="158" y="38" width="822" height="624" rx="8" fill="transparent" stroke="#616161" stroke-width="1" stroke-dasharray="6,4"/>
-        <text x="170" y="55" fill="#4d4d4d" font-size="8" font-weight="500" font-family="'SF Mono', monospace">AWS region · us-west-2</text>
+        <rect x="158" y="38" width="822" height="624" rx="8" fill="transparent" stroke="#606060" stroke-width="1" stroke-dasharray="6,4"/>
+        <text x="170" y="55" fill="#2c2c2c" font-size="8" font-weight="500" font-family="'SF Mono', monospace">AWS region · us-west-2</text>
 
         <!-- ── Cloud / CDN -->
-        <rect x="198" y="278" width="112" height="54" rx="5" fill="#f8f8f8"/>
+        <rect x="198" y="278" width="112" height="54" rx="5" fill="#eceef0"/>
         <rect x="198" y="278" width="112" height="54" rx="5" fill="rgba(23,23,23,0.03)" stroke="rgba(23,23,23,0.30)" stroke-width="1"/>
         <rect x="206" y="284" width="24" height="12" rx="0" fill="transparent" stroke="rgba(23,23,23,0.22)" stroke-width="0.8"/>
-        <text x="218" y="293" fill="#616161" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.08em">CDN</text>
+        <text x="218" y="293" fill="#606060" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.08em">CDN</text>
         <text x="254" y="308" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">CloudFront</text>
-        <text x="254" y="323" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">AWS CDN</text>
+        <text x="254" y="323" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">AWS CDN</text>
 
         <!-- ── Cloud / Storage ───────────────────────────────────────── -->
-        <rect x="198" y="378" width="112" height="102" rx="5" fill="#f8f8f8"/>
+        <rect x="198" y="378" width="112" height="102" rx="5" fill="#eceef0"/>
         <rect x="198" y="378" width="112" height="102" rx="5" fill="rgba(23,23,23,0.03)" stroke="rgba(23,23,23,0.30)" stroke-width="1"/>
         <rect x="206" y="384" width="22" height="12" rx="0" fill="transparent" stroke="rgba(23,23,23,0.22)" stroke-width="0.8"/>
-        <text x="217" y="393" fill="#616161" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.08em">S3</text>
+        <text x="217" y="393" fill="#606060" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.08em">S3</text>
         <text x="254" y="408" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">S3 Buckets</text>
-        <text x="254" y="426" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">bucket-assets</text>
-        <text x="254" y="440" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">bucket-uploads</text>
+        <text x="254" y="426" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">bucket-assets</text>
+        <text x="254" y="440" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">bucket-uploads</text>
         <text x="254" y="466" fill="#171717" font-size="7" font-weight="600" font-family="'SF Mono', monospace" text-anchor="middle">OAI protected</text>
 
         <!-- ── Security group boundary ───────────────────────────────── -->
-        <rect x="348" y="264" width="120" height="80" rx="5" fill="transparent" stroke="rgba(239,99,6,0.45)" stroke-width="1" stroke-dasharray="4,4"/>
-        <text x="356" y="278" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace">SG · :443</text>
+        <rect x="348" y="264" width="120" height="80" rx="5" fill="transparent" stroke="rgba(255,106,19,0.45)" stroke-width="1" stroke-dasharray="4,4"/>
+        <text x="356" y="278" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace">SG · :443</text>
 
         <!-- ── Load Balancer (inside security group) ──────────────────── -->
-        <rect x="358" y="282" width="100" height="54" rx="5" fill="#f8f8f8"/>
+        <rect x="358" y="282" width="100" height="54" rx="5" fill="#eceef0"/>
         <rect x="358" y="282" width="100" height="54" rx="5" fill="rgba(23,23,23,0.03)" stroke="rgba(23,23,23,0.30)" stroke-width="1"/>
         <rect x="366" y="288" width="22" height="12" rx="0" fill="transparent" stroke="rgba(23,23,23,0.22)" stroke-width="0.8"/>
-        <text x="377" y="297" fill="#616161" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.06em">LB</text>
+        <text x="377" y="297" fill="#606060" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.06em">LB</text>
         <text x="408" y="311" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Load Balancer</text>
-        <text x="408" y="326" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">HTTPS :443</text>
+        <text x="408" y="326" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">HTTPS :443</text>
 
         <!-- ── Backend / API ─────────────────────────────────────────── -->
-        <rect x="508" y="278" width="112" height="54" rx="5" fill="#f8f8f8"/>
-        <rect x="508" y="278" width="112" height="54" rx="5" fill="#ffffff" stroke="#171717" stroke-width="1"/>
+        <rect x="508" y="278" width="112" height="54" rx="5" fill="#eceef0"/>
+        <rect x="508" y="278" width="112" height="54" rx="5" fill="#f7f8f8" stroke="#171717" stroke-width="1"/>
         <rect x="516" y="284" width="26" height="12" rx="0" fill="transparent" stroke="rgba(23,23,23,0.40)" stroke-width="0.8"/>
         <text x="529" y="293" fill="#171717" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.08em">API</text>
         <text x="564" y="308" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">API Server</text>
-        <text x="564" y="323" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">FastAPI :8000</text>
+        <text x="564" y="323" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">FastAPI :8000</text>
 
         <!-- ── Database ───────────────────────────────────────────────── -->
-        <rect x="698" y="278" width="120" height="54" rx="5" fill="#f8f8f8"/>
-        <rect x="698" y="278" width="120" height="54" rx="5" fill="rgba(23,23,23,0.05)" stroke="#4d4d4d" stroke-width="1"/>
-        <rect x="706" y="284" width="22" height="12" rx="0" fill="transparent" stroke="rgba(77,77,77,0.50)" stroke-width="0.8"/>
-        <text x="717" y="293" fill="#4d4d4d" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.08em">DB</text>
+        <rect x="698" y="278" width="120" height="54" rx="5" fill="#eceef0"/>
+        <rect x="698" y="278" width="120" height="54" rx="5" fill="rgba(23,23,23,0.05)" stroke="#2c2c2c" stroke-width="1"/>
+        <rect x="706" y="284" width="22" height="12" rx="0" fill="transparent" stroke="rgba(44,44,44,0.50)" stroke-width="0.8"/>
+        <text x="717" y="293" fill="#2c2c2c" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.08em">DB</text>
         <text x="758" y="308" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Database</text>
-        <text x="758" y="323" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">PostgreSQL</text>
+        <text x="758" y="323" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">PostgreSQL</text>
 
         <!-- ── Frontend / UI ─────────────────────────────────────────── -->
-        <rect x="198" y="518" width="200" height="112" rx="5" fill="#f8f8f8"/>
-        <rect x="198" y="518" width="200" height="112" rx="5" fill="rgba(239,99,6,0.08)" stroke="#ef6306" stroke-width="1"/>
-        <rect x="206" y="524" width="22" height="12" rx="0" fill="transparent" stroke="rgba(239,99,6,0.50)" stroke-width="0.8"/>
+        <rect x="198" y="518" width="200" height="112" rx="5" fill="#eceef0"/>
+        <rect x="198" y="518" width="200" height="112" rx="5" fill="rgba(255,106,19,0.08)" stroke="#ff6a13" stroke-width="1"/>
+        <rect x="206" y="524" width="22" height="12" rx="0" fill="transparent" stroke="rgba(255,106,19,0.50)" stroke-width="0.8"/>
         <text x="217" y="533" fill="#171717" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.08em">UI</text>
         <text x="298" y="550" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Web App</text>
-        <text x="298" y="567" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">React + TypeScript</text>
-        <text x="298" y="581" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">Astro SSG</text>
+        <text x="298" y="567" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">React + TypeScript</text>
+        <text x="298" y="581" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">Astro SSG</text>
         <!-- Public URL: ink against the muted sublabels above it. With no second
              chroma the external-address cue survives only as a value step. -->
         <text x="298" y="614" fill="#171717" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">app.example.com</text>
@@ -322,33 +322,33 @@
              ================================================================= -->
         <line x1="40" y1="686" x2="960" y2="686" stroke="rgba(23,23,23,0.10)" stroke-width="0.8"/>
 
-        <rect x="40" y="702" width="14" height="10" rx="5" fill="rgba(239,99,6,0.08)" stroke="#ef6306" stroke-width="1"/>
-        <text x="60" y="711" fill="#4d4d4d" font-size="9" font-family="'Inter', sans-serif">Frontend / UI</text>
+        <rect x="40" y="702" width="14" height="10" rx="5" fill="rgba(255,106,19,0.08)" stroke="#ff6a13" stroke-width="1"/>
+        <text x="60" y="711" fill="#2c2c2c" font-size="9" font-family="'Inter', sans-serif">Frontend / UI</text>
 
-        <rect x="200" y="702" width="14" height="10" rx="5" fill="#ffffff" stroke="#171717" stroke-width="1"/>
-        <text x="220" y="711" fill="#4d4d4d" font-size="9" font-family="'Inter', sans-serif">Backend / API</text>
+        <rect x="200" y="702" width="14" height="10" rx="5" fill="#f7f8f8" stroke="#171717" stroke-width="1"/>
+        <text x="220" y="711" fill="#2c2c2c" font-size="9" font-family="'Inter', sans-serif">Backend / API</text>
 
         <rect x="360" y="702" width="14" height="10" rx="5" fill="rgba(23,23,23,0.03)" stroke="rgba(23,23,23,0.30)" stroke-width="1"/>
-        <text x="380" y="711" fill="#4d4d4d" font-size="9" font-family="'Inter', sans-serif">Cloud / Service</text>
+        <text x="380" y="711" fill="#2c2c2c" font-size="9" font-family="'Inter', sans-serif">Cloud / Service</text>
 
-        <rect x="520" y="702" width="14" height="10" rx="5" fill="rgba(23,23,23,0.05)" stroke="#4d4d4d" stroke-width="1"/>
-        <text x="540" y="711" fill="#4d4d4d" font-size="9" font-family="'Inter', sans-serif">Database</text>
+        <rect x="520" y="702" width="14" height="10" rx="5" fill="rgba(23,23,23,0.05)" stroke="#2c2c2c" stroke-width="1"/>
+        <text x="540" y="711" fill="#2c2c2c" font-size="9" font-family="'Inter', sans-serif">Database</text>
 
-        <rect x="680" y="702" width="14" height="10" rx="5" fill="rgba(77,77,77,0.10)" stroke="#616161" stroke-width="1"/>
-        <text x="700" y="711" fill="#4d4d4d" font-size="9" font-family="'Inter', sans-serif">External / User</text>
+        <rect x="680" y="702" width="14" height="10" rx="5" fill="rgba(44,44,44,0.10)" stroke="#606060" stroke-width="1"/>
+        <text x="700" y="711" fill="#2c2c2c" font-size="9" font-family="'Inter', sans-serif">External / User</text>
 
-        <rect x="840" y="702" width="14" height="10" rx="5" fill="transparent" stroke="rgba(239,99,6,0.45)" stroke-width="1" stroke-dasharray="3,3"/>
-        <text x="860" y="711" fill="#4d4d4d" font-size="9" font-family="'Inter', sans-serif">Security group</text>
+        <rect x="840" y="702" width="14" height="10" rx="5" fill="transparent" stroke="rgba(255,106,19,0.45)" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="860" y="711" fill="#2c2c2c" font-size="9" font-family="'Inter', sans-serif">Security group</text>
 
         <!-- Edge styles -->
         <line x1="40" y1="735" x2="54" y2="735" stroke="#171717" stroke-width="1.2" marker-end="url(#arrow-ink)"/>
-        <text x="60" y="739" fill="#4d4d4d" font-size="9" font-family="'Inter', sans-serif">HTTP / API call</text>
+        <text x="60" y="739" fill="#2c2c2c" font-size="9" font-family="'Inter', sans-serif">HTTP / API call</text>
 
-        <line x1="240" y1="735" x2="254" y2="735" stroke="#ef6306" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow-accent)"/>
-        <text x="260" y="739" fill="#4d4d4d" font-size="9" font-family="'Inter', sans-serif">Auth flow</text>
+        <line x1="240" y1="735" x2="254" y2="735" stroke="#ff6a13" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow-accent)"/>
+        <text x="260" y="739" fill="#2c2c2c" font-size="9" font-family="'Inter', sans-serif">Auth flow</text>
 
-        <line x1="440" y1="735" x2="454" y2="735" stroke="#4d4d4d" stroke-width="1" marker-end="url(#arrow)"/>
-        <text x="460" y="739" fill="#4d4d4d" font-size="9" font-family="'Inter', sans-serif">Internal connection</text>
+        <line x1="440" y1="735" x2="454" y2="735" stroke="#2c2c2c" stroke-width="1" marker-end="url(#arrow)"/>
+        <text x="460" y="739" fill="#2c2c2c" font-size="9" font-family="'Inter', sans-serif">Internal connection</text>
 
       </svg>
     </div>

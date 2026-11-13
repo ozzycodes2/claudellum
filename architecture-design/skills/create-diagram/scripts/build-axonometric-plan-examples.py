@@ -26,7 +26,7 @@ from axonometry import (FONT_LINK, FULL, MINIMAL, SKINS, Proj, Rect,  # noqa: E4
                         animated_page, cards_html, f, finish, outline, prism, solid, styles)
 
 EYEBROW = "Axonometric plan · Diagram Design"
-TREE_TOP = {"light": "#c6c6c6", "dark": "#8a8f98"}
+TREE_TOP = {"light": "#b8b8bf", "dark": "#8a8f98"}
 T = 6  # wall thickness
 
 

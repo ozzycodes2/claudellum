@@ -56,7 +56,7 @@ HEAD = """<!DOCTYPE html>
      aria-labelledby="marimekko-title marimekko-desc">
   <title id="marimekko-title">t</title>
   <desc id="marimekko-desc">Marimekko fixture.</desc>
-  <rect width="100%" height="100%" fill="#f8f8f8"/>
+  <rect width="100%" height="100%" fill="#eceef0"/>
 """
 TAIL = "</svg></body></html>\n"
 
@@ -68,7 +68,7 @@ TAIL = "</svg></body></html>\n"
 TOP, HEIGHT, GUTTER = 40.0, 380.0, 4.0
 INK = "rgba(23,23,23,0.16)"
 HAIR = "rgba(23,23,23,0.30)"
-ACCENT_FILL = "rgba(239,99,6,0.16)"
+ACCENT_FILL = "rgba(255,106,19,0.16)"
 
 WA, WB, WC = 495.556, 297.333, 99.111
 XA = 40.0
@@ -93,7 +93,7 @@ def segment(column: str, series: str, amount, x, y, w, h, fill: str = INK,
         parts.append(extra)
     out = ""
     if mask:
-        out += '  <rect x="%s" y="%s" width="%s" height="%s" rx="2" fill="#f8f8f8"/>\n' % (x, y, w, h)
+        out += '  <rect x="%s" y="%s" width="%s" height="%s" rx="2" fill="#eceef0"/>\n' % (x, y, w, h)
     out += '  <rect %s rx="2" fill="%s" stroke="%s" stroke-width="1"/>\n' % (
         " ".join(parts), fill, stroke)
     return out
@@ -129,7 +129,7 @@ def columns(a_linux: float = 228.0, a_mac: float = 152.0, wa: float = WA,
     body += segment("A", "macOS", 200, XA, TOP + a_linux if a_mac_y is None else a_mac_y,
                     wa, a_mac,
                     fill=ACCENT_FILL if focal else INK,
-                    stroke="#ef6306" if focal else HAIR)
+                    stroke="#ff6a13" if focal else HAIR)
     body += segment("B", "Linux", 240, xb, TOP, WB, b_linux)
     body += segment("B", "Windows", 60, xb, TOP + b_linux, WB, b_win)
     body += segment("C", "Linux", 100, xc, TOP, WC, HEIGHT)
@@ -367,7 +367,7 @@ def run_cases(h: Harness) -> int:
                           'width="%s" height="%s" rx="2" fill="%s" stroke="%s"'
                           % (XC, TOP, WC, HEIGHT, INK, HAIR),
                           'data-column="C" data-segment="Linux" data-amount="100" x="%s" y="%s" '
-                          'width="%s" height="%s" rx="2" fill="%s" stroke="#ef6306"'
+                          'width="%s" height="%s" rx="2" fill="%s" stroke="#ff6a13"'
                           % (XC, TOP, WC, HEIGHT, ACCENT_FILL)),
                       r"one focal segment max")
 

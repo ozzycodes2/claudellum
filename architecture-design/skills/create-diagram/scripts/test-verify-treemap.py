@@ -446,7 +446,7 @@ def main() -> int:
         # 10. The mask/body pair is one logical cell. If both copies state a
         #     share, they must agree; retaining whichever rect was parsed first
         #     silently discards contradictory source data.
-        asia_mask = '<rect x="40" y="40" width="532" height="380" rx="2" fill="#f8f8f8"/>'
+        asia_mask = '<rect x="40" y="40" width="532" height="380" rx="2" fill="#eceef0"/>'
         conflicting = source.replace(
             asia_mask,
             asia_mask.replace(' fill=', ' data-share="42" fill='),
@@ -465,8 +465,8 @@ def main() -> int:
 
         asia_body = (
             '<rect x="40" y="40" width="532" height="380" rx="2" '
-            'data-share="59.04" fill="rgba(239,99,6,0.16)" '
-            'stroke="#ef6306" stroke-width="1.5"/>'
+            'data-share="59.04" fill="rgba(255,106,19,0.16)" '
+            'stroke="#ff6a13" stroke-width="1.5"/>'
         )
         triplicated = source.replace(asia_body, f"{asia_body}\n      {asia_body}", 1)
         if triplicated == source:

@@ -180,7 +180,7 @@ K_RE = re.compile(r"\bK\s*=\s*([0-9]+(?:\.[0-9]+)?)")
 # STROKE because the fill is a translucent tint the paper shows through; the
 # stroke is the mark's edge and the thing a reader identifies the accent by.
 ACCENT_RE = re.compile(
-    r"#ef6306\b|rgba\(\s*239\s*,\s*99\s*,\s*6\b",
+    r"#ff6a13\b|rgba\(\s*255\s*,\s*106\s*,\s*19\b",
     re.IGNORECASE,
 )
 

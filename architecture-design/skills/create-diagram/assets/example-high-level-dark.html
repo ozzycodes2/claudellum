@@ -8,10 +8,10 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --color-paper:  #010102;
+      --color-paper:  #101214;
       --color-ink:    #f7f8f8;
       --color-muted:  #d0d6e0;
-      --color-accent: #ef6306;
+      --color-accent: #ff6a13;
       --font-sans:    'Inter', system-ui, sans-serif;
       --font-mono:    'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     }
@@ -59,14 +59,14 @@
           <polygon points="0 0, 8 3, 0 6" fill="#d0d6e0"/>
         </marker>
         <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-          <polygon points="0 0, 8 3, 0 6" fill="#ef6306"/>
+          <polygon points="0 0, 8 3, 0 6" fill="#ff6a13"/>
         </marker>
         <marker id="arrow-sm" markerWidth="6" markerHeight="5" refX="5" refY="2.5" orient="auto">
           <polygon points="0 0, 6 2.5, 0 5" fill="#d0d6e0"/>
         </marker>
       </defs>
 
-      <rect width="100%" height="100%" fill="#010102"/>
+      <rect width="100%" height="100%" fill="#101214"/>
 
       <!-- Phase chevron banner. The four fixed band hexes are gone; three ink
            washes over whichever paper is active give the same steps and invert
@@ -101,11 +101,11 @@
       <line x1="682" y1="96" x2="682" y2="144" stroke="#d0d6e0" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow-sm)"/>
       <line x1="896" y1="96" x2="896" y2="144" stroke="#d0d6e0" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow-sm)"/>
       <path d="M 328,140 H 372" fill="none" stroke="#d0d6e0" stroke-width="1" marker-end="url(#arrow)"/>
-      <path d="M 328,164 H 344 Q 352,164 352,172 V 240 Q 352,248 360,248 H 372" fill="none" stroke="#ef6306" stroke-width="1.2" marker-end="url(#arrow-accent)"/>
+      <path d="M 328,164 H 344 Q 352,164 352,172 V 240 Q 352,248 360,248 H 372" fill="none" stroke="#ff6a13" stroke-width="1.2" marker-end="url(#arrow-accent)"/>
       <line x1="444" y1="176" x2="444" y2="208" stroke="#d0d6e0" stroke-width="1" marker-end="url(#arrow)"/>
       <line x1="460" y1="208" x2="460" y2="176" stroke="#d0d6e0" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
       <path d="M 532,140 H 556 Q 564,140 564,148 V 160 Q 564,168 572,168 H 600" fill="none" stroke="#d0d6e0" stroke-width="1" marker-end="url(#arrow)"/>
-      <path d="M 532,248 H 556 Q 564,248 564,240 V 208 Q 564,200 572,200 H 600" fill="none" stroke="#ef6306" stroke-width="1.2" marker-end="url(#arrow-accent)"/>
+      <path d="M 532,248 H 556 Q 564,248 564,240 V 208 Q 564,200 572,200 H 600" fill="none" stroke="#ff6a13" stroke-width="1.2" marker-end="url(#arrow-accent)"/>
       <line x1="764" y1="184" x2="820" y2="184" stroke="#d0d6e0" stroke-width="1" marker-end="url(#arrow)"/>
 
       <!-- Nodes -->
@@ -185,10 +185,10 @@
       <text x="452" y="158" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">SQL · data virtualization</text>
 
       <!-- MinIO (FOCAL) -->
-      <rect x="372" y="208" width="160" height="80" rx="8" fill="rgba(239,99,6,0.12)" stroke="#ef6306" stroke-width="1.2"/>
-      <rect x="380" y="214" width="36" height="12" rx="2" fill="transparent" stroke="rgba(239,99,6,0.55)" stroke-width="0.8"/>
+      <rect x="372" y="208" width="160" height="80" rx="8" fill="rgba(255,106,19,0.12)" stroke="#ff6a13" stroke-width="1.2"/>
+      <rect x="380" y="214" width="36" height="12" rx="2" fill="transparent" stroke="rgba(255,106,19,0.55)" stroke-width="0.8"/>
       <text x="398" y="223" fill="#f7f8f8" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.08em">STORE</text>
-      <svg x="440" y="214" width="24" height="24" viewBox="0 0 24 24" fill="#ef6306" aria-hidden="true">
+      <svg x="440" y="214" width="24" height="24" viewBox="0 0 24 24" fill="#ff6a13" aria-hidden="true">
         <path d="M13.2072.006c-.6216-.0478-1.2.1943-1.6211.582a2.15 2.15 0 0 0-.0938 3.0352l3.4082 3.5507a3.042 3.042 0 0 1-.664 4.6875l-.463.2383V7.2853a15.4198 15.4198 0 0 0-8.0174 10.4862v.0176l6.5487-3.3281v7.621L13.7794 24V13.6817l.8965-.4629a4.4432 4.4432 0 0 0 1.2207-7.0292l-3.371-3.5254a.7489.7489 0 0 1 .037-1.0547.7522.7522 0 0 1 1.0567.0371l.4668.4863-.006.0059 4.0704 4.2441a.0566.0566 0 0 0 .082 0 .06.06 0 0 0 0-.0703l-3.1406-5.1425-.1484.1425.1484-.1445C14.4945.3926 13.8287.0538 13.2072.006Zm-.9024 9.8652v2.9941l-4.1523 2.1484a13.9787 13.9787 0 0 1 2.7676-3.9277 14.1784 14.1784 0 0 1 1.3847-1.2148z"/>
       </svg>
       <text x="452" y="252" fill="#f7f8f8" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">MinIO / S3</text>
@@ -239,9 +239,9 @@
       <text x="68"  y="474" fill="#d0d6e0" font-size="8.5" font-family="'Inter', sans-serif">External source · outside cluster</text>
       <rect x="252" y="464" width="20" height="12" rx="3" fill="rgba(247,248,248,0.06)" stroke="#8a8f98" stroke-width="1"/>
       <text x="280" y="474" fill="#d0d6e0" font-size="8.5" font-family="'Inter', sans-serif">Kubernetes boundary</text>
-      <rect x="436" y="464" width="20" height="12" rx="3" fill="rgba(239,99,6,0.18)" stroke="#ef6306" stroke-width="1.2"/>
+      <rect x="436" y="464" width="20" height="12" rx="3" fill="rgba(255,106,19,0.18)" stroke="#ff6a13" stroke-width="1.2"/>
       <text x="464" y="474" fill="#d0d6e0" font-size="8.5" font-family="'Inter', sans-serif">Focal component (MinIO)</text>
-      <line x1="648" y1="466" x2="668" y2="466" stroke="#ef6306" stroke-width="1.2"/>
+      <line x1="648" y1="466" x2="668" y2="466" stroke="#ff6a13" stroke-width="1.2"/>
       <text x="676" y="471" fill="#d0d6e0" font-size="8.5" font-family="'Inter', sans-serif">Primary data path</text>
       <line x1="808" y1="466" x2="828" y2="466" stroke="rgba(247,248,248,0.35)" stroke-width="1" stroke-dasharray="4,3"/>
       <text x="836" y="471" fill="#d0d6e0" font-size="8.5" font-family="'Inter', sans-serif">Orchestration trigger</text>

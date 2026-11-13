@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --color-paper:#f8f8f8; --color-paper-2:#ffffff; --color-ink:#171717; --color-muted:#4d4d4d; --color-soft:#616161; --color-rule:rgba(23,23,23,0.12); --color-accent:#ef6306; --font-sans:'Inter',system-ui,sans-serif; --font-mono:'SF Mono',ui-monospace,monospace; }
+    :root { --color-paper:#eceef0; --color-paper-2:#f7f8f8; --color-ink:#171717; --color-muted:#2c2c2c; --color-soft:#606060; --color-rule:rgba(23,23,23,0.12); --color-accent:#ff6a13; --font-sans:'Inter',system-ui,sans-serif; --font-mono:'SF Mono',ui-monospace,monospace; }
     body { font-family: var(--font-sans); background: var(--color-paper); min-height: 100vh; padding: 3rem 2rem; color: var(--color-ink); }
     .container { max-width: 1200px; margin: 0 auto; }
     .header { margin-bottom: 2.5rem; }
@@ -46,64 +46,64 @@
       <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="bubble-full-title bubble-full-desc">
         <title id="bubble-full-title">The biggest risk is not the slowest service</title>
         <desc id="bubble-full-desc">The biggest risk is not the slowest service. Bubble chart of nine services by p95 latency and error rate on zero-based axes, bubble area proportional to requests per second; Payments carries near-peak traffic at the highest error rate.</desc>
-        <rect width="100%" height="100%" fill="#f8f8f8"/>
+        <rect width="100%" height="100%" fill="#eceef0"/>
 
         <!-- Axis titles are horizontal: y above its axis, left-aligned to it; x below, left-aligned to its axis. -->
-        <text x="172" y="140" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace">Error rate, %</text>
-        <text x="229.6" y="464" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace">p95 latency, ms</text>
+        <text x="172" y="140" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace">Error rate, %</text>
+        <text x="229.6" y="464" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace">p95 latency, ms</text>
 
         <!-- Range-frame axes: each rule spans only the data (centres), not the plot box. The scales are still linear from zero (x = 80 + 1.76·ms, y = 420 - 95·pct); no gridlines, because the ticks are sparse and the bubbles are not read against a grid. -->
-        <line x1="172" y1="154" x2="172" y2="372.5" stroke="#616161" stroke-width="1"/>
-        <line x1="229.6" y1="428" x2="889.6" y2="428" stroke="#616161" stroke-width="1"/>
+        <line x1="172" y1="154" x2="172" y2="372.5" stroke="#606060" stroke-width="1"/>
+        <line x1="229.6" y1="428" x2="889.6" y2="428" stroke="#606060" stroke-width="1"/>
 
         <!-- Tick labels are BOUND: data-tick names the axis, data-value the number the tick claims to sit at. -->
-        <text data-tick="y" data-value="1" x="164" y="329" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">1</text>
-        <text data-tick="y" data-value="2" x="164" y="234" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">2</text>
-        <text data-tick="x" data-value="100" x="256" y="444" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">100</text>
-        <text data-tick="x" data-value="200" x="432" y="444" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">200</text>
-        <text data-tick="x" data-value="300" x="608" y="444" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">300</text>
-        <text data-tick="x" data-value="400" x="784" y="444" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">400</text>
+        <text data-tick="y" data-value="1" x="164" y="329" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">1</text>
+        <text data-tick="y" data-value="2" x="164" y="234" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">2</text>
+        <text data-tick="x" data-value="100" x="256" y="444" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">100</text>
+        <text data-tick="x" data-value="200" x="432" y="444" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">200</text>
+        <text data-tick="x" data-value="300" x="608" y="444" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">300</text>
+        <text data-tick="x" data-value="400" x="784" y="444" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">400</text>
 
         <!-- Comparison: the error budget, 1.5%, as a reference line behind the bubbles. -->
-        <line data-ref="budget" data-value="1.5" x1="172" y1="277.5" x2="960" y2="277.5" stroke="#616161" stroke-width="1" stroke-dasharray="4,3"/>
-        <text data-ref="budget" data-role="label" x="960" y="271.5" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">Error budget, 1.5%</text>
+        <line data-ref="budget" data-value="1.5" x1="172" y1="277.5" x2="960" y2="277.5" stroke="#606060" stroke-width="1" stroke-dasharray="4,3"/>
+        <text data-ref="budget" data-role="label" x="960" y="271.5" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">Error budget, 1.5%</text>
 
         <!-- BUBBLES, largest first. AREA carries the third value, never radius: r = K·√v with K = 1.4. One uniform fill (ink at 0.14) on every non-focal bubble: tone is not an encoding here. The paper underlay keeps the reference line from showing through a translucent fill. -->
-        <circle cx="229.6" cy="372.5" r="42" fill="#f8f8f8"/>
-        <circle data-name="Gateway" data-x="85" data-y="0.5" data-size="900" cx="229.6" cy="372.5" r="42" fill="rgba(23,23,23,0.14)" stroke="#4d4d4d" stroke-width="1"/>
-        <circle cx="537.6" cy="154" r="38.6" fill="#f8f8f8"/>
-        <circle data-name="Payments" data-x="260" data-y="2.8" data-size="760" cx="537.6" cy="154" r="38.6" fill="rgba(239,99,6,0.15)" stroke="#ef6306" stroke-width="1.2"/>
-        <circle cx="326.4" cy="334.5" r="34.9" fill="#f8f8f8"/>
-        <circle data-name="Auth" data-x="140" data-y="0.9" data-size="620" cx="326.4" cy="334.5" r="34.9" fill="rgba(23,23,23,0.14)" stroke="#4d4d4d" stroke-width="1"/>
-        <circle cx="396.8" cy="353.5" r="32.5" fill="#f8f8f8"/>
-        <circle data-name="Catalog" data-x="180" data-y="0.7" data-size="540" cx="396.8" cy="353.5" r="32.5" fill="rgba(23,23,23,0.14)" stroke="#4d4d4d" stroke-width="1"/>
-        <circle cx="643.2" cy="315.5" r="30.7" fill="#f8f8f8"/>
-        <circle data-name="Search" data-x="320" data-y="1.1" data-size="480" cx="643.2" cy="315.5" r="30.7" fill="rgba(23,23,23,0.14)" stroke="#4d4d4d" stroke-width="1"/>
-        <circle cx="484.8" cy="287" r="25.4" fill="#f8f8f8"/>
-        <circle data-name="Media" data-x="230" data-y="1.4" data-size="330" cx="484.8" cy="287" r="25.4" fill="rgba(23,23,23,0.14)" stroke="#4d4d4d" stroke-width="1"/>
-        <circle cx="819.2" cy="268" r="20.3" fill="#f8f8f8"/>
-        <circle data-name="Recommender" data-x="420" data-y="1.6" data-size="210" cx="819.2" cy="268" r="20.3" fill="rgba(23,23,23,0.14)" stroke="#4d4d4d" stroke-width="1"/>
-        <circle cx="247.2" cy="211" r="17.1" fill="#f8f8f8"/>
-        <circle data-name="Notifications" data-x="95" data-y="2.2" data-size="150" cx="247.2" cy="211" r="17.1" fill="rgba(23,23,23,0.14)" stroke="#4d4d4d" stroke-width="1"/>
-        <circle cx="889.6" cy="334.5" r="10.8" fill="#f8f8f8"/>
-        <circle data-name="Reports" data-x="460" data-y="0.9" data-size="60" cx="889.6" cy="334.5" r="10.8" fill="rgba(23,23,23,0.14)" stroke="#4d4d4d" stroke-width="1"/>
+        <circle cx="229.6" cy="372.5" r="42" fill="#eceef0"/>
+        <circle data-name="Gateway" data-x="85" data-y="0.5" data-size="900" cx="229.6" cy="372.5" r="42" fill="rgba(23,23,23,0.14)" stroke="#2c2c2c" stroke-width="1"/>
+        <circle cx="537.6" cy="154" r="38.6" fill="#eceef0"/>
+        <circle data-name="Payments" data-x="260" data-y="2.8" data-size="760" cx="537.6" cy="154" r="38.6" fill="rgba(255,106,19,0.15)" stroke="#ff6a13" stroke-width="1.2"/>
+        <circle cx="326.4" cy="334.5" r="34.9" fill="#eceef0"/>
+        <circle data-name="Auth" data-x="140" data-y="0.9" data-size="620" cx="326.4" cy="334.5" r="34.9" fill="rgba(23,23,23,0.14)" stroke="#2c2c2c" stroke-width="1"/>
+        <circle cx="396.8" cy="353.5" r="32.5" fill="#eceef0"/>
+        <circle data-name="Catalog" data-x="180" data-y="0.7" data-size="540" cx="396.8" cy="353.5" r="32.5" fill="rgba(23,23,23,0.14)" stroke="#2c2c2c" stroke-width="1"/>
+        <circle cx="643.2" cy="315.5" r="30.7" fill="#eceef0"/>
+        <circle data-name="Search" data-x="320" data-y="1.1" data-size="480" cx="643.2" cy="315.5" r="30.7" fill="rgba(23,23,23,0.14)" stroke="#2c2c2c" stroke-width="1"/>
+        <circle cx="484.8" cy="287" r="25.4" fill="#eceef0"/>
+        <circle data-name="Media" data-x="230" data-y="1.4" data-size="330" cx="484.8" cy="287" r="25.4" fill="rgba(23,23,23,0.14)" stroke="#2c2c2c" stroke-width="1"/>
+        <circle cx="819.2" cy="268" r="20.3" fill="#eceef0"/>
+        <circle data-name="Recommender" data-x="420" data-y="1.6" data-size="210" cx="819.2" cy="268" r="20.3" fill="rgba(23,23,23,0.14)" stroke="#2c2c2c" stroke-width="1"/>
+        <circle cx="247.2" cy="211" r="17.1" fill="#eceef0"/>
+        <circle data-name="Notifications" data-x="95" data-y="2.2" data-size="150" cx="247.2" cy="211" r="17.1" fill="rgba(23,23,23,0.14)" stroke="#2c2c2c" stroke-width="1"/>
+        <circle cx="889.6" cy="334.5" r="10.8" fill="#eceef0"/>
+        <circle data-name="Reports" data-x="460" data-y="0.9" data-size="60" cx="889.6" cy="334.5" r="10.8" fill="rgba(23,23,23,0.14)" stroke="#2c2c2c" stroke-width="1"/>
 
         <!-- Labels: the focal bubble plus the two poles of the area story. Each is bound by data-name. -->
         <text data-name="Payments" data-role="label" x="538" y="108" fill="#171717" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Payments</text>
-        <text data-name="Gateway" data-role="label" x="230" y="325" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Gateway</text>
-        <text data-name="Reports" data-role="label" x="890" y="356" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Reports</text>
+        <text data-name="Gateway" data-role="label" x="230" y="325" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Gateway</text>
+        <text data-name="Reports" data-role="label" x="890" y="356" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Reports</text>
 
         <!-- Size key: reference circles drawn with the same r = K·√v, bound by data-key-size. -->
-        <text x="764" y="52" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace">Bubble area, requests per second</text>
-        <circle data-key-size="100" cx="780" cy="130" r="14" fill="none" stroke="#4d4d4d" stroke-width="1"/>
-        <text data-key-size="100" x="780" y="160" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">100</text>
-        <circle data-key-size="400" cx="844" cy="116" r="28" fill="none" stroke="#4d4d4d" stroke-width="1"/>
-        <text data-key-size="400" x="844" y="160" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">400</text>
-        <circle data-key-size="800" cx="920" cy="104.4" r="39.6" fill="none" stroke="#4d4d4d" stroke-width="1"/>
-        <text data-key-size="800" x="920" y="160" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">800</text>
+        <text x="764" y="52" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace">Bubble area, requests per second</text>
+        <circle data-key-size="100" cx="780" cy="130" r="14" fill="none" stroke="#2c2c2c" stroke-width="1"/>
+        <text data-key-size="100" x="780" y="160" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">100</text>
+        <circle data-key-size="400" cx="844" cy="116" r="28" fill="none" stroke="#2c2c2c" stroke-width="1"/>
+        <text data-key-size="400" x="844" y="160" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">400</text>
+        <circle data-key-size="800" cx="920" cy="104.4" r="39.6" fill="none" stroke="#2c2c2c" stroke-width="1"/>
+        <text data-key-size="800" x="920" y="160" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">800</text>
 
         <!-- Source line: states the area constant K and the units. -->
-        <text data-role="source" x="40" y="480" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace">Source: illustrative service metrics, one week. Latency in ms (p95), errors in % of requests.<tspan x="40" dy="12">Area = π·K²·requests per second, K = 1.4 px per √(req/s). Scales linear from zero.</tspan></text>
+        <text data-role="source" x="40" y="480" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace">Source: illustrative service metrics, one week. Latency in ms (p95), errors in % of requests.<tspan x="40" dy="12">Area = π·K²·requests per second, K = 1.4 px per √(req/s). Scales linear from zero.</tspan></text>
       </svg>
     </div>
     <div class="cards">

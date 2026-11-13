@@ -8,10 +8,10 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --color-paper:   #f8f8f8;
+      --color-paper:   #eceef0;
       --color-ink:     #171717;
-      --color-muted:   #4d4d4d;
-      --color-accent:  #ef6306;
+      --color-muted:   #2c2c2c;
+      --color-accent:  #ff6a13;
       --font-sans:     'Inter', system-ui, sans-serif;
       --font-mono:     'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     }
@@ -60,59 +60,59 @@
     <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="quadrant-title quadrant-desc">
       <title id="quadrant-title">Start with Schematic skill v4: high impact, low effort</title>
       <desc id="quadrant-desc">Start with Schematic skill v4: high impact, low effort. Impact-effort matrix showing eight content projects across do first, major projects, quick wins, and avoid quadrants.</desc>
-        <rect width="100%" height="100%" fill="#f8f8f8"/>
+        <rect width="100%" height="100%" fill="#eceef0"/>
 
         <!-- Quadrant backgrounds (very subtle, only accent on Do first) -->
-        <rect x="120" y="80" width="380" height="170" fill="rgba(239,99,6,0.03)"/>
+        <rect x="120" y="80" width="380" height="170" fill="rgba(255,106,19,0.03)"/>
 
         <!-- Axis cross -->
-        <line x1="120" y1="250" x2="880" y2="250" stroke="#616161" stroke-width="1"/>
-        <line x1="500" y1="80" x2="500" y2="420" stroke="#616161" stroke-width="1"/>
+        <line x1="120" y1="250" x2="880" y2="250" stroke="#606060" stroke-width="1"/>
+        <line x1="500" y1="80" x2="500" y2="420" stroke="#606060" stroke-width="1"/>
 
         <!-- Axis end labels -->
-        <text x="880" y="266" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">Effort</text>
-        <text x="512" y="80" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace">Impact</text>
+        <text x="880" y="266" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">Effort</text>
+        <text x="512" y="80" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace">Impact</text>
 
         <!-- Quadrant corner labels -->
         <text x="140" y="104" fill="#171717" font-size="9" font-family="'SF Mono', monospace" font-weight="600">Do first</text>
-        <text x="860" y="104" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="end">Major projects</text>
-        <text x="140" y="412" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace">Quick wins</text>
-        <text x="860" y="412" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="end">Avoid</text>
+        <text x="860" y="104" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="end">Major projects</text>
+        <text x="140" y="412" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace">Quick wins</text>
+        <text x="860" y="412" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="end">Avoid</text>
 
         <!-- Items: TL (Do First) -->
         <!-- accent focal -->
-        <circle cx="220" cy="140" r="6" fill="#ef6306"/>
+        <circle cx="220" cy="140" r="6" fill="#ff6a13"/>
         <text x="232" y="144" fill="#171717" font-size="11" font-weight="600" font-family="'Inter', sans-serif">Schematic skill v4</text>
 
         <circle cx="320" cy="200" r="4" fill="#171717"/>
-        <text x="332" y="204" fill="#4d4d4d" font-size="11" font-family="'Inter', sans-serif">Update changelog</text>
+        <text x="332" y="204" fill="#2c2c2c" font-size="11" font-family="'Inter', sans-serif">Update changelog</text>
 
         <!-- Items: TR (Major Projects) -->
         <circle cx="620" cy="140" r="4" fill="#171717"/>
-        <text x="632" y="144" fill="#4d4d4d" font-size="11" font-family="'Inter', sans-serif">Design v4 refresh</text>
+        <text x="632" y="144" fill="#2c2c2c" font-size="11" font-family="'Inter', sans-serif">Design v4 refresh</text>
 
         <circle cx="760" cy="180" r="4" fill="#171717"/>
-        <text x="772" y="184" fill="#4d4d4d" font-size="11" font-family="'Inter', sans-serif">New publication</text>
+        <text x="772" y="184" fill="#2c2c2c" font-size="11" font-family="'Inter', sans-serif">New publication</text>
 
         <!-- Items: BL (Quick Wins) -->
         <circle cx="260" cy="320" r="4" fill="#171717"/>
-        <text x="272" y="324" fill="#4d4d4d" font-size="11" font-family="'Inter', sans-serif">Fix footer link</text>
+        <text x="272" y="324" fill="#2c2c2c" font-size="11" font-family="'Inter', sans-serif">Fix footer link</text>
 
         <circle cx="360" cy="380" r="4" fill="#171717"/>
-        <text x="372" y="384" fill="#4d4d4d" font-size="11" font-family="'Inter', sans-serif">Update OG tags</text>
+        <text x="372" y="384" fill="#2c2c2c" font-size="11" font-family="'Inter', sans-serif">Update OG tags</text>
 
         <!-- Items: BR (Avoid) -->
         <circle cx="640" cy="380" r="4" fill="#171717"/>
-        <text x="652" y="384" fill="#4d4d4d" font-size="11" font-family="'Inter', sans-serif">Rewrite build pipeline</text>
+        <text x="652" y="384" fill="#2c2c2c" font-size="11" font-family="'Inter', sans-serif">Rewrite build pipeline</text>
 
         <circle cx="780" cy="320" r="4" fill="#171717"/>
-        <text x="792" y="324" fill="#4d4d4d" font-size="11" font-family="'Inter', sans-serif">Port to Nuxt</text>
+        <text x="792" y="324" fill="#2c2c2c" font-size="11" font-family="'Inter', sans-serif">Port to Nuxt</text>
 
         <!-- Direct label for the accent item, replacing the legend key -->
-        <text x="232" y="160" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace">Start tomorrow</text>
+        <text x="232" y="160" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace">Start tomorrow</text>
 
         <!-- Source line -->
-        <text data-role="source" x="40" y="464" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace">Source: team judgement, Q3 2026 content planning. Positions are team estimates, not measurements.<tspan x="40" dy="12">Effort rises to the right and impact rises upward.</tspan></text>
+        <text data-role="source" x="40" y="464" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace">Source: team judgement, Q3 2026 content planning. Positions are team estimates, not measurements.<tspan x="40" dy="12">Effort rises to the right and impact rises upward.</tspan></text>
       </svg>
   </div>
 </body>

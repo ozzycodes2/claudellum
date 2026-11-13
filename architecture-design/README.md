@@ -53,13 +53,13 @@ forty-five visual types, same six connector rules, same nine-node / twelve-arrow
 budget, same 217 worked examples at the same coordinates. Three skin rules
 override what upstream ships:
 
-- The accent paints objects, never type. It reads 3.06:1 on the light paper,
-  which clears the 3:1 a graphical object needs and misses the 4.5:1 a word
-  needs.
+- The accent paints objects, never type. It reads 2.47:1 on the light paper,
+  under even the 3:1 a graphical object needs, so there it never stands alone:
+  every accent mark also carries an `ink` name or label.
 - One chroma, so no `link` role. An external or HTTP call is `ink` at 1.2
   against `muted` at 1; series separate by dash, capped at three.
 - An essential mark is not a hairline. Axes, baselines and lifelines take
-  `soft`; `rule` is 1.33:1 light and 1.69:1 dark, and only ever encloses.
+  `soft`; `rule` is 1.37:1 light and 1.36:1 dark, and only ever encloses.
 
 No serif, no shadows, no dot pattern. The terminal variant keeps the upstream
 palette as a deliberate opt-in alternate.
@@ -71,7 +71,7 @@ to run from the skill directory rather than a repository checkout:
 
 ```sh
 cd architecture-design/skills/create-diagram
-python3 scripts/verify-contrast.py            # 18 role-and-use pairs, both skins
+python3 scripts/verify-contrast.py            # 17 role-and-use pairs, both skins
 python3 scripts/lint-skin.py --all            # palette, font and source-line conformance
 python3 scripts/verify-cards.py --all         # -full cards cite a drawn mark
 python3 scripts/verify-geometry.py --all      # the six connector rules

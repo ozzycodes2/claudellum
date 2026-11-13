@@ -41,7 +41,7 @@ Draw faces as plain SVG `<path>` and `<polygon>` elements with the projected poi
 
 | Element | Light | Dark |
 |---|---|---|
-| Face base (opaque, under every face) | `#ffffff` | `paper-2` |
+| Face base (opaque, under every face) | `paper-2` | `paper-2` |
 | Top face | base | base + `ink @ 0.10` |
 | Left face (lit side) | base + `ink @ 0.07` | base |
 | Right face (shade side) | base + `ink @ 0.15` | base + `paper @ 0.45` |

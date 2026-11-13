@@ -388,7 +388,7 @@ def main():
         # 11. Fail closed: without a paper color there is nothing to composite
         #     against, so lightness has no defined direction.
         paperless = re.sub(r"\s*--color-paper:\s*[^;]+;", "", light_source)
-        paperless = paperless.replace('<rect width="100%" height="100%" fill="#f8f8f8"/>', "", 1)
+        paperless = paperless.replace('<rect width="100%" height="100%" fill="#eceef0"/>', "", 1)
         if paperless == light_source:
             failures.append("could not build the paperless fixture")
         else:
@@ -438,8 +438,8 @@ def main():
         #     ramp, or a legal file would silently lose a member and fail closed
         #     for the wrong reason.
         on_mask = light_source.replace(
-            '<rect x="576" y="40" width="252" height="252" rx="2" fill="#f8f8f8"/>',
-            '<rect x="576" y="40" width="252" height="252" rx="2" data-share="18.29" fill="#f8f8f8"/>',
+            '<rect x="576" y="40" width="252" height="252" rx="2" fill="#eceef0"/>',
+            '<rect x="576" y="40" width="252" height="252" rx="2" data-share="18.29" fill="#eceef0"/>',
             1,
         ).replace(
             '<rect x="576" y="40" width="252" height="252" rx="2" data-share="18.29" '

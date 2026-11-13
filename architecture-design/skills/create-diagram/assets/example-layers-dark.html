@@ -8,10 +8,10 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --color-paper:   #010102;
+      --color-paper:   #101214;
       --color-ink:     #f7f8f8;
       --color-muted:   #d0d6e0;
-      --color-accent:  #ef6306;
+      --color-accent:  #ff6a13;
       --font-sans:     'Inter', system-ui, sans-serif;
       --font-mono:     'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     }
@@ -60,7 +60,7 @@
     <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="layers-dark-title layers-dark-desc">
       <title id="layers-dark-title">AI app stack · Where the work actually happens</title>
       <desc id="layers-dark-desc">Layer stack showing model weights, SDK, prompts, agent harness, and UI surface, with the agent harness highlighted as the focal layer.</desc>
-        <rect width="100%" height="100%" fill="#010102"/>
+        <rect width="100%" height="100%" fill="#101214"/>
 
         <!-- Direction column (left margin) -->
         <text x="60" y="68" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace">Abstraction</text>
@@ -73,35 +73,35 @@
         <line x1="120" y1="400" x2="960" y2="400" stroke="rgba(247,248,248,0.12)" stroke-width="1"/>
 
         <!-- L5 — UI (top layer, lifted fill) -->
-        <rect x="120" y="80" width="840" height="64" fill="#0f1011"/>
+        <rect x="120" y="80" width="840" height="64" fill="#1a1c1d"/>
         <line x1="120" y1="144" x2="960" y2="144" stroke="rgba(247,248,248,0.12)" stroke-width="1"/>
         <text x="140" y="116" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace" letter-spacing="0.14em">L5</text>
         <text x="260" y="118" fill="#f7f8f8" font-size="16" font-weight="600" font-family="'Inter', sans-serif">UI surface</text>
         <text x="940" y="118" fill="#d0d6e0" font-size="10" font-family="'SF Mono', monospace" text-anchor="end" letter-spacing="0.08em">chat, editor, canvas</text>
 
         <!-- L4 — Agent harness (FOCAL, accent tint + accent stroke) -->
-        <rect x="120" y="144" width="840" height="64" fill="rgba(239,99,6,0.12)"/>
-        <rect x="120" y="144" width="840" height="64" fill="none" stroke="#ef6306" stroke-width="1"/>
+        <rect x="120" y="144" width="840" height="64" fill="rgba(255,106,19,0.12)"/>
+        <rect x="120" y="144" width="840" height="64" fill="none" stroke="#ff6a13" stroke-width="1"/>
         <text x="140" y="180" fill="#f7f8f8" font-size="8" font-family="'SF Mono', monospace" letter-spacing="0.14em" font-weight="600">L4</text>
         <text x="260" y="182" fill="#f7f8f8" font-size="16" font-weight="600" font-family="'Inter', sans-serif">Agent harness</text>
         <text x="940" y="182" fill="#f7f8f8" font-size="10" font-family="'SF Mono', monospace" text-anchor="end" letter-spacing="0.08em">tools, memory, loop</text>
 
         <!-- L3 — Prompt layer -->
-        <rect x="120" y="208" width="840" height="64" fill="#010102"/>
+        <rect x="120" y="208" width="840" height="64" fill="#101214"/>
         <line x1="120" y1="272" x2="960" y2="272" stroke="rgba(247,248,248,0.12)" stroke-width="1"/>
         <text x="140" y="244" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace" letter-spacing="0.14em">L3</text>
         <text x="260" y="246" fill="#f7f8f8" font-size="16" font-weight="600" font-family="'Inter', sans-serif">Prompt layer</text>
         <text x="940" y="246" fill="#d0d6e0" font-size="10" font-family="'SF Mono', monospace" text-anchor="end" letter-spacing="0.08em">system, few-shot, caching</text>
 
         <!-- L2 — SDK -->
-        <rect x="120" y="272" width="840" height="64" fill="#0f1011"/>
+        <rect x="120" y="272" width="840" height="64" fill="#1a1c1d"/>
         <line x1="120" y1="336" x2="960" y2="336" stroke="rgba(247,248,248,0.12)" stroke-width="1"/>
         <text x="140" y="308" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace" letter-spacing="0.14em">L2</text>
         <text x="260" y="310" fill="#f7f8f8" font-size="16" font-weight="600" font-family="'Inter', sans-serif">SDK / client</text>
         <text x="940" y="310" fill="#d0d6e0" font-size="10" font-family="'SF Mono', monospace" text-anchor="end" letter-spacing="0.08em">auth, retries, streaming</text>
 
         <!-- L1 — Model -->
-        <rect x="120" y="336" width="840" height="64" fill="#0f1011"/>
+        <rect x="120" y="336" width="840" height="64" fill="#1a1c1d"/>
         <text x="140" y="372" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace" letter-spacing="0.14em">L1</text>
         <text x="260" y="374" fill="#f7f8f8" font-size="16" font-weight="600" font-family="'Inter', sans-serif">Model weights</text>
         <text x="940" y="374" fill="#d0d6e0" font-size="10" font-family="'SF Mono', monospace" text-anchor="end" letter-spacing="0.08em">opus, sonnet, haiku</text>

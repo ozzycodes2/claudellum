@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     html, body, div, main, header, footer, section, article, p, h1, h2, h3, h4, h5, h6 { box-sizing:border-box; margin:0; padding:0; }
-    :root { --color-paper:#010102; --color-ink:#f7f8f8; --color-muted:#d0d6e0; --color-accent:#ef6306; --font-sans:'Inter',system-ui,sans-serif; --font-mono:'SF Mono',ui-monospace,monospace; }
+    :root { --color-paper:#101214; --color-ink:#f7f8f8; --color-muted:#d0d6e0; --color-accent:#ff6a13; --font-sans:'Inter',system-ui,sans-serif; --font-mono:'SF Mono',ui-monospace,monospace; }
     body { font-family:var(--font-sans); background:var(--color-paper); color:var(--color-ink); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:3rem 2rem; }
     .frame { max-width:1200px; width:100%; }
     .eyebrow { font-family:var(--font-mono); font-size:0.66rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--color-muted); margin-bottom:0.5rem; }
@@ -35,7 +35,7 @@
       <title id="polar-dark-title">Request demand peaks at 12–15 UTC</title>
       <desc id="polar-dark-desc">Request demand peaks at 12–15 UTC. Polar chart on a 0–100% scale identifying 12–15 UTC as the 100% peak, with the other seven UTC windows proceeding clockwise.</desc>
 
-      <rect data-polar-background width="100%" height="100%" fill="#010102"/>
+      <rect data-polar-background width="100%" height="100%" fill="#101214"/>
       <text x="40" y="28" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace">% of daily peak, 0 to 100</text>
 
       <circle data-polar-ring cx="500" cy="230" r="32" fill="none" stroke="rgba(247,248,248,0.08)" stroke-width="0.8"/>
@@ -57,49 +57,49 @@
 
       <g data-polar-category="00–03" data-polar-index="0" data-polar-value="32">
         <line data-polar-ray x1="500" y1="230" x2="500" y2="178.8" stroke="#d0d6e0" stroke-width="2"/>
-        <circle data-polar-marker cx="500" cy="178.8" r="4" fill="#010102" stroke="#d0d6e0" stroke-width="1.2"/>
+        <circle data-polar-marker cx="500" cy="178.8" r="4" fill="#101214" stroke="#d0d6e0" stroke-width="1.2"/>
         <text x="500" y="42" fill="#f7f8f8" font-size="11" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">00–03</text>
         <text data-polar-value-label x="500" y="26" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">32</text>
       </g>
       <g data-polar-category="03–06" data-polar-index="1" data-polar-value="18">
         <line data-polar-ray x1="500" y1="230" x2="520.365" y2="209.635" stroke="#d0d6e0" stroke-width="2"/>
-        <circle data-polar-marker cx="520.365" cy="209.635" r="4" fill="#010102" stroke="#d0d6e0" stroke-width="1.2"/>
+        <circle data-polar-marker cx="520.365" cy="209.635" r="4" fill="#101214" stroke="#d0d6e0" stroke-width="1.2"/>
         <text x="632.936" y="97.064" fill="#f7f8f8" font-size="11" font-weight="600" font-family="'Inter', sans-serif" text-anchor="start">03–06</text>
         <text data-polar-value-label x="644.25" y="85.75" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace" text-anchor="start">18</text>
       </g>
       <g data-polar-category="06–09" data-polar-index="2" data-polar-value="24">
         <line data-polar-ray x1="500" y1="230" x2="538.4" y2="230" stroke="#d0d6e0" stroke-width="2"/>
-        <circle data-polar-marker cx="538.4" cy="230" r="4" fill="#010102" stroke="#d0d6e0" stroke-width="1.2"/>
+        <circle data-polar-marker cx="538.4" cy="230" r="4" fill="#101214" stroke="#d0d6e0" stroke-width="1.2"/>
         <text x="688" y="230" fill="#f7f8f8" font-size="11" font-weight="600" font-family="'Inter', sans-serif" text-anchor="start">06–09</text>
         <text data-polar-value-label x="704" y="230" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace" text-anchor="start" dy="16">24</text>
       </g>
       <g data-polar-category="09–12" data-polar-index="3" data-polar-value="58">
         <line data-polar-ray x1="500" y1="230" x2="565.62" y2="295.62" stroke="#d0d6e0" stroke-width="2"/>
-        <circle data-polar-marker cx="565.62" cy="295.62" r="4" fill="#010102" stroke="#d0d6e0" stroke-width="1.2"/>
+        <circle data-polar-marker cx="565.62" cy="295.62" r="4" fill="#101214" stroke="#d0d6e0" stroke-width="1.2"/>
         <text x="632.936" y="362.936" fill="#f7f8f8" font-size="11" font-weight="600" font-family="'Inter', sans-serif" text-anchor="start">09–12</text>
         <text data-polar-value-label x="644.25" y="374.25" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace" text-anchor="start" dy="12">58</text>
       </g>
       <g data-polar-category="12–15" data-polar-index="4" data-polar-value="100" data-polar-focal="true">
-        <line data-polar-ray x1="500" y1="230" x2="500" y2="390" stroke="#ef6306" stroke-width="2.4"/>
-        <circle data-polar-marker cx="500" cy="390" r="5" fill="#010102" stroke="#ef6306" stroke-width="1.2"/>
+        <line data-polar-ray x1="500" y1="230" x2="500" y2="390" stroke="#ff6a13" stroke-width="2.4"/>
+        <circle data-polar-marker cx="500" cy="390" r="5" fill="#101214" stroke="#ff6a13" stroke-width="1.2"/>
         <text x="500" y="418" fill="#f7f8f8" font-size="11" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">12–15</text>
         <text data-polar-value-label x="500" y="434" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">100</text>
       </g>
       <g data-polar-category="15–18" data-polar-index="5" data-polar-value="82">
         <line data-polar-ray x1="500" y1="230" x2="407.227" y2="322.773" stroke="#d0d6e0" stroke-width="2"/>
-        <circle data-polar-marker cx="407.227" cy="322.773" r="4" fill="#010102" stroke="#d0d6e0" stroke-width="1.2"/>
+        <circle data-polar-marker cx="407.227" cy="322.773" r="4" fill="#101214" stroke="#d0d6e0" stroke-width="1.2"/>
         <text x="367.064" y="362.936" fill="#f7f8f8" font-size="11" font-weight="600" font-family="'Inter', sans-serif" text-anchor="end">15–18</text>
         <text data-polar-value-label x="355.75" y="374.25" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace" text-anchor="end" dy="12">82</text>
       </g>
       <g data-polar-category="18–21" data-polar-index="6" data-polar-value="76">
         <line data-polar-ray x1="500" y1="230" x2="378.4" y2="230" stroke="#d0d6e0" stroke-width="2"/>
-        <circle data-polar-marker cx="378.4" cy="230" r="4" fill="#010102" stroke="#d0d6e0" stroke-width="1.2"/>
+        <circle data-polar-marker cx="378.4" cy="230" r="4" fill="#101214" stroke="#d0d6e0" stroke-width="1.2"/>
         <text x="312" y="230" fill="#f7f8f8" font-size="11" font-weight="600" font-family="'Inter', sans-serif" text-anchor="end">18–21</text>
         <text data-polar-value-label x="296" y="230" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace" text-anchor="end" dy="16">76</text>
       </g>
       <g data-polar-category="21–24" data-polar-index="7" data-polar-value="45">
         <line data-polar-ray x1="500" y1="230" x2="449.088" y2="179.088" stroke="#d0d6e0" stroke-width="2"/>
-        <circle data-polar-marker cx="449.088" cy="179.088" r="4" fill="#010102" stroke="#d0d6e0" stroke-width="1.2"/>
+        <circle data-polar-marker cx="449.088" cy="179.088" r="4" fill="#101214" stroke="#d0d6e0" stroke-width="1.2"/>
         <text x="367.064" y="97.064" fill="#f7f8f8" font-size="11" font-weight="600" font-family="'Inter', sans-serif" text-anchor="end">21–24</text>
         <text data-polar-value-label x="355.75" y="85.75" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">45</text>
       </g>

@@ -10,7 +10,7 @@ sibling - and both render perfectly, so nothing but a reader catches it.
 
 That is exactly how `Other continents - darker is larger` shipped on
 `example-treemap-dark.html`, whose ramp is white ink at 0.14 down to 0.04 over
-#010102 paper: larger cells are *lighter* there. `lint-skin.py` reads colors,
+#101214 paper: larger cells are *lighter* there. `lint-skin.py` reads colors,
 `verify-geometry.py` reads coordinates, `verify-treemap.py` reads areas against
 labels. None of them reads a claim against a ramp.
 

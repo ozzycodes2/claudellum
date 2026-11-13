@@ -177,7 +177,7 @@ LABEL_ROW_OFFSET = 3.5       # px, a label baseline below its row, per the refer
 MIN_RIDGES, MAX_RIDGES = 3, 12
 MIN_BINS, MAX_BINS = 8, 40
 FOCAL_WIDTH, PLAIN_WIDTH = 2.4, 1.2
-ACCENTS = {"#ef6306"}   # one accent token, shared by both skins
+ACCENTS = {"#ff6a13"}   # one accent token, shared by both skins
 
 GROUP_TAGS = ("g", "svg")                     # the only ancestors whose transform is inherited
 BODY_TAGS = ("text", "title", "desc", "style")  # elements whose character data is read

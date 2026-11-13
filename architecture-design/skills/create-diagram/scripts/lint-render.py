@@ -1545,13 +1545,13 @@ def self_test(context):
         failures.append("template-export: no python snippet under ### Rasterize in export.md")
     else:
         wide_page = (
-            '<!DOCTYPE html><html><style>body{{margin:0;padding:32px;background:#f8f8f8}}'
+            '<!DOCTYPE html><html><style>body{{margin:0;padding:32px;background:#eceef0}}'
             '.frame{{max-width:1200px;width:100%}}.diagram-container{{width:100%;overflow-x:auto}}'
             'svg{{width:100%;min-width:' + str(WIDE_PRESET[0]) + 'px;display:block}}</style>'
             '<body><div class="frame"><div class="diagram-container"{clip}>'
             '<svg viewBox="0 0 ' + f"{WIDE_PRESET[0]} {WIDE_PRESET[1]}" + '" '
             'xmlns="http://www.w3.org/2000/svg"><rect width="' + str(WIDE_PRESET[0])
-            + '" height="' + str(WIDE_PRESET[1]) + '" fill="#f8f8f8"/>'
+            + '" height="' + str(WIDE_PRESET[1]) + '" fill="#eceef0"/>'
             + EXPORT_PROBE_MARKUP
             + "</svg></div></div></body></html>"
         )

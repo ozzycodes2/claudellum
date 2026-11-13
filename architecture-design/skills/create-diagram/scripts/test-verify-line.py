@@ -40,19 +40,19 @@ CLEAN = """<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><title>t</title></head><body>
 <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img">
   <title>t</title>
-  <rect width="100%" height="100%" fill="#f8f8f8"/>
-  <text x="64" y="60" fill="#4d4d4d" font-size="8" {M}>Signups per week</text>
-  <line data-axis="y" x1="64" y1="260" x2="64" y2="400" stroke="#616161" stroke-width="1"/>
-  <line data-axis="x" x1="80" y1="428" x2="248" y2="428" stroke="#616161" stroke-width="1"/>
-  <text data-tick="y" data-value="40" x="56" y="263" fill="#4d4d4d" font-size="8" {M} text-anchor="end">40</text>
-  <text data-tick="y" data-value="5" x="56" y="403" fill="#4d4d4d" font-size="8" {M} text-anchor="end">5</text>
-  <line data-ref="target" data-value="25" x1="80" y1="320" x2="248" y2="320" stroke="#616161" stroke-width="1" stroke-dasharray="4,3"/>
-  <text data-ref="target" data-role="label" x="264" y="316" fill="#4d4d4d" font-size="8" {M}>Target: 25</text>
-  <polyline data-line="Alpha" data-values="10,20,30,40" points="80,380 136,340 192,300 248,260" fill="none" stroke="#ef6306" stroke-width="1.8"/>
-  <polyline data-line="Beta" data-values="5,8,12,15" points="80,400 136,388 192,372 248,360" fill="none" stroke="#4d4d4d" stroke-width="1.2" stroke-dasharray="6,3"/>
+  <rect width="100%" height="100%" fill="#eceef0"/>
+  <text x="64" y="60" fill="#2c2c2c" font-size="8" {M}>Signups per week</text>
+  <line data-axis="y" x1="64" y1="260" x2="64" y2="400" stroke="#606060" stroke-width="1"/>
+  <line data-axis="x" x1="80" y1="428" x2="248" y2="428" stroke="#606060" stroke-width="1"/>
+  <text data-tick="y" data-value="40" x="56" y="263" fill="#2c2c2c" font-size="8" {M} text-anchor="end">40</text>
+  <text data-tick="y" data-value="5" x="56" y="403" fill="#2c2c2c" font-size="8" {M} text-anchor="end">5</text>
+  <line data-ref="target" data-value="25" x1="80" y1="320" x2="248" y2="320" stroke="#606060" stroke-width="1" stroke-dasharray="4,3"/>
+  <text data-ref="target" data-role="label" x="264" y="316" fill="#2c2c2c" font-size="8" {M}>Target: 25</text>
+  <polyline data-line="Alpha" data-values="10,20,30,40" points="80,380 136,340 192,300 248,260" fill="none" stroke="#ff6a13" stroke-width="1.8"/>
+  <polyline data-line="Beta" data-values="5,8,12,15" points="80,400 136,388 192,372 248,360" fill="none" stroke="#2c2c2c" stroke-width="1.2" stroke-dasharray="6,3"/>
   <text data-line="Alpha" data-role="name" x="264" y="264" fill="#171717" font-size="11" font-weight="600">Alpha</text>
-  <text data-line="Beta" data-role="name" x="264" y="364" fill="#4d4d4d" font-size="11" font-weight="500">Beta</text>
-  <text data-role="source" x="64" y="484" fill="#4d4d4d" font-size="8" {M}>Source: test. Y axis spans 5 to 40, not from zero.</text>
+  <text data-line="Beta" data-role="name" x="264" y="364" fill="#2c2c2c" font-size="11" font-weight="500">Beta</text>
+  <text data-role="source" x="64" y="484" fill="#2c2c2c" font-size="8" {M}>Source: test. Y axis spans 5 to 40, not from zero.</text>
 </svg></body></html>
 """.replace("{M}", MONO)
 
@@ -68,14 +68,14 @@ def panel(name, base, x0, vals, pitch=56, ref=50, domain="0,100", rng="100", ext
     return (
         '<g data-panel="%(n)s" data-domain="%(d)s" data-range="%(r)s">\n'
         '  <text data-line="%(n)s" data-role="title" x="%(tx)g" y="%(ty)g" font-size="11">%(t)s</text>\n'
-        '  <line data-axis="y" x1="%(tx)g" y1="%(yh)g" x2="%(tx)g" y2="%(yl)g" stroke="#616161"/>\n'
-        '  <line data-axis="x" x1="%(x0)g" y1="%(xb)g" x2="%(x1)g" y2="%(xb)g" stroke="#616161"/>\n'
+        '  <line data-axis="y" x1="%(tx)g" y1="%(yh)g" x2="%(tx)g" y2="%(yl)g" stroke="#606060"/>\n'
+        '  <line data-axis="x" x1="%(x0)g" y1="%(xb)g" x2="%(x1)g" y2="%(xb)g" stroke="#606060"/>\n'
         '  <text data-tick="y" data-value="%(hi)g" x="%(tk)g" y="%(yh3)g" font-size="8">%(hi)g</text>\n'
         '  <text data-tick="y" data-value="%(lo)g" x="%(tk)g" y="%(yl3)g" font-size="8">%(lo)g</text>\n'
         '  <text x="%(x0)g" y="%(xl)g" font-size="9" text-anchor="middle">W1</text>\n'
         '  <text x="%(x2)g" y="%(xl)g" font-size="9" text-anchor="middle">W3</text>\n'
         '  <line data-ref="mean" data-value="%(ref)g" x1="%(x0)g" y1="%(yr)g" x2="%(x1)g" y2="%(yr)g" '
-        'stroke="#616161" stroke-dasharray="4,3"/>\n'
+        'stroke="#606060" stroke-dasharray="4,3"/>\n'
         '  <text data-ref="mean" data-role="label" x="%(lx)g" y="%(yr3)g" font-size="8">Mean: %(ref)g</text>\n'
         '  %(extra)s\n'
         '  <polyline data-line="%(n)s" data-values="%(v)s" points="%(p)s" fill="none" stroke="#171717"/>\n'
@@ -230,7 +230,7 @@ def run_cases(h: Harness) -> int:
             "numeric x and y")
     crowded = mut(mut(CLEAN, 'data-values="5,8,12,15"', 'data-values="10,20,30,38"'),
                   "80,400 136,388 192,372 248,360", "80,380 136,340 192,300 248,268")
-    crowded = mut(crowded, 'y="364" fill="#4d4d4d" font-size="11"', 'y="272" fill="#4d4d4d" font-size="11"')
+    crowded = mut(crowded, 'y="364" fill="#2c2c2c" font-size="11"', 'y="272" fill="#2c2c2c" font-size="11"')
     h.flags("end labels closer than 10px are caught", crowded, "too many series")
 
     # --- legend ------------------------------------------------------------
@@ -268,7 +268,7 @@ def run_cases(h: Harness) -> int:
     h.flags("vertical writing mode is caught",
             mut(CLEAN, '<text x="64" y="60"', '<text writing-mode="vertical-rl" x="64" y="60"'), "vertical text")
     h.flags("an area fill under a one-dimensional series is caught",
-            mut(CLEAN, "</svg>", '<polygon points="80,380 248,260 248,420 80,420" fill="rgba(239,99,6,0.06)"/></svg>'),
+            mut(CLEAN, "</svg>", '<polygon points="80,380 248,260 248,420 80,420" fill="rgba(255,106,19,0.06)"/></svg>'),
             "filled area")
     h.clean("a cumulative area is allowed when declared",
             mut(CLEAN, "</svg>", '<polygon data-area="cumulative" points="80,380 248,260 248,420 80,420" fill="rgba(23,23,23,0.06)"/></svg>'))
@@ -278,22 +278,22 @@ def run_cases(h: Harness) -> int:
     h.flags("a fifth gridline is caught",
             mut(CLEAN, "</svg>", four + grid % (390, 390) + "</svg>"), "5 gridlines")
     h.flags("a strong gridline is caught",
-            mut(CLEAN, "</svg>", '<line x1="80" y1="340" x2="248" y2="340" stroke="#616161"/></svg>'),
+            mut(CLEAN, "</svg>", '<line x1="80" y1="340" x2="248" y2="340" stroke="#606060"/></svg>'),
             "ink at 0.08 or fainter")
     h.flags("a series fainter than the ink floor is caught",
-            mut(CLEAN, 'stroke="#4d4d4d" stroke-width="1.2"', 'stroke="rgba(23,23,23,0.4)" stroke-width="1.2"'),
+            mut(CLEAN, 'stroke="#2c2c2c" stroke-width="1.2"', 'stroke="rgba(23,23,23,0.4)" stroke-width="1.2"'),
             "ink floor")
     h.clean("a series at the ink floor is allowed",
-            mut(CLEAN, 'stroke="#4d4d4d" stroke-width="1.2"', 'stroke="rgba(23,23,23,0.53)" stroke-width="1.2"'))
+            mut(CLEAN, 'stroke="#2c2c2c" stroke-width="1.2"', 'stroke="rgba(23,23,23,0.53)" stroke-width="1.2"'))
     h.flags("two accent series are caught",
-            mut(CLEAN, 'stroke="#4d4d4d" stroke-width="1.2"', 'stroke="#ef6306" stroke-width="1.2"'),
+            mut(CLEAN, 'stroke="#2c2c2c" stroke-width="1.2"', 'stroke="#ff6a13" stroke-width="1.2"'),
             "accent series")
     h.flags("text painted in the accent is caught",
-            mut(CLEAN, 'fill="#171717" font-size="11"', 'fill="#ef6306" font-size="11"'), "accent")
+            mut(CLEAN, 'fill="#171717" font-size="11"', 'fill="#ff6a13" font-size="11"'), "accent")
     seven = CLEAN
     for i in range(5):
         seven = mut(seven, "</svg>",
-                    '<polyline data-line="S%d" data-values="5,8,12,15" points="80,400 136,388 192,372 248,360" fill="none" stroke="#4d4d4d"/></svg>' % i)
+                    '<polyline data-line="S%d" data-values="5,8,12,15" points="80,400 136,388 192,372 248,360" fill="none" stroke="#2c2c2c"/></svg>' % i)
     h.flags("more than six series are caught", seven, "at most 6")
 
     # --- source line -------------------------------------------------------
@@ -311,9 +311,9 @@ def run_cases(h: Harness) -> int:
     h.clean("a zero-based axis needs no truncation statement", zero)
 
     # --- event markers -----------------------------------------------------
-    w3 = '<text x="192" y="444" fill="#4d4d4d" font-size="9" %s text-anchor="middle">W3</text>' % MONO
+    w3 = '<text x="192" y="444" fill="#2c2c2c" font-size="9" %s text-anchor="middle">W3</text>' % MONO
     ev = ('<g data-event="W3" data-event-label="Guides published">'
-          '<line x1="192" y1="260" x2="192" y2="420" stroke="#616161" stroke-dasharray="2,3"/>'
+          '<line x1="192" y1="260" x2="192" y2="420" stroke="#606060" stroke-dasharray="2,3"/>'
           '<text x="196" y="270" font-size="10" font-style="italic">Guides published</text></g>')
     with_ev = mut(CLEAN, "</svg>", w3 + ev + "</svg>")
     h.clean("an event on its category's x passes (and is not a gridline)", with_ev)
@@ -341,7 +341,7 @@ def run_cases(h: Harness) -> int:
             mut(with_ev, 'data-event-label="Guides published"', 'data-event-label="Holiday"'),
             "prints no such text")
     h.flags("a strong gridline outside an event group is still caught",
-            mut(with_ev, "</svg>", '<line x1="192" y1="260" x2="192" y2="420" stroke="#616161"/></svg>'),
+            mut(with_ev, "</svg>", '<line x1="192" y1="260" x2="192" y2="420" stroke="#606060"/></svg>'),
             "ink at 0.08 or fainter")
 
     # --- small multiples ---------------------------------------------------
@@ -411,8 +411,8 @@ def run_cases(h: Harness) -> int:
     h.flags("a legend in small multiples is caught",
             multiples(wrap='<g data-role="legend"></g>'), "legend element")
     h.flags("two accent panels are caught",
-            multiples(p1=panel("Alpha", 200, 80, [20, 40, 60, 80]).replace('stroke="#171717"', 'stroke="#ef6306"'),
-                      p2=panel("Beta", 400, 400, [10, 30, 50, 70]).replace('stroke="#171717"', 'stroke="#ef6306"')),
+            multiples(p1=panel("Alpha", 200, 80, [20, 40, 60, 80]).replace('stroke="#171717"', 'stroke="#ff6a13"'),
+                      p2=panel("Beta", 400, 400, [10, 30, 50, 70]).replace('stroke="#171717"', 'stroke="#ff6a13"')),
             "accent series")
     h.flags("a nested panel is caught",
             multiples(p2=panel("Beta", 400, 400, [10, 30, 50, 70]).replace("</g>\n", "</g></g>\n", 1).replace(
@@ -424,7 +424,7 @@ def run_cases(h: Harness) -> int:
             "does not reach zero")
     p2_ev = panel("Beta", 400, 400, [10, 30, 50, 70],
                   extra='<g data-event="W3" data-event-label="Launch"><line x1="512" y1="290" x2="512" y2="400" '
-                        'stroke="#616161" stroke-dasharray="2,3"/><text x="516" y="300">Launch</text></g>')
+                        'stroke="#606060" stroke-dasharray="2,3"/><text x="516" y="300">Launch</text></g>')
     h.clean("an event inside a panel is held to that panel's tick label", multiples(p2=p2_ev))
     h.flags("a panel event off its panel's category x is caught",
             multiples(p2=p2_ev.replace('x1="512"', 'x1="200"').replace('x2="512"', 'x2="200"')),

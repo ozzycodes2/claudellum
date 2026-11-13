@@ -8,10 +8,10 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --color-paper:   #f8f8f8;
+      --color-paper:   #eceef0;
       --color-ink:     #171717;
-      --color-muted:   #4d4d4d;
-      --color-accent:  #ef6306;
+      --color-muted:   #2c2c2c;
+      --color-accent:  #ff6a13;
       --font-sans:     'Inter', system-ui, sans-serif;
       --font-mono:     'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     }
@@ -62,77 +62,77 @@
       <desc id="state-desc">State machine showing an article moving from Draft through In Review and Published to Archived, including rejection and revision.</desc>
         <defs>
 
-          <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4d4d4d"/></marker>
-          <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ef6306"/></marker>
+          <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2c2c2c"/></marker>
+          <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ff6a13"/></marker>
         </defs>
 
-        <rect width="100%" height="100%" fill="#f8f8f8"/>
+        <rect width="100%" height="100%" fill="#eceef0"/>
 
         <!-- Transitions (drawn first) -->
         <!-- Start → Draft -->
-        <line x1="68" y1="200" x2="120" y2="200" stroke="#4d4d4d" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <line x1="68" y1="200" x2="120" y2="200" stroke="#2c2c2c" stroke-width="1.2" marker-end="url(#arrow)"/>
         <!-- Draft → In Review -->
-        <line x1="280" y1="200" x2="340" y2="200" stroke="#4d4d4d" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <line x1="280" y1="200" x2="340" y2="200" stroke="#2c2c2c" stroke-width="1.2" marker-end="url(#arrow)"/>
         <!-- In Review → Published (accent — happy path) -->
-        <line x1="500" y1="200" x2="560" y2="200" stroke="#ef6306" stroke-width="1.4" marker-end="url(#arrow-accent)"/>
+        <line x1="500" y1="200" x2="560" y2="200" stroke="#ff6a13" stroke-width="1.4" marker-end="url(#arrow-accent)"/>
         <!-- Published → Archived (down) -->
-        <line x1="640" y1="240" x2="640" y2="300" stroke="#4d4d4d" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <line x1="640" y1="240" x2="640" y2="300" stroke="#2c2c2c" stroke-width="1.2" marker-end="url(#arrow)"/>
         <!-- Archived → End (down) -->
-        <line x1="640" y1="400" x2="640" y2="432" stroke="#4d4d4d" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <line x1="640" y1="400" x2="640" y2="432" stroke="#2c2c2c" stroke-width="1.2" marker-end="url(#arrow)"/>
         <!-- In Review → Draft (curved back up-and-left) -->
-        <path d="M 420 160 C 420 96, 200 96, 200 160" fill="none" stroke="#4d4d4d" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+        <path d="M 420 160 C 420 96, 200 96, 200 160" fill="none" stroke="#2c2c2c" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
 
         <!-- Transition labels -->
-        <rect x="176" y="184" width="40" height="12" rx="2" fill="#f8f8f8"/>
-        <text x="196" y="194" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Create</text>
+        <rect x="176" y="184" width="40" height="12" rx="2" fill="#eceef0"/>
+        <text x="196" y="194" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Create</text>
 
-        <rect x="292" y="184" width="40" height="12" rx="2" fill="#f8f8f8"/>
-        <text x="312" y="194" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Submit</text>
+        <rect x="292" y="184" width="40" height="12" rx="2" fill="#eceef0"/>
+        <text x="312" y="194" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Submit</text>
 
-        <rect x="508" y="184" width="44" height="12" rx="2" fill="#f8f8f8"/>
+        <rect x="508" y="184" width="44" height="12" rx="2" fill="#eceef0"/>
         <text x="530" y="194" fill="#171717" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Approve</text>
 
-        <rect x="620" y="264" width="40" height="12" rx="2" fill="#f8f8f8"/>
-        <text x="640" y="274" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Expire</text>
+        <rect x="620" y="264" width="40" height="12" rx="2" fill="#eceef0"/>
+        <text x="640" y="274" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Expire</text>
 
-        <rect x="622" y="416" width="36" height="12" rx="2" fill="#f8f8f8"/>
-        <text x="640" y="426" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Purge</text>
+        <rect x="622" y="416" width="36" height="12" rx="2" fill="#eceef0"/>
+        <text x="640" y="426" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Purge</text>
 
         <!-- Reject label on curved path -->
-        <rect x="274" y="92" width="84" height="12" rx="2" fill="#f8f8f8"/>
-        <text x="316" y="102" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Reject · revise</text>
+        <rect x="274" y="92" width="84" height="12" rx="2" fill="#eceef0"/>
+        <text x="316" y="102" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Reject · revise</text>
 
         <!-- Start dot (filled ink) -->
         <circle cx="60" cy="200" r="6" fill="#171717"/>
 
         <!-- State: Draft -->
-        <rect x="120" y="160" width="160" height="80" rx="8" fill="#ffffff" stroke="#171717" stroke-width="1"/>
+        <rect x="120" y="160" width="160" height="80" rx="8" fill="#f7f8f8" stroke="#171717" stroke-width="1"/>
         <rect x="128" y="168" width="40" height="12" rx="2" fill="transparent" stroke="rgba(23,23,23,0.40)" stroke-width="0.8"/>
         <text x="148" y="177" fill="#171717" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.08em">STATE</text>
         <text x="200" y="208" fill="#171717" font-size="14" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Draft</text>
-        <text x="200" y="224" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">unpublished</text>
+        <text x="200" y="224" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">unpublished</text>
 
         <!-- State: In Review -->
-        <rect x="340" y="160" width="160" height="80" rx="8" fill="#ffffff" stroke="#171717" stroke-width="1"/>
+        <rect x="340" y="160" width="160" height="80" rx="8" fill="#f7f8f8" stroke="#171717" stroke-width="1"/>
         <rect x="348" y="168" width="40" height="12" rx="2" fill="transparent" stroke="rgba(23,23,23,0.40)" stroke-width="0.8"/>
         <text x="368" y="177" fill="#171717" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.08em">STATE</text>
         <text x="420" y="208" fill="#171717" font-size="14" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">In Review</text>
-        <text x="420" y="224" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">awaiting approval</text>
+        <text x="420" y="224" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">awaiting approval</text>
 
         <!-- State: Published (focal accent) -->
-        <rect x="560" y="160" width="160" height="80" rx="8" fill="rgba(239,99,6,0.08)" stroke="#ef6306" stroke-width="1"/>
-        <rect x="568" y="168" width="40" height="12" rx="2" fill="transparent" stroke="rgba(239,99,6,0.50)" stroke-width="0.8"/>
+        <rect x="560" y="160" width="160" height="80" rx="8" fill="rgba(255,106,19,0.08)" stroke="#ff6a13" stroke-width="1"/>
+        <rect x="568" y="168" width="40" height="12" rx="2" fill="transparent" stroke="rgba(255,106,19,0.50)" stroke-width="0.8"/>
         <text x="588" y="177" fill="#171717" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.08em">STATE</text>
         <text x="640" y="208" fill="#171717" font-size="14" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Published</text>
-        <text x="640" y="224" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">live on site</text>
+        <text x="640" y="224" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">live on site</text>
 
         <!-- State: Archived -->
-        <rect x="560" y="300" width="160" height="100" rx="8" fill="rgba(23,23,23,0.05)" stroke="#4d4d4d" stroke-width="1"/>
-        <rect x="568" y="308" width="40" height="12" rx="2" fill="transparent" stroke="rgba(77,77,77,0.50)" stroke-width="0.8"/>
-        <text x="588" y="317" fill="#4d4d4d" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.08em">STATE</text>
+        <rect x="560" y="300" width="160" height="100" rx="8" fill="rgba(23,23,23,0.05)" stroke="#2c2c2c" stroke-width="1"/>
+        <rect x="568" y="308" width="40" height="12" rx="2" fill="transparent" stroke="rgba(44,44,44,0.50)" stroke-width="0.8"/>
+        <text x="588" y="317" fill="#2c2c2c" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.08em">STATE</text>
         <text x="640" y="348" fill="#171717" font-size="14" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Archived</text>
-        <text x="640" y="364" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">noindex · hidden</text>
-        <text x="640" y="382" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">redirect retained</text>
+        <text x="640" y="364" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">noindex · hidden</text>
+        <text x="640" y="382" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">redirect retained</text>
 
         <!-- End ring dot -->
         <circle cx="640" cy="440" r="8" fill="none" stroke="#171717" stroke-width="1"/>

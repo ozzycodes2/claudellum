@@ -44,7 +44,7 @@ Every cell is two overlapping `<rect>` elements: a paper-fill underlay (no data 
 
 **Ramp bounds:** the lowest-value non-focal cell should land at ≥ 0.05 opacity (the cell must be visually distinct from the paper background) and the highest-value non-focal cell at ≤ 0.70 (the ramp must not bleed into the focal accent's territory).
 
-**The focal fill is solid, and its boundary is `ink`, not the accent.** (The example follows this rule exactly: `fill="accent"` solid, `stroke="ink"` at 1.2px, value text in `ink-strong`.) The source system specifies `on-primary` against the *solid* primary (5.51:1); on a partly transparent accent over the dark paper the same label falls to 4.12:1, which `scripts/verify-contrast.py` fails. A solid fill also leaves the accent and the 0.70 ramp ceiling further apart than the 0.85 this replaced, so the focal cell separates more, not less. Since fill and stroke would then be the same hue, the boundary moves to `ink` — the cell still needs an edge over 3:1 and the accent alone is only held to 3:1 itself.
+**The focal fill is solid, and its boundary is `ink`, not the accent.** (The example follows this rule exactly: `fill="accent"` solid, `stroke="ink"` at 1.2px, value text in `ink-strong`.) The source system specifies `on-primary` against the *solid* primary (6.25:1); on a partly transparent accent over the dark paper the same label falls to 4.77:1, a quarter-point over the bar. A solid fill also leaves the accent and the 0.70 ramp ceiling further apart than the 0.85 this replaced, so the focal cell separates more, not less. Since fill and stroke would then be the same hue, the boundary moves to `ink` — the cell still needs an edge over 3:1 and the accent alone is only held to 3:1 itself.
 
 ## Legend, source and context
 

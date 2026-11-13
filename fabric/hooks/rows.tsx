@@ -872,7 +872,7 @@ export function askBand(look: Look, headers: readonly string[]) {
 
 // The pills above the prompt for what this session has finished. Fixed colours, whatever the
 // skin: green for a review, Fabric's accent for its fixes, white type on both.
-export const BADGE_COLORS: Readonly<Record<Badge, string>> = { reviewed: '#15803d', fixed: '#ef6306' }
+export const BADGE_COLORS: Readonly<Record<Badge, string>> = { reviewed: '#15803d', fixed: '#ff6a13' }
 
 export function badgeRow(look: Look, badges: readonly Badge[]) {
   const { Text } = look.ui

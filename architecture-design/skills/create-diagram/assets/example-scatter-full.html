@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --color-paper:#f8f8f8; --color-paper-2:#ffffff; --color-ink:#171717; --color-muted:#4d4d4d; --color-soft:#616161; --color-rule:rgba(23,23,23,0.12); --color-accent:#ef6306; --font-sans:'Inter',system-ui,sans-serif; --font-mono:'SF Mono',ui-monospace,monospace; }
+    :root { --color-paper:#eceef0; --color-paper-2:#f7f8f8; --color-ink:#171717; --color-muted:#2c2c2c; --color-soft:#606060; --color-rule:rgba(23,23,23,0.12); --color-accent:#ff6a13; --font-sans:'Inter',system-ui,sans-serif; --font-mono:'SF Mono',ui-monospace,monospace; }
     body { font-family: var(--font-sans); background: var(--color-paper); min-height: 100vh; padding: 3rem 2rem; color: var(--color-ink); }
     .container { max-width: 1200px; margin: 0 auto; }
     .header { margin-bottom: 2.5rem; }
@@ -39,52 +39,52 @@
       <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="scatter-full-title scatter-full-desc">
         <title id="scatter-full-title">Teams that deploy more often ship faster</title>
         <desc id="scatter-full-desc">Teams that deploy more often ship faster. Scatter plot of twelve engineering teams by deploy frequency and lead time, with Platform in the best-performing quadrant and two outliers marked.</desc>
-        <rect width="100%" height="100%" fill="#f8f8f8"/>
-        <text x="144" y="84" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace">Lead time, days</text>
+        <rect width="100%" height="100%" fill="#eceef0"/>
+        <text x="144" y="84" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace">Lead time, days</text>
         <!-- Range-frame axes: each rule spans only the data min to max -->
-        <line data-axis="y" x1="144" y1="103.3" x2="144" y2="388.3" stroke="#616161" stroke-width="1"/>
-        <line data-axis="x" x1="168" y1="432" x2="960" y2="432" stroke="#616161" stroke-width="1"/>
-        <text data-tick="y" data-value="2" x="136" y="391.3" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">2</text>
-        <text data-tick="x" data-value="2" x="168" y="448" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">2</text>
-        <text data-tick="y" data-value="8" x="136" y="296.3" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">8</text>
-        <text data-tick="x" data-value="8" x="432" y="448" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">8</text>
-        <text data-tick="y" data-value="14" x="136" y="201.3" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">14</text>
-        <text data-tick="x" data-value="14" x="696" y="448" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">14</text>
-        <text data-tick="y" data-value="20" x="136" y="106.3" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">20</text>
-        <text data-tick="x" data-value="20" x="960" y="448" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">20</text>
-        <text x="168" y="468" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace">Deploys per week</text>
+        <line data-axis="y" x1="144" y1="103.3" x2="144" y2="388.3" stroke="#606060" stroke-width="1"/>
+        <line data-axis="x" x1="168" y1="432" x2="960" y2="432" stroke="#606060" stroke-width="1"/>
+        <text data-tick="y" data-value="2" x="136" y="391.3" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">2</text>
+        <text data-tick="x" data-value="2" x="168" y="448" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">2</text>
+        <text data-tick="y" data-value="8" x="136" y="296.3" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">8</text>
+        <text data-tick="x" data-value="8" x="432" y="448" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">8</text>
+        <text data-tick="y" data-value="14" x="136" y="201.3" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">14</text>
+        <text data-tick="x" data-value="14" x="696" y="448" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">14</text>
+        <text data-tick="y" data-value="20" x="136" y="106.3" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">20</text>
+        <text data-tick="x" data-value="20" x="960" y="448" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">20</text>
+        <text x="168" y="468" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace">Deploys per week</text>
         <!-- Comparison: median lead time, drawn under the data -->
-        <line data-ref="median" data-value="10" x1="168" y1="261.7" x2="960" y2="261.7" stroke="#616161" stroke-width="1" stroke-dasharray="4,3"/>
-        <text data-ref="median" data-role="label" x="176" y="253.7" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace">Median lead time: 10 days</text>
+        <line data-ref="median" data-value="10" x1="168" y1="261.7" x2="960" y2="261.7" stroke="#606060" stroke-width="1" stroke-dasharray="4,3"/>
+        <text data-ref="median" data-role="label" x="176" y="253.7" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace">Median lead time: 10 days</text>
         <!-- Trend: ordinary least squares over all 12 points, drawn from the smallest to the largest x -->
-        <line data-trend="ols" x1="168" y1="132.4" x2="960" y2="414.3" stroke="#616161" stroke-width="1.2"/>
-        <text data-trend="ols" data-role="label" x="296" y="168" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace">Least squares fit</text>
+        <line data-trend="ols" x1="168" y1="132.4" x2="960" y2="414.3" stroke="#606060" stroke-width="1.2"/>
+        <text data-trend="ols" data-role="label" x="296" y="168" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace">Least squares fit</text>
         <!-- Points: data-x = deploys per week, data-y = lead time in days; x = 80 + 44*f, y = 420 - 380*lt/24 -->
-        <circle cx="168" cy="103.3" r="5" fill="#f8f8f8"/>
-        <circle data-x="2" data-y="20" cx="168" cy="103.3" r="5" fill="rgba(77,77,77,0.20)" stroke="#4d4d4d" stroke-width="1"/>
-        <circle cx="256" cy="135" r="5" fill="#f8f8f8"/>
-        <circle data-x="4" data-y="18" cx="256" cy="135" r="5" fill="rgba(77,77,77,0.20)" stroke="#4d4d4d" stroke-width="1"/>
-        <circle cx="256" cy="166.7" r="5" fill="#f8f8f8"/>
-        <circle data-x="4" data-y="16" cx="256" cy="166.7" r="5" fill="rgba(77,77,77,0.20)" stroke="#4d4d4d" stroke-width="1"/>
-        <circle cx="344" cy="198.3" r="5" fill="#f8f8f8"/>
-        <circle data-x="6" data-y="14" cx="344" cy="198.3" r="5" fill="rgba(77,77,77,0.20)" stroke="#4d4d4d" stroke-width="1"/>
-        <circle cx="432" cy="230" r="5" fill="#f8f8f8"/>
-        <circle data-x="8" data-y="12" cx="432" cy="230" r="5" fill="rgba(77,77,77,0.20)" stroke="#4d4d4d" stroke-width="1"/>
-        <circle cx="432" cy="261.7" r="5" fill="#f8f8f8"/>
-        <circle data-x="8" data-y="10" cx="432" cy="261.7" r="5" fill="rgba(77,77,77,0.20)" stroke="#4d4d4d" stroke-width="1"/>
-        <circle cx="520" cy="293.3" r="5" fill="#f8f8f8"/>
-        <circle data-x="10" data-y="8" cx="520" cy="293.3" r="5" fill="rgba(77,77,77,0.20)" stroke="#4d4d4d" stroke-width="1"/>
-        <circle cx="608" cy="325" r="5" fill="#f8f8f8"/>
-        <circle data-x="12" data-y="6" cx="608" cy="325" r="5" fill="rgba(77,77,77,0.20)" stroke="#4d4d4d" stroke-width="1"/>
-        <circle cx="608" cy="261.7" r="5" fill="#f8f8f8"/>
-        <circle data-x="12" data-y="10" cx="608" cy="261.7" r="5" fill="rgba(77,77,77,0.20)" stroke="#4d4d4d" stroke-width="1"/>
-        <circle cx="784" cy="356.7" r="5" fill="#f8f8f8"/>
-        <circle data-x="16" data-y="4" cx="784" cy="356.7" r="5" fill="rgba(77,77,77,0.20)" stroke="#4d4d4d" stroke-width="1"/>
-        <circle cx="960" cy="388.3" r="5" fill="#f8f8f8"/>
-        <circle data-x="20" data-y="2" cx="960" cy="388.3" r="5" fill="rgba(77,77,77,0.20)" stroke="#4d4d4d" stroke-width="1"/>
-        <circle cx="872" cy="372.5" r="6" fill="#f8f8f8"/>
-        <circle data-x="18" data-y="3" data-name="Platform" cx="872" cy="372.5" r="6" fill="rgba(239,99,6,0.15)" stroke="#ef6306" stroke-width="1.2"/>
-        <rect x="806" y="348" width="48" height="12" fill="#f8f8f8"/>
+        <circle cx="168" cy="103.3" r="5" fill="#eceef0"/>
+        <circle data-x="2" data-y="20" cx="168" cy="103.3" r="5" fill="rgba(44,44,44,0.20)" stroke="#2c2c2c" stroke-width="1"/>
+        <circle cx="256" cy="135" r="5" fill="#eceef0"/>
+        <circle data-x="4" data-y="18" cx="256" cy="135" r="5" fill="rgba(44,44,44,0.20)" stroke="#2c2c2c" stroke-width="1"/>
+        <circle cx="256" cy="166.7" r="5" fill="#eceef0"/>
+        <circle data-x="4" data-y="16" cx="256" cy="166.7" r="5" fill="rgba(44,44,44,0.20)" stroke="#2c2c2c" stroke-width="1"/>
+        <circle cx="344" cy="198.3" r="5" fill="#eceef0"/>
+        <circle data-x="6" data-y="14" cx="344" cy="198.3" r="5" fill="rgba(44,44,44,0.20)" stroke="#2c2c2c" stroke-width="1"/>
+        <circle cx="432" cy="230" r="5" fill="#eceef0"/>
+        <circle data-x="8" data-y="12" cx="432" cy="230" r="5" fill="rgba(44,44,44,0.20)" stroke="#2c2c2c" stroke-width="1"/>
+        <circle cx="432" cy="261.7" r="5" fill="#eceef0"/>
+        <circle data-x="8" data-y="10" cx="432" cy="261.7" r="5" fill="rgba(44,44,44,0.20)" stroke="#2c2c2c" stroke-width="1"/>
+        <circle cx="520" cy="293.3" r="5" fill="#eceef0"/>
+        <circle data-x="10" data-y="8" cx="520" cy="293.3" r="5" fill="rgba(44,44,44,0.20)" stroke="#2c2c2c" stroke-width="1"/>
+        <circle cx="608" cy="325" r="5" fill="#eceef0"/>
+        <circle data-x="12" data-y="6" cx="608" cy="325" r="5" fill="rgba(44,44,44,0.20)" stroke="#2c2c2c" stroke-width="1"/>
+        <circle cx="608" cy="261.7" r="5" fill="#eceef0"/>
+        <circle data-x="12" data-y="10" cx="608" cy="261.7" r="5" fill="rgba(44,44,44,0.20)" stroke="#2c2c2c" stroke-width="1"/>
+        <circle cx="784" cy="356.7" r="5" fill="#eceef0"/>
+        <circle data-x="16" data-y="4" cx="784" cy="356.7" r="5" fill="rgba(44,44,44,0.20)" stroke="#2c2c2c" stroke-width="1"/>
+        <circle cx="960" cy="388.3" r="5" fill="#eceef0"/>
+        <circle data-x="20" data-y="2" cx="960" cy="388.3" r="5" fill="rgba(44,44,44,0.20)" stroke="#2c2c2c" stroke-width="1"/>
+        <circle cx="872" cy="372.5" r="6" fill="#eceef0"/>
+        <circle data-x="18" data-y="3" data-name="Platform" cx="872" cy="372.5" r="6" fill="rgba(255,106,19,0.15)" stroke="#ff6a13" stroke-width="1.2"/>
+        <rect x="806" y="348" width="48" height="12" fill="#eceef0"/>
         <text data-name="Platform" data-role="label" x="830" y="357" fill="#171717" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Platform</text>
         <g data-event="(2, 20)" data-event-label="Possible approval chains">
           <circle cx="168" cy="103.3" r="9" fill="none" stroke="#171717" stroke-width="1"/>
@@ -94,7 +94,7 @@
           <circle cx="608" cy="261.7" r="9" fill="none" stroke="#171717" stroke-width="1"/>
           <text x="624" y="249" fill="#171717" font-size="10" font-style="italic" font-family="'Inter', sans-serif">Possible slow integration tests</text>
         </g>
-        <text data-role="source" x="144" y="480" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace">Source: illustrative engineering metrics, 12 teams, trailing quarter. Deploys per week; lead time in days.<tspan x="144" dy="12">Solid line: least squares fit to all 12 points. Dashed line: median lead time.</tspan></text>
+        <text data-role="source" x="144" y="480" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace">Source: illustrative engineering metrics, 12 teams, trailing quarter. Deploys per week; lead time in days.<tspan x="144" dy="12">Solid line: least squares fit to all 12 points. Dashed line: median lead time.</tspan></text>
       </svg>
     </div>
     <div class="cards">

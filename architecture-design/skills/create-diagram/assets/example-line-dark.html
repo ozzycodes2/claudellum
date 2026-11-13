@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --color-paper:#010102; --color-ink:#f7f8f8; --color-muted:#d0d6e0; --color-accent:#ef6306; --font-sans:'Inter',system-ui,sans-serif; --font-mono:'SF Mono',ui-monospace,monospace; }
+    :root { --color-paper:#101214; --color-ink:#f7f8f8; --color-muted:#d0d6e0; --color-accent:#ff6a13; --font-sans:'Inter',system-ui,sans-serif; --font-mono:'SF Mono',ui-monospace,monospace; }
     body { font-family: var(--font-sans); background: var(--color-paper); color: var(--color-ink); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 3rem 2rem; }
     .frame { max-width: 1200px; width: 100%; }
     .eyebrow { font-family: var(--font-mono); font-size: 0.66rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 0.5rem; }
@@ -23,7 +23,7 @@
     <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="line-dark-title line-dark-desc">
       <title id="line-dark-title">Organic search drove most of the growth</title>
       <desc id="line-dark-desc">Organic search drove most of the growth. Line chart of weekly signups from organic, direct and referral channels across weeks W1 through W8, with a weekly target of 150 and two marked causes: guides published in W4 and a public holiday in W5.</desc>
-      <rect width="100%" height="100%" fill="#010102"/>
+      <rect width="100%" height="100%" fill="#101214"/>
       <text x="64" y="60" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace">Signups per week</text>
       <!-- Range-frame axes: each rule spans only the data min to max -->
       <line data-axis="y" x1="64" y1="80" x2="64" y2="410" stroke="#8a8f98" stroke-width="1"/>
@@ -54,8 +54,8 @@
       <!-- Series: accent focal line, ink solid, muted dash 6,3. Every series is named at its last point, so there is no legend. -->
       <polyline data-line="Referral" data-values="45,52,48,60,55,68,62,75" points="80,410 136,396 192,404 248,380 304,390 360,364 416,376 472,350" fill="none" stroke="#d0d6e0" stroke-width="1.2" stroke-dasharray="6,3" stroke-linejoin="round"/>
       <polyline data-line="Direct" data-values="80,82,88,90,86,92,95,98" points="80,340 136,336 192,324 248,320 304,328 360,316 416,310 472,304" fill="none" stroke="#f7f8f8" stroke-width="1.2" stroke-linejoin="round"/>
-      <polyline data-line="Organic" data-values="120,126,132,170,162,178,195,210" points="80,260 136,248 192,236 248,160 304,176 360,144 416,110 472,80" fill="none" stroke="#ef6306" stroke-width="1.8" stroke-linejoin="round"/>
-      <circle cx="472" cy="80" r="4" fill="#ef6306"/>
+      <polyline data-line="Organic" data-values="120,126,132,170,162,178,195,210" points="80,260 136,248 192,236 248,160 304,176 360,144 416,110 472,80" fill="none" stroke="#ff6a13" stroke-width="1.8" stroke-linejoin="round"/>
+      <circle cx="472" cy="80" r="4" fill="#ff6a13"/>
       <text data-line="Referral" data-role="name" x="488" y="354" fill="#d0d6e0" font-size="11" font-weight="500" font-family="'Inter', sans-serif">Referral</text>
       <text data-line="Direct" data-role="name" x="488" y="308" fill="#d0d6e0" font-size="11" font-weight="500" font-family="'Inter', sans-serif">Direct</text>
       <text data-line="Organic" data-role="name" x="488" y="84" fill="#f7f8f8" font-size="11" font-weight="600" font-family="'Inter', sans-serif">Organic</text>

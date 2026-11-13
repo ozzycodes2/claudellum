@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --color-paper:#f8f8f8; --color-paper-2:#ffffff; --color-ink:#171717; --color-muted:#4d4d4d; --color-soft:#616161; --color-rule:rgba(23,23,23,0.12); --color-accent:#ef6306; --font-sans:'Inter',system-ui,sans-serif; --font-mono:'SF Mono',ui-monospace,monospace; }
+    :root { --color-paper:#eceef0; --color-paper-2:#f7f8f8; --color-ink:#171717; --color-muted:#2c2c2c; --color-soft:#606060; --color-rule:rgba(23,23,23,0.12); --color-accent:#ff6a13; --font-sans:'Inter',system-ui,sans-serif; --font-mono:'SF Mono',ui-monospace,monospace; }
     body { font-family: var(--font-sans); background: var(--color-paper); min-height: 100vh; padding: 3rem 2rem; color: var(--color-ink); }
     .container { max-width: 1200px; margin: 0 auto; }
     .header { margin-bottom: 2.5rem; }
@@ -39,7 +39,7 @@
         <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="marimekko-full-title marimekko-full-desc">
           <title id="marimekko-full-title">One pipeline on one runner is a fifth of all CI time</title>
           <desc id="marimekko-full-desc">One pipeline on one runner is a fifth of all CI time. Marimekko chart of 10,000 CI minutes over 30 days, split five pipelines wide and up to three runner operating systems tall; column width is each pipeline's share of all minutes, segment height is each runner's share within its pipeline, and the mobile pipeline's macOS runners alone account for about 20 percent of the total.</desc>
-          <rect width="100%" height="100%" fill="#f8f8f8"/>
+          <rect width="100%" height="100%" fill="#eceef0"/>
 
           <!-- ─── COLUMNS ─── Five pipelines across 900px of column width (x 40 → 956
                less four 4px gutters), each width the pipeline's share of all 10,000
@@ -53,88 +53,88 @@
                focal segment is marked by its accent stroke, not by tone. ─── -->
 
           <!-- web · 3,140 min · 31.4% · x 40 w 280 -->
-          <rect x="40" y="40" width="280" height="259" rx="2" fill="#f8f8f8"/>
+          <rect x="40" y="40" width="280" height="259" rx="2" fill="#eceef0"/>
           <rect x="40" y="40" width="280" height="259" rx="2" data-column="web" data-segment="Linux" data-amount="2140" fill="rgba(23,23,23,0.16)" stroke="rgba(23,23,23,0.30)" stroke-width="1"/>
           <text data-column="web" data-segment="Linux" data-role="label" x="56" y="68" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif">Linux</text>
-          <text data-column="web" data-segment="Linux" data-role="label" x="56" y="86" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace">2,140 min · 68%</text>
+          <text data-column="web" data-segment="Linux" data-role="label" x="56" y="86" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace">2,140 min · 68%</text>
 
-          <rect x="40" y="299" width="280" height="46" rx="2" fill="#f8f8f8"/>
+          <rect x="40" y="299" width="280" height="46" rx="2" fill="#eceef0"/>
           <rect x="40" y="299" width="280" height="46" rx="2" data-column="web" data-segment="macOS" data-amount="380" fill="rgba(23,23,23,0.10)" stroke="rgba(23,23,23,0.30)" stroke-width="1"/>
           <text data-column="web" data-segment="macOS" data-role="label" x="56" y="316" fill="#171717" font-size="11" font-weight="600" font-family="'Inter', sans-serif">macOS</text>
-          <text data-column="web" data-segment="macOS" data-role="label" x="56" y="331" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace">380 min · 12%</text>
+          <text data-column="web" data-segment="macOS" data-role="label" x="56" y="331" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace">380 min · 12%</text>
 
-          <rect x="40" y="345" width="280" height="75" rx="2" fill="#f8f8f8"/>
+          <rect x="40" y="345" width="280" height="75" rx="2" fill="#eceef0"/>
           <rect x="40" y="345" width="280" height="75" rx="2" data-column="web" data-segment="Windows" data-amount="620" fill="rgba(23,23,23,0.05)" stroke="rgba(23,23,23,0.30)" stroke-width="1"/>
           <text data-column="web" data-segment="Windows" data-role="label" x="56" y="373" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif">Windows</text>
-          <text data-column="web" data-segment="Windows" data-role="label" x="56" y="391" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace">620 min · 20%</text>
+          <text data-column="web" data-segment="Windows" data-role="label" x="56" y="391" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace">620 min · 20%</text>
 
           <!-- api · 2,800 min · 28.0% · x 324 w 252 · no macOS runners, so no macOS
                segment: a series absent from a column is omitted, never drawn at zero -->
-          <rect x="324" y="40" width="252" height="334" rx="2" fill="#f8f8f8"/>
+          <rect x="324" y="40" width="252" height="334" rx="2" fill="#eceef0"/>
           <rect x="324" y="40" width="252" height="334" rx="2" data-column="api" data-segment="Linux" data-amount="2460" fill="rgba(23,23,23,0.16)" stroke="rgba(23,23,23,0.30)" stroke-width="1"/>
           <text data-column="api" data-segment="Linux" data-role="label" x="340" y="68" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif">Linux</text>
-          <text data-column="api" data-segment="Linux" data-role="label" x="340" y="86" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace">2,460 min · 88%</text>
+          <text data-column="api" data-segment="Linux" data-role="label" x="340" y="86" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace">2,460 min · 88%</text>
 
-          <rect x="324" y="374" width="252" height="46" rx="2" fill="#f8f8f8"/>
+          <rect x="324" y="374" width="252" height="46" rx="2" fill="#eceef0"/>
           <rect x="324" y="374" width="252" height="46" rx="2" data-column="api" data-segment="Windows" data-amount="340" fill="rgba(23,23,23,0.05)" stroke="rgba(23,23,23,0.30)" stroke-width="1"/>
           <text data-column="api" data-segment="Windows" data-role="label" x="340" y="391" fill="#171717" font-size="11" font-weight="600" font-family="'Inter', sans-serif">Windows</text>
-          <text data-column="api" data-segment="Windows" data-role="label" x="340" y="406" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace">340 min · 12%</text>
+          <text data-column="api" data-segment="Windows" data-role="label" x="340" y="406" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace">340 min · 12%</text>
 
           <!-- mobile · 2,400 min · 24.0% · x 580 w 216 -->
-          <rect x="580" y="40" width="216" height="66" rx="2" fill="#f8f8f8"/>
+          <rect x="580" y="40" width="216" height="66" rx="2" fill="#eceef0"/>
           <rect x="580" y="40" width="216" height="66" rx="2" data-column="mobile" data-segment="Linux" data-amount="420" fill="rgba(23,23,23,0.16)" stroke="rgba(23,23,23,0.30)" stroke-width="1"/>
           <text data-column="mobile" data-segment="Linux" data-role="label" x="596" y="68" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif">Linux</text>
-          <text data-column="mobile" data-segment="Linux" data-role="label" x="596" y="86" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace">420 min · 18%</text>
+          <text data-column="mobile" data-segment="Linux" data-role="label" x="596" y="86" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace">420 min · 18%</text>
 
           <!-- mobile × macOS FOCAL: the one segment the figure is about -->
-          <rect x="580" y="106" width="216" height="314" rx="2" fill="#f8f8f8"/>
-          <rect x="580" y="106" width="216" height="314" rx="2" data-column="mobile" data-segment="macOS" data-amount="1980" fill="rgba(239,99,6,0.16)" stroke="#ef6306" stroke-width="1.5"/>
+          <rect x="580" y="106" width="216" height="314" rx="2" fill="#eceef0"/>
+          <rect x="580" y="106" width="216" height="314" rx="2" data-column="mobile" data-segment="macOS" data-amount="1980" fill="rgba(255,106,19,0.16)" stroke="#ff6a13" stroke-width="1.5"/>
           <text data-column="mobile" data-segment="macOS" data-role="label" x="596" y="134" fill="#171717" font-size="14" font-weight="600" font-family="'Inter', sans-serif">macOS</text>
-          <text data-column="mobile" data-segment="macOS" data-role="label" x="596" y="152" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace">1,980 min · 83% of mobile</text>
+          <text data-column="mobile" data-segment="macOS" data-role="label" x="596" y="152" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace">1,980 min · 83% of mobile</text>
 
           <!-- infra · 1,400 min · 14.0% · x 800 w 128 -->
-          <rect x="800" y="40" width="128" height="304" rx="2" fill="#f8f8f8"/>
+          <rect x="800" y="40" width="128" height="304" rx="2" fill="#eceef0"/>
           <rect x="800" y="40" width="128" height="304" rx="2" data-column="infra" data-segment="Linux" data-amount="1120" fill="rgba(23,23,23,0.16)" stroke="rgba(23,23,23,0.30)" stroke-width="1"/>
           <text data-column="infra" data-segment="Linux" data-role="label" x="816" y="68" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif">Linux</text>
-          <text data-column="infra" data-segment="Linux" data-role="label" x="816" y="86" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace">1,120 min · 80%</text>
+          <text data-column="infra" data-segment="Linux" data-role="label" x="816" y="86" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace">1,120 min · 80%</text>
 
-          <rect x="800" y="344" width="128" height="76" rx="2" fill="#f8f8f8"/>
+          <rect x="800" y="344" width="128" height="76" rx="2" fill="#eceef0"/>
           <rect x="800" y="344" width="128" height="76" rx="2" data-column="infra" data-segment="Windows" data-amount="280" fill="rgba(23,23,23,0.05)" stroke="rgba(23,23,23,0.30)" stroke-width="1"/>
           <text data-column="infra" data-segment="Windows" data-role="label" x="816" y="372" fill="#171717" font-size="12" font-weight="600" font-family="'Inter', sans-serif">Windows</text>
-          <text data-column="infra" data-segment="Windows" data-role="label" x="816" y="390" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace">280 min · 20%</text>
+          <text data-column="infra" data-segment="Windows" data-role="label" x="816" y="390" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace">280 min · 20%</text>
 
           <!-- docs · 260 min · 2.6% · x 932 w 24. Too narrow for a label, so it carries
                the info mark rather than sideways text and is named in the legend. The
                column keeps its honest width: a marimekko shows a whole, and a dropped
                pipeline makes every other share a lie. -->
-          <rect x="932" y="40" width="24" height="380" rx="2" fill="#f8f8f8"/>
+          <rect x="932" y="40" width="24" height="380" rx="2" fill="#eceef0"/>
           <rect x="932" y="40" width="24" height="380" rx="2" data-column="docs" data-segment="Linux" data-amount="260" fill="rgba(23,23,23,0.16)" stroke="rgba(23,23,23,0.30)" stroke-width="1"/>
           <circle cx="944" cy="64" r="5" fill="#171717"/>
-          <text x="944" y="67" fill="#f8f8f8" font-size="7" font-weight="600" font-family="'SF Mono', monospace" text-anchor="middle">i</text>
+          <text x="944" y="67" fill="#eceef0" font-size="7" font-weight="600" font-family="'SF Mono', monospace" text-anchor="middle">i</text>
 
           <!-- Column captions, centred under each column, each printing the column's
                share of the whole so the width can be read as a number -->
-          <text data-column="web" data-role="caption" x="180" y="438" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">web · 31%</text>
-          <text data-column="api" data-role="caption" x="450" y="438" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">api · 28%</text>
-          <text data-column="mobile" data-role="caption" x="688" y="438" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">mobile · 24%</text>
-          <text data-column="infra" data-role="caption" x="864" y="438" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">infra · 14%</text>
-          <text data-column="docs" data-role="caption" x="944" y="438" fill="#4d4d4d" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">docs · 3%</text>
+          <text data-column="web" data-role="caption" x="180" y="438" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">web · 31%</text>
+          <text data-column="api" data-role="caption" x="450" y="438" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">api · 28%</text>
+          <text data-column="mobile" data-role="caption" x="688" y="438" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">mobile · 24%</text>
+          <text data-column="infra" data-role="caption" x="864" y="438" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">infra · 14%</text>
+          <text data-column="docs" data-role="caption" x="944" y="438" fill="#2c2c2c" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">docs · 3%</text>
 
           <!-- Keys and source line -->
-          <text data-role="source" x="40" y="454" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace">Source: illustrative CI minutes, 30 days. Minutes, 10,000 min total across five pipelines.<tspan x="40" dy="12">Width is pipeline share, height is runner share within a pipeline, area is share of all minutes.</tspan></text>
+          <text data-role="source" x="40" y="454" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace">Source: illustrative CI minutes, 30 days. Minutes, 10,000 min total across five pipelines.<tspan x="40" dy="12">Width is pipeline share, height is runner share within a pipeline, area is share of all minutes.</tspan></text>
 
           <rect x="40" y="488" width="16" height="10" rx="2" fill="rgba(23,23,23,0.16)" stroke="rgba(23,23,23,0.30)" stroke-width="1"/>
-          <text data-segment="Linux" data-role="key" x="64" y="497" fill="#4d4d4d" font-size="8.5" font-family="'Inter', sans-serif">Linux</text>
+          <text data-segment="Linux" data-role="key" x="64" y="497" fill="#2c2c2c" font-size="8.5" font-family="'Inter', sans-serif">Linux</text>
 
           <rect x="112" y="488" width="16" height="10" rx="2" fill="rgba(23,23,23,0.10)" stroke="rgba(23,23,23,0.30)" stroke-width="1"/>
-          <text data-segment="macOS" data-role="key" x="136" y="497" fill="#4d4d4d" font-size="8.5" font-family="'Inter', sans-serif">macOS</text>
+          <text data-segment="macOS" data-role="key" x="136" y="497" fill="#2c2c2c" font-size="8.5" font-family="'Inter', sans-serif">macOS</text>
 
           <rect x="188" y="488" width="16" height="10" rx="2" fill="rgba(23,23,23,0.05)" stroke="rgba(23,23,23,0.30)" stroke-width="1"/>
-          <text data-segment="Windows" data-role="key" x="212" y="497" fill="#4d4d4d" font-size="8.5" font-family="'Inter', sans-serif">Windows</text>
+          <text data-segment="Windows" data-role="key" x="212" y="497" fill="#2c2c2c" font-size="8.5" font-family="'Inter', sans-serif">Windows</text>
 
           <circle cx="292" cy="493" r="5" fill="#171717"/>
-          <text x="292" y="496" fill="#f8f8f8" font-size="7" font-weight="600" font-family="'SF Mono', monospace" text-anchor="middle">i</text>
-          <text x="308" y="497" fill="#4d4d4d" font-size="8.5" font-family="'Inter', sans-serif">docs · 260 min on Linux, 2.6% — too narrow to label</text>
+          <text x="292" y="496" fill="#eceef0" font-size="7" font-weight="600" font-family="'SF Mono', monospace" text-anchor="middle">i</text>
+          <text x="308" y="497" fill="#2c2c2c" font-size="8.5" font-family="'Inter', sans-serif">docs · 260 min on Linux, 2.6% — too narrow to label</text>
         </svg>
     </div>
     <div class="cards">

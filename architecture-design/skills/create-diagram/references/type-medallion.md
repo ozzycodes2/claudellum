@@ -144,8 +144,8 @@ Four canonical styles, picked per tier via `tiers[i].style`. Default mapping if 
 
 | `style` | Card fill | Card stroke | Header band fill | Bucket text | Example value text |
 |---|---|---|---|---|---|
-| `outer` | `#FFFFFF` | `muted` 1.0 solid | `muted @ 0.10` | `muted` | `muted` |
-| `default` | `#FFFFFF` | `ink` 1.0 solid | `ink @ 0.06` | `muted` | `muted` |
+| `outer` | `paper-2` | `muted` 1.0 solid | `muted @ 0.10` | `muted` | `muted` |
+| `default` | `paper-2` | `ink` 1.0 solid | `ink @ 0.06` | `muted` | `muted` |
 | `focal` | `accent @ 0.07` | `accent` 1.6 solid | `accent @ 0.14` | `accent` | `accent` |
 | `cold` | `paper-2` | `muted` 1.0 dashed `5,3` | `muted @ 0.18` | `muted` | `muted` |
 
@@ -280,7 +280,7 @@ If zero or >1 tiers carry `focal: true`, halt and ask the user.
 | Muted | `muted` | `soft` |
 | Accent | `accent` | `accent` |
 | Fog (cold tier fill) | `paper-2` | `paper @ 0.06` |
-| White (default card fill) | `#FFFFFF` | `paper @ 0.04` |
+| Default card fill | `paper-2` | `paper @ 0.04` |
 | Card stroke ink (default style) | `ink` | `paper @ 0.30` |
 | Header band ink-tint | `ink @ 0.06` | `paper @ 0.08` |
 | Header band muted-tint | `muted @ 0.10` | `soft @ 0.16` |

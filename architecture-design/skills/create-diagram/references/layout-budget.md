@@ -96,7 +96,7 @@ Cards are optional, not required; add them only when they say something the diag
 
 Rules:
 
-- `background: #ffffff` (not paper — slight lift without shadow)
+- `background:` the `paper-2` color (not paper — slight lift without shadow)
 - `border: 1px solid` the `rule` color
 - `border-radius: 18px` (`radius-lg`, the ladder's step for editorial cards), `padding: 1.25rem`
 - **No `box-shadow`**

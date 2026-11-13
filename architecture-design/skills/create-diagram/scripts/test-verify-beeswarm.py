@@ -52,7 +52,7 @@ TAIL = "</svg></body></html>\n"
 MID, PITCH, R = 230, 10, 4
 
 INK = "rgba(23,23,23,0.55)"
-ACCENT_FILL = "rgba(239,99,6,0.55)"
+ACCENT_FILL = "rgba(255,106,19,0.55)"
 
 
 def cx(value: float) -> float:
@@ -60,7 +60,7 @@ def cx(value: float) -> float:
 
 
 def dot(value: float, row: int = 0, name=None, drawn_cx=None, drawn_cy=None,
-        r: float = R, fill: str = INK, stroke: str = "#4d4d4d",
+        r: float = R, fill: str = INK, stroke: str = "#2c2c2c",
         omit: str = "", extra: str = "") -> str:
     parts = ['data-value="%s"' % value]
     if name is not None:
@@ -79,7 +79,7 @@ def dot(value: float, row: int = 0, name=None, drawn_cx=None, drawn_cy=None,
 
 
 def focal(value: float, row: int = 0, name=None, **kw) -> str:
-    return dot(value, row, name, fill=ACCENT_FILL, stroke="#ef6306", **kw)
+    return dot(value, row, name, fill=ACCENT_FILL, stroke="#ff6a13", **kw)
 
 
 def label(name: str, x: float, y: float = 150, text=None,
@@ -140,7 +140,7 @@ def reference_furniture(blocks: str, scale=cx) -> str:
             ("median", verify.median(values), "Median %.1f ms"),
             ("p99", verify.percentile(values, 0.99), "p99 %.1f ms")):
         out += ('  <line data-ref="%s" data-value="%.1f" x1="%g" y1="64" x2="%g" y2="420" '
-                'stroke="#616161" stroke-width="1" stroke-dasharray="4,3"/>\n'
+                'stroke="#606060" stroke-width="1" stroke-dasharray="4,3"/>\n'
                 '  <text data-ref="%s" data-role="label" x="%g" y="52">%s</text>\n'
                 % (ref, value, scale(value), scale(value), ref, scale(value), text % value))
     return out
@@ -350,7 +350,7 @@ def run_cases(h: Harness) -> int:
     h.expect_finding(
         "an accent painted inline still counts toward the one focal dot",
         document(swarm(22), focal(300),
-                 dot(320, fill="rgba(239,99,6,0.55)", stroke="#ef6306"),
+                 dot(320, fill="rgba(255,106,19,0.55)", stroke="#ff6a13"),
                  TICKS),
         r"one accent dot max",
     )

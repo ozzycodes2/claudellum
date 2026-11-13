@@ -77,20 +77,20 @@ def main() -> int:
         else:
             print(f"OK: {label}")
 
-    node = '<rect x="100" y="60" width="160" height="64" rx="6" fill="#f8f8f8"/>'
-    badge = '<rect x="108" y="68" width="32" height="12" rx="2" fill="#f8f8f8"/>'
+    node = '<rect x="100" y="60" width="160" height="64" rx="6" fill="#eceef0"/>'
+    badge = '<rect x="108" y="68" width="32" height="12" rx="2" fill="#eceef0"/>'
     zone = '<rect x="80" y="40" width="240" height="120" rx="8" fill="#eee"/>'
 
     # A label mask straddling a node declared later is the defect being caught.
     check(
         "mask clipped by a later node",
-        document('<rect x="240" y="80" width="48" height="12" rx="2" fill="#f8f8f8"/>' + node),
+        document('<rect x="240" y="80" width="48" height="12" rx="2" fill="#eceef0"/>' + node),
         1,
     )
     # Same geometry, but the node is painted first, so the label stays on top.
     check(
         "mask over an earlier node is legal",
-        document(node + '<rect x="240" y="80" width="48" height="12" rx="2" fill="#f8f8f8"/>'),
+        document(node + '<rect x="240" y="80" width="48" height="12" rx="2" fill="#eceef0"/>'),
         0,
     )
     # A badge chip fully inside its own node is legal regardless of order.
@@ -98,19 +98,19 @@ def main() -> int:
     # A zone eyebrow overlaps the zone container, which is painted first.
     check(
         "zone eyebrow on a zone container",
-        document(zone + '<rect x="160" y="34" width="60" height="12" rx="2" fill="#f8f8f8"/>'),
+        document(zone + '<rect x="160" y="34" width="60" height="12" rx="2" fill="#eceef0"/>'),
         0,
     )
     # A mask entirely in open canvas is legal.
     check(
         "mask clear of every node",
-        document('<rect x="10" y="10" width="48" height="12" rx="2" fill="#f8f8f8"/>' + node),
+        document('<rect x="10" y="10" width="48" height="12" rx="2" fill="#eceef0"/>' + node),
         0,
     )
     # Touching within the 1px tolerance is not a finding.
     check(
         "mask abutting a node edge",
-        document('<rect x="52" y="80" width="48" height="12" rx="2" fill="#f8f8f8"/>' + node),
+        document('<rect x="52" y="80" width="48" height="12" rx="2" fill="#eceef0"/>' + node),
         0,
     )
 
@@ -176,12 +176,12 @@ def main() -> int:
     # wide CJK label plate must be recognized as a mask and checked like any other.
     check(
         "wide mono mask clipped by a later node",
-        document('<rect x="180" y="80" width="128" height="12" rx="2" fill="#f8f8f8"/>' + node),
+        document('<rect x="180" y="80" width="128" height="12" rx="2" fill="#eceef0"/>' + node),
         1,
     )
     check(
         "wide mono mask over an earlier node is legal",
-        document(node + '<rect x="180" y="80" width="128" height="12" rx="2" fill="#f8f8f8"/>'),
+        document(node + '<rect x="180" y="80" width="128" height="12" rx="2" fill="#eceef0"/>'),
         0,
     )
     # Wide-but-tall rects are container header bars or row stripes, not masks —
@@ -194,7 +194,7 @@ def main() -> int:
 
     # Connector routing. A stroked node; arrows carry a marker to count.
     stroked = '<rect x="100" y="60" width="160" height="64" rx="6" fill="#fff" stroke="#171717"/>'
-    arrow = 'fill="none" stroke="#4d4d4d" marker-end="url(#arrow)"'
+    arrow = 'fill="none" stroke="#2c2c2c" marker-end="url(#arrow)"'
 
     # The reported defect: leave the top edge, then run flat along the border,
     # so the arrow appears to grow out of the top-right corner.
@@ -215,7 +215,7 @@ def main() -> int:
     )
     check(
         "diagonal line without a marker is not a connector",
-        document('<line x1="10" y1="10" x2="60" y2="40" stroke="#4d4d4d"/>'),
+        document('<line x1="10" y1="10" x2="60" y2="40" stroke="#2c2c2c"/>'),
         0,
     )
     # Loop write-back spokes are the documented radial exception.
@@ -258,7 +258,7 @@ def main() -> int:
     check(
         "unstroked fill rect is not a node",
         document(
-            '<rect x="100" y="60" width="160" height="64" fill="rgba(239,99,6,0.04)"/>'
+            '<rect x="100" y="60" width="160" height="64" fill="rgba(255,106,19,0.04)"/>'
             f'<line x1="100" y1="40" x2="100" y2="200" {arrow}/>'
         ),
         0,

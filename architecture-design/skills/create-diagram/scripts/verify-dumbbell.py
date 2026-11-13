@@ -56,7 +56,7 @@ MIN_GAP_PX = 16        # below this two r=6 marks read as one blob
 ALL_ZERO_SPAN = 1.0
 
 # --- skin tokens ------------------------------------------------------------
-PAPER_LIGHT, PAPER_DARK = "#f8f8f8", "#010102"
+PAPER_LIGHT, PAPER_DARK = "#eceef0", "#101214"
 WCAG_NON_TEXT = 3.0    # 1.4.11, graphical objects
 
 # (label, ink hex, alpha, paper) - the connector in each theme

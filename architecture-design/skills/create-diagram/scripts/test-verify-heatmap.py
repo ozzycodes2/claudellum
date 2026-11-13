@@ -50,7 +50,7 @@ CHILD_ENV = {**os.environ, "PYTHONIOENCODING": "utf-8"}
 # Anchors — literal excerpts of the shipped light example.
 FOCAL_CELL = (
     'data-row="payments" data-col="S4" data-value="47" data-focal="true" '
-    'x="520" y="124" width="116" height="56" fill="#ef6306"'
+    'x="520" y="124" width="116" height="56" fill="#ff6a13"'
 )
 FIRST_NONFOCAL = (
     'data-row="auth" data-col="S1" data-value="4" '
@@ -184,7 +184,7 @@ def main() -> int:
         # N1: two focal cells
         second_focal = FIRST_NONFOCAL.replace(
             'fill="rgba(23,23,23,0.29)"',
-            'data-focal="true" fill="#ef6306"',
+            'data-focal="true" fill="#ff6a13"',
         )
         case(
             failures,
@@ -429,7 +429,7 @@ def main() -> int:
     with tempfile.TemporaryDirectory() as tmp:
         d = Path(tmp)
         # The focal fill is solid accent in both skins and the value text is
-        # ink-strong (#171717), so the headroom is the same 5.51:1 on both sides.
+        # ink-strong (#171717), so the headroom is the same 6.25:1 on both sides.
         for template, theme, ink, alpha_ink, passing_alpha in (
             (original, "light", "#171717", "23,23,23", "0.98"),
             (GOOD_DARK.read_text(encoding="utf-8"), "dark", "#171717", "23,23,23", "0.98"),

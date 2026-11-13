@@ -8,10 +8,10 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --color-paper:   #010102;
+      --color-paper:   #101214;
       --color-ink:     #f7f8f8;
       --color-muted:   #d0d6e0;
-      --color-accent:  #ef6306;
+      --color-accent:  #ff6a13;
       --font-sans:     'Inter', system-ui, sans-serif;
       --font-mono:     'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     }
@@ -63,7 +63,7 @@
       <desc id="tree-block-decomposition-dark-desc">Traceable block decomposition of a payment
         gateway into card authorization, fraud screening, and settlement ledger, with a stable ID,
         inputs, outputs, constraints, and an implementation path carried as metadata on each block.</desc>
-      <rect width="100%" height="100%" fill="#010102"/>
+      <rect width="100%" height="100%" fill="#101214"/>
 
       <!-- Tier tags (left margin) -->
       <text x="40" y="70" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace">Tier 0 · root</text>
@@ -75,13 +75,13 @@
       <path d="M 500 92 V 130 H 720 V 180" fill="none" stroke="#d0d6e0" stroke-width="1"/>
 
       <!-- Root: PAY-001 Payment Gateway (accent focal) -->
-      <rect x="420" y="40" width="160" height="52" rx="6" fill="#010102"/>
-      <rect x="420" y="40" width="160" height="52" rx="6" fill="rgba(239,99,6,0.10)" stroke="#ef6306" stroke-width="1"
+      <rect x="420" y="40" width="160" height="52" rx="6" fill="#101214"/>
+      <rect x="420" y="40" width="160" height="52" rx="6" fill="rgba(255,106,19,0.10)" stroke="#ff6a13" stroke-width="1"
             data-block-id="PAY-001" data-block-name="Payment Gateway"
             data-block-output="Settled transaction record"
             data-block-constraint="Every transaction reaches exactly one terminal state"
             data-block-impl="src/payments/gateway/"/>
-      <rect x="428" y="46" width="46" height="12" rx="2" fill="transparent" stroke="rgba(239,99,6,0.50)" stroke-width="0.8"/>
+      <rect x="428" y="46" width="46" height="12" rx="2" fill="transparent" stroke="rgba(255,106,19,0.50)" stroke-width="0.8"/>
       <text x="451" y="55" fill="#f7f8f8" font-size="7" font-family="'SF Mono', monospace"
             text-anchor="middle" letter-spacing="0.08em">PAY-001</text>
       <text x="500" y="70" fill="#f7f8f8" font-size="12" font-weight="600"
@@ -90,7 +90,7 @@
             font-family="'SF Mono', monospace" text-anchor="middle">request → settlement</text>
 
       <!-- Child: PAY-001-01 Card Authorization -->
-      <rect x="200" y="180" width="160" height="52" rx="6" fill="#010102"/>
+      <rect x="200" y="180" width="160" height="52" rx="6" fill="#101214"/>
       <rect x="200" y="180" width="160" height="52" rx="6" fill="rgba(247,248,248,0.04)" stroke="#f7f8f8" stroke-width="1"
             data-block-id="PAY-001-01" data-block-parent="PAY-001" data-block-name="Card Authorization"
             data-block-input="Raw card details from checkout"
@@ -107,7 +107,7 @@
             font-family="'SF Mono', monospace" text-anchor="middle">card → token</text>
 
       <!-- Child: PAY-001-02 Fraud Screening -->
-      <rect x="420" y="180" width="160" height="52" rx="6" fill="#010102"/>
+      <rect x="420" y="180" width="160" height="52" rx="6" fill="#101214"/>
       <rect x="420" y="180" width="160" height="52" rx="6" fill="rgba(247,248,248,0.04)" stroke="#f7f8f8" stroke-width="1"
             data-block-id="PAY-001-02" data-block-parent="PAY-001" data-block-name="Fraud Screening"
             data-block-input="Authorization token"
@@ -123,7 +123,7 @@
             font-family="'SF Mono', monospace" text-anchor="middle">token → score</text>
 
       <!-- Child: PAY-001-03 Settlement Ledger -->
-      <rect x="640" y="180" width="160" height="52" rx="6" fill="#010102"/>
+      <rect x="640" y="180" width="160" height="52" rx="6" fill="#101214"/>
       <rect x="640" y="180" width="160" height="52" rx="6" fill="rgba(247,248,248,0.04)" stroke="#f7f8f8" stroke-width="1"
             data-block-id="PAY-001-03" data-block-parent="PAY-001" data-block-name="Settlement Ledger"
             data-block-input="Released authorization"

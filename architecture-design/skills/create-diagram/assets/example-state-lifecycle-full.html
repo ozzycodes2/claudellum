@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-    :root { --color-paper:#f8f8f8; --color-paper-2:#ffffff; --color-ink:#171717; --color-muted:#4d4d4d; --color-soft:#616161; --color-rule:rgba(23,23,23,0.12); --color-accent:#ef6306; --font-sans:'Inter',system-ui,sans-serif; --font-mono:'SF Mono',ui-monospace,monospace; }
+    :root { --color-paper:#eceef0; --color-paper-2:#f7f8f8; --color-ink:#171717; --color-muted:#2c2c2c; --color-soft:#606060; --color-rule:rgba(23,23,23,0.12); --color-accent:#ff6a13; --font-sans:'Inter',system-ui,sans-serif; --font-mono:'SF Mono',ui-monospace,monospace; }
     body { font-family:var(--font-sans); background:var(--color-paper); min-height:100vh; padding:3rem 2rem; color:var(--color-ink); }
     .container { max-width:1200px; margin:0 auto; }
     .header { margin-bottom:2.5rem; }
@@ -17,14 +17,14 @@
     .diagram-container { background:var(--color-paper-2); border-radius:8px; border:1px solid var(--color-rule); padding:1.5rem; overflow-x:auto; }
     svg { width:100%; min-width:900px; display:block; }
     svg text { font-family:'Inter',sans-serif; }
-    .band { fill:rgba(77,77,77,0.035); stroke:rgba(23,23,23,0.12); }
-    .flow { fill:none; stroke:#4d4d4d; stroke-width:1.2; }
+    .band { fill:rgba(44,44,44,0.035); stroke:rgba(23,23,23,0.12); }
+    .flow { fill:none; stroke:#2c2c2c; stroke-width:1.2; }
     .flow.retry { stroke-dasharray:5 4; }
-    .flow.accent { stroke:#ef6306; stroke-width:1.4; }
-    .mask { fill:#f8f8f8; }
+    .flow.accent { stroke:#ff6a13; stroke-width:1.4; }
+    .mask { fill:#eceef0; }
     .phase { fill:#fff; stroke:#171717; }
-    .support { fill:#f8f8f8; stroke:#4d4d4d; stroke-dasharray:5 4; }
-    .terminal { fill:rgba(23,23,23,0.04); stroke:#4d4d4d; }
+    .support { fill:#eceef0; stroke:#2c2c2c; stroke-dasharray:5 4; }
+    .terminal { fill:rgba(23,23,23,0.04); stroke:#2c2c2c; }
     .terminal.failed { stroke-width:1.5; stroke-dasharray:3 3; }
     .cards { display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:1rem; margin-top:1.5rem; }
     .card { background:#fff; border-radius:18px; border:1px solid var(--color-rule); padding:1.25rem; }
@@ -53,12 +53,12 @@
         <desc id="state-lifecycle-full-desc">A lifecycle phase map with Draft, Editing, Scheduled, Sending, and Sent on the primary rail; Approval and Delivery Retry in a recovery band; and Cancelled and Failed terminal outcomes.</desc>
         <defs>
           <pattern id="lifecycle-full-dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.9" fill="rgba(23,23,23,0.10)"/></pattern>
-          <marker id="lifecycle-full-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#4d4d4d"/></marker>
-          <marker id="lifecycle-full-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#ef6306"/></marker>
+          <marker id="lifecycle-full-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#2c2c2c"/></marker>
+          <marker id="lifecycle-full-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#ff6a13"/></marker>
         </defs>
-        <rect width="100%" height="100%" fill="#f8f8f8"/><rect width="100%" height="100%" fill="url(#lifecycle-full-dots)" opacity="0.55"/>
+        <rect width="100%" height="100%" fill="#eceef0"/><rect width="100%" height="100%" fill="url(#lifecycle-full-dots)" opacity="0.55"/>
         <rect class="band" x="24" y="44" width="952" height="120" rx="8"/><rect class="band" x="24" y="400" width="952" height="104" rx="8"/>
-        <g fill="#4d4d4d" font-size="8" font-family="'SF Mono',monospace"><text x="40" y="64">Wait / recovery</text><text x="40" y="208">Primary phases</text><text x="40" y="420">Terminal outcomes</text></g>
+        <g fill="#2c2c2c" font-size="8" font-family="'SF Mono',monospace"><text x="40" y="64">Wait / recovery</text><text x="40" y="208">Primary phases</text><text x="40" y="420">Terminal outcomes</text></g>
 
         <line class="flow" x1="40" y1="256" x2="64" y2="256" marker-end="url(#lifecycle-full-arrow)"/>
         <line class="flow" x1="214" y1="256" x2="244" y2="256" marker-end="url(#lifecycle-full-arrow)"/>
@@ -71,7 +71,7 @@
         <path class="flow" d="M499 292 V416" marker-end="url(#lifecycle-full-arrow)"/>
         <path class="flow" d="M604 104 H584 V380 H749 V416" marker-end="url(#lifecycle-full-arrow)"/>
 
-        <g font-family="'SF Mono',monospace" font-size="7" text-anchor="middle" fill="#4d4d4d">
+        <g font-family="'SF Mono',monospace" font-size="7" text-anchor="middle" fill="#2c2c2c">
           <rect class="mask" x="31" y="238" width="24" height="12" rx="2"/><text x="43" y="247">New</text>
           <rect class="mask" x="213" y="238" width="32" height="12" rx="2"/><text x="229" y="247">Write</text>
           <rect class="mask" x="332" y="158" width="36" height="12" rx="2"/><text x="350" y="167">Submit</text>
@@ -86,17 +86,17 @@
         <circle cx="34" cy="256" r="6" fill="#171717"/>
 
         <g text-anchor="middle" font-family="'Inter',sans-serif">
-          <g><rect class="phase" x="64" y="220" width="150" height="72" rx="8"/><text x="139" y="251" fill="#171717" font-size="12" font-weight="600">Draft</text><text x="139" y="270" fill="#4d4d4d" font-size="8" font-family="'SF Mono',monospace">content exists</text></g>
-          <g><rect class="phase" x="244" y="220" width="150" height="72" rx="8"/><text x="319" y="251" fill="#171717" font-size="12" font-weight="600">Editing</text><text x="319" y="270" fill="#4d4d4d" font-size="8" font-family="'SF Mono',monospace">owner revises</text></g>
-          <g><rect class="phase" x="424" y="220" width="150" height="72" rx="8"/><text x="499" y="251" fill="#171717" font-size="12" font-weight="600">Scheduled</text><text x="499" y="270" fill="#4d4d4d" font-size="8" font-family="'SF Mono',monospace">send time set</text></g>
-          <g><rect class="phase" x="604" y="220" width="150" height="72" rx="8"/><text x="679" y="251" fill="#171717" font-size="12" font-weight="600">Sending</text><text x="679" y="270" fill="#4d4d4d" font-size="8" font-family="'SF Mono',monospace">provider active</text></g>
-          <g><rect x="800" y="220" width="150" height="72" rx="8" fill="rgba(239,99,6,0.08)" stroke="#ef6306"/><circle cx="824" cy="244" r="7" fill="none" stroke="#ef6306"/><circle cx="824" cy="244" r="4" fill="#ef6306"/><text x="875" y="251" fill="#171717" font-size="12" font-weight="600">Sent</text><text x="875" y="270" fill="#4d4d4d" font-size="8" font-family="'SF Mono',monospace">delivery complete</text></g>
+          <g><rect class="phase" x="64" y="220" width="150" height="72" rx="8"/><text x="139" y="251" fill="#171717" font-size="12" font-weight="600">Draft</text><text x="139" y="270" fill="#2c2c2c" font-size="8" font-family="'SF Mono',monospace">content exists</text></g>
+          <g><rect class="phase" x="244" y="220" width="150" height="72" rx="8"/><text x="319" y="251" fill="#171717" font-size="12" font-weight="600">Editing</text><text x="319" y="270" fill="#2c2c2c" font-size="8" font-family="'SF Mono',monospace">owner revises</text></g>
+          <g><rect class="phase" x="424" y="220" width="150" height="72" rx="8"/><text x="499" y="251" fill="#171717" font-size="12" font-weight="600">Scheduled</text><text x="499" y="270" fill="#2c2c2c" font-size="8" font-family="'SF Mono',monospace">send time set</text></g>
+          <g><rect class="phase" x="604" y="220" width="150" height="72" rx="8"/><text x="679" y="251" fill="#171717" font-size="12" font-weight="600">Sending</text><text x="679" y="270" fill="#2c2c2c" font-size="8" font-family="'SF Mono',monospace">provider active</text></g>
+          <g><rect x="800" y="220" width="150" height="72" rx="8" fill="rgba(255,106,19,0.08)" stroke="#ff6a13"/><circle cx="824" cy="244" r="7" fill="none" stroke="#ff6a13"/><circle cx="824" cy="244" r="4" fill="#ff6a13"/><text x="875" y="251" fill="#171717" font-size="12" font-weight="600">Sent</text><text x="875" y="270" fill="#2c2c2c" font-size="8" font-family="'SF Mono',monospace">delivery complete</text></g>
         </g>
         <g text-anchor="middle">
-          <g><rect class="support" x="334" y="68" width="150" height="72" rx="8"/><rect x="344" y="78" width="34" height="12" rx="2" fill="none" stroke="rgba(77,77,77,0.45)"/><text x="361" y="87" fill="#4d4d4d" font-size="7" font-family="'SF Mono',monospace">WAIT</text><text x="409" y="111" fill="#171717" font-size="12" font-weight="600" font-family="'Inter',sans-serif">Approval</text><text x="409" y="126" fill="#4d4d4d" font-size="8" font-family="'SF Mono',monospace">editor decision</text></g>
-          <g><rect class="support" x="604" y="68" width="150" height="72" rx="8"/><rect x="614" y="78" width="52" height="12" rx="2" fill="none" stroke="rgba(77,77,77,0.45)"/><text x="640" y="87" fill="#4d4d4d" font-size="7" font-family="'SF Mono',monospace">RECOVERY</text><text x="679" y="111" fill="#171717" font-size="12" font-weight="600" font-family="'Inter',sans-serif">Delivery Retry</text><text x="679" y="126" fill="#4d4d4d" font-size="8" font-family="'SF Mono',monospace">attempt 1 of 3</text></g>
-          <g><rect class="terminal" x="424" y="416" width="150" height="72" rx="8"/><rect x="434" y="426" width="54" height="12" rx="2" fill="none" stroke="rgba(77,77,77,0.45)"/><text x="461" y="435" fill="#4d4d4d" font-size="7" font-family="'SF Mono',monospace">TERMINAL</text><text x="499" y="459" fill="#171717" font-size="12" font-weight="600" font-family="'Inter',sans-serif">Cancelled</text><text x="499" y="474" fill="#4d4d4d" font-size="8" font-family="'SF Mono',monospace">stopped by owner</text></g>
-          <g><rect class="terminal failed" x="674" y="416" width="150" height="72" rx="8"/><rect x="684" y="426" width="54" height="12" rx="2" fill="none" stroke="rgba(77,77,77,0.45)"/><text x="711" y="435" fill="#4d4d4d" font-size="7" font-family="'SF Mono',monospace">TERMINAL</text><text x="749" y="459" fill="#171717" font-size="12" font-weight="600" font-family="'Inter',sans-serif">Failed</text><text x="749" y="474" fill="#4d4d4d" font-size="8" font-family="'SF Mono',monospace">retries exhausted</text></g>
+          <g><rect class="support" x="334" y="68" width="150" height="72" rx="8"/><rect x="344" y="78" width="34" height="12" rx="2" fill="none" stroke="rgba(44,44,44,0.45)"/><text x="361" y="87" fill="#2c2c2c" font-size="7" font-family="'SF Mono',monospace">WAIT</text><text x="409" y="111" fill="#171717" font-size="12" font-weight="600" font-family="'Inter',sans-serif">Approval</text><text x="409" y="126" fill="#2c2c2c" font-size="8" font-family="'SF Mono',monospace">editor decision</text></g>
+          <g><rect class="support" x="604" y="68" width="150" height="72" rx="8"/><rect x="614" y="78" width="52" height="12" rx="2" fill="none" stroke="rgba(44,44,44,0.45)"/><text x="640" y="87" fill="#2c2c2c" font-size="7" font-family="'SF Mono',monospace">RECOVERY</text><text x="679" y="111" fill="#171717" font-size="12" font-weight="600" font-family="'Inter',sans-serif">Delivery Retry</text><text x="679" y="126" fill="#2c2c2c" font-size="8" font-family="'SF Mono',monospace">attempt 1 of 3</text></g>
+          <g><rect class="terminal" x="424" y="416" width="150" height="72" rx="8"/><rect x="434" y="426" width="54" height="12" rx="2" fill="none" stroke="rgba(44,44,44,0.45)"/><text x="461" y="435" fill="#2c2c2c" font-size="7" font-family="'SF Mono',monospace">TERMINAL</text><text x="499" y="459" fill="#171717" font-size="12" font-weight="600" font-family="'Inter',sans-serif">Cancelled</text><text x="499" y="474" fill="#2c2c2c" font-size="8" font-family="'SF Mono',monospace">stopped by owner</text></g>
+          <g><rect class="terminal failed" x="674" y="416" width="150" height="72" rx="8"/><rect x="684" y="426" width="54" height="12" rx="2" fill="none" stroke="rgba(44,44,44,0.45)"/><text x="711" y="435" fill="#2c2c2c" font-size="7" font-family="'SF Mono',monospace">TERMINAL</text><text x="749" y="459" fill="#171717" font-size="12" font-weight="600" font-family="'Inter',sans-serif">Failed</text><text x="749" y="474" fill="#2c2c2c" font-size="8" font-family="'SF Mono',monospace">retries exhausted</text></g>
         </g>
       </svg>
     </div>

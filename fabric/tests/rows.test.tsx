@@ -562,7 +562,7 @@ test('inline code takes the skin’s code colour, on its band or on none when tr
   }
 
   const clear = await codeSpan('code-fabric')
-  expect(clear?.props?.color).toBe('#ef6306')
+  expect(clear?.props?.color).toBe('#ff6a13')
   expect(clear?.props && 'backgroundColor' in clear.props).toBe(false)
 
   await runSkin($, 'nord')
@@ -802,7 +802,7 @@ test('a finished /review:review and /review:fix each put a pill above the prompt
   await skill('other:fix')
   await typed('constructor')
   await turn('answer')
-  expect(await pills(), 'reviewed, then fixed, each once').toEqual(['#15803d', '#ef6306'])
+  expect(await pills(), 'reviewed, then fixed, each once').toEqual(['#15803d', '#ff6a13'])
   expect(await pills(true), 'a survey keeps the band').toEqual([])
 
   await runSkin($, 'off')
@@ -2027,13 +2027,13 @@ test('the terminal draws shell output as a card: the command and a tick, nothing
 test('the shell card draws its command on the command band, and its output never in the band colour', async ($, on) => {
   stubEngine(on)
   const [id = '', other = ''] = await ranShells($, on, ['pnpm test', 'pnpm build'])
-  await $.tool.call({ tool: 'mcp__fabric__design', action: 'save', name: 'signal', base: 'fabric', palette: { search: '#ef6306' } })
+  await $.tool.call({ tool: 'mcp__fabric__design', action: 'save', name: 'signal', base: 'fabric', palette: { search: '#ff6a13' } })
   const bandOf = async (ui: { findAll: (q: { type: string }) => Promise<unknown> }) =>
     ((await ui.findAll({ type: 'Box' })) as { props: { backgroundColor?: unknown } }[]).map(box => box.props.backgroundColor).find(color => color !== undefined)
 
   const ui = await $.ui.mount(shellResult(id, { stdout: 'Tests 148 passed', stderr: '', interrupted: false }))
   const command = (await ui.find({ type: 'Text', text: '$ pnpm test' })) as Found
-  expect(await bandOf(ui)).toBe('#ef6306')
+  expect(await bandOf(ui)).toBe('#ff6a13')
   expect(spanColor(command, '$ ')).toBe(fabric.palette.command)
   expect(spanColor(command, 'pnpm test')).toBe(fabric.palette.command)
   expect(((await ui.find({ type: 'Text', text: '✓' })) as Found)?.props.color).toBe(fabric.palette.command)

@@ -12,6 +12,7 @@ contract"):
 - large text: 3:1
 - essential non-text marks (lines, arrows, borders, data points): 3:1
 - decorative rules and translucent tints: no minimum
+- emphasis on a mark something else already identifies: no minimum
 
 A token used in several roles must pass each one, so `accent` is held to the
 text bar even though most of its uses are strokes. Translucent values
@@ -58,17 +59,24 @@ ROLE_USES = {
     "soft": ("text", "non-text"),
     "rule": ("decorative",),
     "rule-solid": ("decorative",),
-    # Not text. The skin's accent is 3.06:1 on light paper, so it is held to the
-    # graphical-object floor and forbidden from setting type.
+    # Not text: the accent is held to the graphical-object floor and forbidden
+    # from setting type. SKIN_USES relaxes the floor on light paper.
     "accent": ("non-text",),
     "accent-tint": ("decorative",),
     "accent-deep": ("non-text",),
 }
 
+# Per-skin replacements for ROLE_USES. The accent reads 2.47:1 on light paper,
+# so the source system's dawn rule applies there: it never stands alone, and
+# only emphasises a mark that an `ink` name or label already identifies.
+SKIN_USES = {
+    "light": {"accent": ("emphasis",)},
+}
+
 # Roles measured against something other than plain paper, as (role, alpha).
 # `ink-strong` is the label color on an accent fill, and the source system
 # specifies it against the solid primary. No type sits on a tinted accent: at
-# 0.85 over the dark paper the same label reads 4.12:1.
+# 0.85 over the dark paper the same label reads 4.77:1, too thin to build on.
 BACKGROUNDS = {
     "ink-strong": ("accent", 1.0),
 }
@@ -186,6 +194,7 @@ def measure(tokens: dict[str, dict[str, str]]) -> tuple[list[tuple], list[str]]:
             continue
 
         for role, uses in ROLE_USES.items():
+            uses = SKIN_USES.get(skin, {}).get(role, uses)
             if role not in parsed or "background" in uses:
                 continue
             measured = [use for use in uses if use in THRESHOLDS]

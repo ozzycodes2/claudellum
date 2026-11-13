@@ -143,7 +143,7 @@ Solid paper fill across the full viewBox. No dot pattern.
 | `level` | Fill | Stroke | Text color | Text weight |
 |---|---|---|---|---|
 | `full` | `ink @ 0.08` | `ink @ 0.12` | `ink` | 600 |
-| `rw` | `#FFFFFF` | `ink @ 0.12` | `ink` | 400 |
+| `rw` | `paper-2` | `ink @ 0.12` | `ink` | 400 |
 | `read` | `muted @ 0.08` | `ink @ 0.12` | `muted` | 400 |
 | `none` | `paper` | `ink @ 0.12` | `soft` | 400 |
 | **focal** | `accent @ 0.07` | `accent` (1.4) | `accent` | 600 |
@@ -216,7 +216,7 @@ If zero or >1 `focal: true` cells are declared, halt and ask the user.
 | Role-banner fill | `ink` | `ink` |
 | Header / row stroke | `ink @ 0.12` | `paper @ 0.18` |
 | Full / Admin fill | `ink @ 0.08` | `paper @ 0.10` |
-| R/W fill | `#FFFFFF` | `paper @ 0.06` |
+| R/W fill | `paper-2` | `paper @ 0.06` |
 | Read fill | `muted @ 0.08` | `soft @ 0.12` |
 | No-access fill | `paper` | `paper @ 0.02` |
 | Focal fill | `accent @ 0.07` | `accent @ 0.12` |

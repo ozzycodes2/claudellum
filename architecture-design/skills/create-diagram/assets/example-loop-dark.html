@@ -8,8 +8,8 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --paper: #010102; --ink: #f7f8f8; --muted: #d0d6e0; --soft: #8a8f98;
-      --accent: #ef6306; --accent-tint: rgba(239,99,6,0.10);
+      --paper: #101214; --ink: #f7f8f8; --muted: #d0d6e0; --soft: #8a8f98;
+      --accent: #ff6a13; --accent-tint: rgba(255,106,19,0.10);
       --sans: 'Inter', system-ui, sans-serif;
       --mono: 'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     }
@@ -41,11 +41,11 @@
       <desc id="loop-dark-desc">Six stations flow clockwise from Capture through Learn and back to Capture. Each station writes shared state into one central memory hub, with Decide highlighted as the human approval gate.</desc>
       <defs>
         <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#d0d6e0"/></marker>
-        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ef6306"/></marker>
+        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ff6a13"/></marker>
         <marker id="arrow-ink" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#f7f8f8"/></marker>
         <marker id="arrow-soft" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#8a8f98"/></marker>
       </defs>
-      <rect width="1040" height="680" fill="#010102"/>
+      <rect width="1040" height="680" fill="#101214"/>
 
       <!-- Solid clockwise ring: six arcs on the same r=240 station circle. -->
       <path class="ring" d="M600 113.726 A240 240 0 0 1 704.969 187.073" marker-end="url(#arrow)"/>
@@ -64,9 +64,9 @@
       <path class="spoke" d="M368 252 L424 284" marker-end="url(#arrow-soft)"/>
 
       <!-- Curated spoke labels sit beside the line with an 8px visible gap. -->
-      <rect x="534" y="200" width="44" height="16" rx="4" fill="#010102"/>
+      <rect x="534" y="200" width="44" height="16" rx="4" fill="#101214"/>
       <text x="556" y="212" class="arrow-label">Signals</text>
-      <rect x="462" y="464" width="48" height="16" rx="4" fill="#010102"/>
+      <rect x="462" y="464" width="48" height="16" rx="4" fill="#101214"/>
       <text x="486" y="476" class="arrow-label">Outcomes</text>
 
       <!-- Stations -->

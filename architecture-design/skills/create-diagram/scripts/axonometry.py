@@ -24,25 +24,25 @@ S2 = math.sqrt(2)
 # has no role below ink for.
 SKINS = {
     "light": dict(
-        paper="#f8f8f8", ink="#171717", muted="#4d4d4d", soft="#616161", accent="#ef6306",
-        ink_rgb="23,23,23", acc_rgb="239,99,6", base="#ffffff", rule="rgba(23,23,23,0.12)",
+        paper="#eceef0", ink="#171717", muted="#2c2c2c", soft="#606060", accent="#ff6a13",
+        ink_rgb="23,23,23", acc_rgb="255,106,19", base="#f7f8f8", rule="rgba(23,23,23,0.12)",
         shade=(None, "rgba(23,23,23,0.07)", "rgba(23,23,23,0.15)"),
-        focal=("rgba(239,99,6,0.10)", "rgba(239,99,6,0.20)", "rgba(239,99,6,0.32)"),
+        focal=("rgba(255,106,19,0.10)", "rgba(255,106,19,0.20)", "rgba(255,106,19,0.32)"),
         cavity="rgba(23,23,23,0.10)", floor="rgba(23,23,23,0.04)", well="rgba(23,23,23,0.14)",
-        screen="#171717", island="#171717", chip_top="#4d4d4d", chip_side="#171717",
-        sil="#171717", inner="rgba(23,23,23,0.55)", trace="#616161",
-        lead="#616161", lead_acc="rgba(239,99,6,0.60)", inner_acc="rgba(239,99,6,0.70)",
-        lens="#171717", lens_ring="rgba(248,248,248,0.35)", screen_fg_rgb="248,248,248",
+        screen="#171717", island="#171717", chip_top="#2c2c2c", chip_side="#171717",
+        sil="#171717", inner="rgba(23,23,23,0.55)", trace="#606060",
+        lead="#606060", lead_acc="rgba(255,106,19,0.60)", inner_acc="rgba(255,106,19,0.70)",
+        lens="#171717", lens_ring="rgba(236,238,240,0.35)", screen_fg_rgb="236,238,240",
     ),
     "dark": dict(
-        paper="#010102", ink="#f7f8f8", muted="#d0d6e0", soft="#8a8f98", accent="#ef6306",
-        ink_rgb="247,248,248", acc_rgb="239,99,6", base="#0f1011", rule="rgba(247,248,248,0.12)",
-        shade=("rgba(247,248,248,0.10)", None, "rgba(1,1,2,0.45)"),
-        focal=("rgba(239,99,6,0.18)", None, "rgba(1,1,2,0.45)"),
-        cavity="rgba(1,1,2,0.55)", floor="rgba(1,1,2,0.25)", well="rgba(1,1,2,0.40)",
-        screen="#171717", island="#010102", chip_top="#8a8f98", chip_side="#010102",
+        paper="#101214", ink="#f7f8f8", muted="#d0d6e0", soft="#8a8f98", accent="#ff6a13",
+        ink_rgb="247,248,248", acc_rgb="255,106,19", base="#1a1c1d", rule="rgba(247,248,248,0.12)",
+        shade=("rgba(247,248,248,0.10)", None, "rgba(16,18,20,0.45)"),
+        focal=("rgba(255,106,19,0.18)", None, "rgba(16,18,20,0.45)"),
+        cavity="rgba(16,18,20,0.55)", floor="rgba(16,18,20,0.25)", well="rgba(16,18,20,0.40)",
+        screen="#171717", island="#101214", chip_top="#8a8f98", chip_side="#101214",
         sil="#f7f8f8", inner="rgba(247,248,248,0.45)", trace="#8a8f98",
-        lead="#8a8f98", lead_acc="rgba(239,99,6,0.60)", inner_acc="rgba(239,99,6,0.70)",
+        lead="#8a8f98", lead_acc="rgba(255,106,19,0.60)", inner_acc="rgba(255,106,19,0.70)",
         lens="#171717", lens_ring="rgba(247,248,248,0.35)", screen_fg_rgb="247,248,248",
     ),
 }
@@ -264,7 +264,7 @@ FULL = """<!DOCTYPE html>
   <link href="{font}" rel="stylesheet">
   <style>
     *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
-    :root {{ --color-paper:#f8f8f8; --color-paper-2:#ffffff; --color-ink:#171717; --color-muted:#4d4d4d; --color-soft:#616161; --color-rule:rgba(23,23,23,0.12); --color-accent:#ef6306; --font-sans:'Inter',system-ui,sans-serif; --font-mono:'SF Mono',ui-monospace,monospace; }}
+    :root {{ --color-paper:#eceef0; --color-paper-2:#f7f8f8; --color-ink:#171717; --color-muted:#2c2c2c; --color-soft:#606060; --color-rule:rgba(23,23,23,0.12); --color-accent:#ff6a13; --font-sans:'Inter',system-ui,sans-serif; --font-mono:'SF Mono',ui-monospace,monospace; }}
     body {{ font-family: var(--font-sans); background: var(--color-paper); min-height: 100vh; padding: 3rem 2rem; color: var(--color-ink); }}
     .container {{ max-width: 1200px; margin: 0 auto; }}
     .header {{ margin-bottom: 2.5rem; }}

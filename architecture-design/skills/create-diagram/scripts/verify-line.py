@@ -98,7 +98,7 @@ HTML_COMMENT_RE = re.compile(r"<!--.*?-->", re.S)
 DECLARES_LINE_RE = re.compile(r"<polyline\b[^>]*\bdata-line\s*=", re.I | re.S)
 NUMBER_RE = re.compile(r"[-+]?(?:\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?|\.\d+)")
 RGBA_RE = re.compile(r"rgba\(\s*[\d.]+\s*,\s*[\d.]+\s*,\s*[\d.]+\s*,\s*([\d.]+)\s*\)", re.I)
-ACCENT = "#ef6306"
+ACCENT = "#ff6a13"
 MAX_SERIES = 6
 OPACITY_FLOOR = 0.53
 GRID_ALPHA_CEILING = 0.08

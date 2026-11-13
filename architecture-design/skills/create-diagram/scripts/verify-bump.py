@@ -121,7 +121,7 @@ LABEL_ROW_OFFSET = 3.5    # px, a label baseline below its vertex, per the refer
 MIN_SNAPSHOTS, MAX_SNAPSHOTS = 3, 6
 MIN_SERIES, MAX_SERIES = 4, 8
 FOCAL_WIDTH, PLAIN_WIDTH = 2.4, 1.2
-ACCENTS = {"#ef6306"}   # one accent token, shared by both skins
+ACCENTS = {"#ff6a13"}   # one accent token, shared by both skins
 
 
 class Series:

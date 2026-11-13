@@ -8,11 +8,11 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     :root {
-      --color-paper: #f8f8f8;
+      --color-paper: #eceef0;
       --color-ink: #171717;
-      --color-muted: #4d4d4d;
-      --color-soft: #616161;
-      --color-accent: #ef6306;
+      --color-muted: #2c2c2c;
+      --color-soft: #606060;
+      --color-accent: #ff6a13;
       --color-rule: rgba(23,23,23,0.12);
       --font-sans: 'Inter', system-ui, sans-serif;
       --font-mono: 'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -193,36 +193,36 @@
         <desc id="template-motion-desc">A request is validated, evaluated against a policy, queued, and appended to an audit log.</desc>
         <defs>
           <marker id="template-motion-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-            <polygon points="0 0, 8 3, 0 6" fill="#4d4d4d"/>
+            <polygon points="0 0, 8 3, 0 6" fill="#2c2c2c"/>
           </marker>
         </defs>
-        <rect width="960" height="480" fill="#f8f8f8"/>
+        <rect width="960" height="480" fill="#eceef0"/>
 
         <!-- Persistent connectors carry the static meaning. -->
-        <path d="M248 180 H356" fill="none" stroke="#4d4d4d" marker-end="url(#template-motion-arrow)"/>
-        <path d="M556 180 H664" fill="none" stroke="#4d4d4d" marker-end="url(#template-motion-arrow)"/>
-        <path d="M764 232 V328" fill="none" stroke="#4d4d4d" marker-end="url(#template-motion-arrow)"/>
+        <path d="M248 180 H356" fill="none" stroke="#2c2c2c" marker-end="url(#template-motion-arrow)"/>
+        <path d="M556 180 H664" fill="none" stroke="#2c2c2c" marker-end="url(#template-motion-arrow)"/>
+        <path d="M764 232 V328" fill="none" stroke="#2c2c2c" marker-end="url(#template-motion-arrow)"/>
 
         <g data-motion-item data-step="1" aria-label="Step 1: Request received">
-          <rect x="48" y="128" width="200" height="104" rx="8" fill="#f8f8f8" stroke="#171717"/>
+          <rect x="48" y="128" width="200" height="104" rx="8" fill="#eceef0" stroke="#171717"/>
           <text x="148" y="172" text-anchor="middle" fill="#171717" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600">Request</text>
-          <text x="148" y="196" text-anchor="middle" fill="#4d4d4d" font-family="'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12">fields complete</text>
+          <text x="148" y="196" text-anchor="middle" fill="#2c2c2c" font-family="'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12">fields complete</text>
         </g>
         <g data-motion-item data-step="2" aria-label="Step 2: Policy passed">
-          <rect x="356" y="128" width="200" height="104" rx="8" fill="rgba(239,99,6,0.08)" stroke="#ef6306"/>
+          <rect x="356" y="128" width="200" height="104" rx="8" fill="rgba(255,106,19,0.08)" stroke="#ff6a13"/>
           <text x="456" y="168" text-anchor="middle" fill="#171717" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600">Policy</text>
-          <text x="456" y="196" text-anchor="middle" fill="#4d4d4d" font-family="'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12">✓ PASS · rule 2</text>
+          <text x="456" y="196" text-anchor="middle" fill="#2c2c2c" font-family="'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12">✓ PASS · rule 2</text>
         </g>
         <g data-motion-item data-step="3" aria-label="Step 3: Three items queued">
-          <rect x="664" y="128" width="200" height="104" rx="8" fill="#f8f8f8" stroke="#171717"/>
+          <rect x="664" y="128" width="200" height="104" rx="8" fill="#eceef0" stroke="#171717"/>
           <text x="764" y="164" text-anchor="middle" fill="#171717" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600">Queue</text>
-          <rect x="700" y="184" width="16" height="16" fill="#4d4d4d"/><rect x="724" y="184" width="16" height="16" fill="#4d4d4d"/><rect x="748" y="184" width="16" height="16" fill="#4d4d4d"/>
-          <text x="796" y="196" fill="#4d4d4d" font-family="'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12">3 queued</text>
+          <rect x="700" y="184" width="16" height="16" fill="#2c2c2c"/><rect x="724" y="184" width="16" height="16" fill="#2c2c2c"/><rect x="748" y="184" width="16" height="16" fill="#2c2c2c"/>
+          <text x="796" y="196" fill="#2c2c2c" font-family="'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12">3 queued</text>
         </g>
         <g data-motion-item data-step="4" aria-label="Step 4: Audit entry appended">
-          <rect x="664" y="328" width="200" height="88" rx="8" fill="#f8f8f8" stroke="#171717"/>
+          <rect x="664" y="328" width="200" height="88" rx="8" fill="#eceef0" stroke="#171717"/>
           <text x="764" y="364" text-anchor="middle" fill="#171717" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600">Audit log</text>
-          <text x="764" y="388" text-anchor="middle" fill="#4d4d4d" font-family="'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12">0042 · appended</text>
+          <text x="764" y="388" text-anchor="middle" fill="#2c2c2c" font-family="'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12">0042 · appended</text>
         </g>
         <g data-motion-item data-step="5" aria-label="Step 5: Evaluation complete">
           <text x="48" y="376" fill="#171717" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600">Outcome: accepted and recorded</text>
@@ -230,7 +230,7 @@
 
         <!-- Decorative duplicate path and token never carry unique meaning. -->
         <path data-motion-item data-step="2" data-motion-decorative aria-hidden="true" focusable="false" pathLength="1" class="draw-path" d="M248 180 H356"/>
-        <circle data-motion-item data-step="3" data-motion-decorative aria-hidden="true" focusable="false" class="flow-token" cx="556" cy="180" r="6" fill="#ef6306"/>
+        <circle data-motion-item data-step="3" data-motion-decorative aria-hidden="true" focusable="false" class="flow-token" cx="556" cy="180" r="6" fill="#ff6a13"/>
       </svg>
     </div>
 

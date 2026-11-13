@@ -106,14 +106,14 @@ def main() -> int:
         ),
         (
             "bridge lie: a bridge is stretched past its two running levels",
-            '<rect x="688" y="146" width="96" height="50" fill="#f8f8f8" stroke="#ef6306"',
-            '<rect x="688" y="146" width="96" height="70" fill="#f8f8f8" stroke="#ef6306"',
+            '<rect x="688" y="146" width="96" height="50" fill="#eceef0" stroke="#ff6a13"',
+            '<rect x="688" y="146" width="96" height="70" fill="#eceef0" stroke="#ff6a13"',
             "shared scale puts",
         ),
         (
             "bridge top lie: its bottom stays at the correct running level",
-            '<rect x="688" y="146" width="96" height="50" fill="#f8f8f8" stroke="#ef6306"',
-            '<rect x="688" y="136" width="96" height="60" fill="#f8f8f8" stroke="#ef6306"',
+            '<rect x="688" y="146" width="96" height="50" fill="#eceef0" stroke="#ff6a13"',
+            '<rect x="688" y="136" width="96" height="60" fill="#eceef0" stroke="#ff6a13"',
             "top edge drawn",
         ),
         (
@@ -154,8 +154,8 @@ def main() -> int:
         ),
         (
             "sign-treatment collapse: a decrease wears the increase fill",
-            '<rect x="400" y="131" width="96" height="36" fill="#f8f8f8" stroke="#4d4d4d" stroke-width="1" data-role="delta" data-value="-38"',
-            '<rect x="400" y="131" width="96" height="36" fill="rgba(77,77,77,0.15)" stroke="#4d4d4d" stroke-width="1" data-role="delta" data-value="-38"',
+            '<rect x="400" y="131" width="96" height="36" fill="#eceef0" stroke="#2c2c2c" stroke-width="1" data-role="delta" data-value="-38"',
+            '<rect x="400" y="131" width="96" height="36" fill="rgba(44,44,44,0.15)" stroke="#2c2c2c" stroke-width="1" data-role="delta" data-value="-38"',
             "share the same fill",
         ),
         (
@@ -167,28 +167,28 @@ def main() -> int:
         (
             "label stolen from elsewhere: the bar's own label is gone and a "
             "decoy on the far side of the chart carries its number",
-            '<text x="448" y="179" fill="#4d4d4d" font-size="8" '
+            '<text x="448" y="179" fill="#2c2c2c" font-size="8" '
             'font-family="\'SF Mono\', monospace" text-anchor="middle">\u2212 38</text>'.replace("\u2212 ", "\u2212"),
-            '<text x="5" y="5" fill="#4d4d4d" font-size="8" '
+            '<text x="5" y="5" fill="#2c2c2c" font-size="8" '
             'font-family="\'SF Mono\', monospace" text-anchor="middle">\u2212 38</text>'.replace("\u2212 ", "\u2212"),
             "no printed label states its value",
         ),
         (
             "polarity swap on a lone decrease: the only fall wears the rise tint",
-            '<rect x="400" y="131" width="96" height="36" fill="#f8f8f8" stroke="#4d4d4d" stroke-width="1" data-role="delta" data-value="-38"',
-            '<rect x="400" y="131" width="96" height="36" fill="rgba(77,77,77,0.15)" stroke="#4d4d4d" stroke-width="1" data-role="delta" data-value="-38"',
+            '<rect x="400" y="131" width="96" height="36" fill="#eceef0" stroke="#2c2c2c" stroke-width="1" data-role="delta" data-value="-38"',
+            '<rect x="400" y="131" width="96" height="36" fill="rgba(44,44,44,0.15)" stroke="#2c2c2c" stroke-width="1" data-role="delta" data-value="-38"',
             "decreases require hollow paper",
         ),
         (
             "element transform: a translated bar no longer occupies its declared coordinates",
-            '<rect x="256" y="131" width="96" height="61" fill="rgba(77,77,77,0.15)" stroke="#4d4d4d"',
-            '<rect transform="translate(0 80)" x="256" y="131" width="96" height="61" fill="rgba(77,77,77,0.15)" stroke="#4d4d4d"',
+            '<rect x="256" y="131" width="96" height="61" fill="rgba(44,44,44,0.15)" stroke="#2c2c2c"',
+            '<rect transform="translate(0 80)" x="256" y="131" width="96" height="61" fill="rgba(44,44,44,0.15)" stroke="#2c2c2c"',
             "waterfall bar carries transform",
         ),
         (
             "ancestor transform: a group moves a bar away from its declared coordinates",
-            '<rect x="256" y="131" width="96" height="61" fill="rgba(77,77,77,0.15)" stroke="#4d4d4d" stroke-width="1" data-role="delta" data-value="+64" data-name="Headcount"/>',
-            '<g transform="translate(0 80)"><rect x="256" y="131" width="96" height="61" fill="rgba(77,77,77,0.15)" stroke="#4d4d4d" stroke-width="1" data-role="delta" data-value="+64" data-name="Headcount"/></g>',
+            '<rect x="256" y="131" width="96" height="61" fill="rgba(44,44,44,0.15)" stroke="#2c2c2c" stroke-width="1" data-role="delta" data-value="+64" data-name="Headcount"/>',
+            '<g transform="translate(0 80)"><rect x="256" y="131" width="96" height="61" fill="rgba(44,44,44,0.15)" stroke="#2c2c2c" stroke-width="1" data-role="delta" data-value="+64" data-name="Headcount"/></g>',
             "ancestor transform",
         ),
         (
@@ -199,29 +199,29 @@ def main() -> int:
         ),
         (
             "second accent bar: the focal treatment repeats",
-            '<rect x="256" y="131" width="96" height="61" fill="rgba(77,77,77,0.15)" stroke="#4d4d4d"',
-            '<rect x="256" y="131" width="96" height="61" fill="rgba(239,99,6,0.12)" stroke="#ef6306"',
+            '<rect x="256" y="131" width="96" height="61" fill="rgba(44,44,44,0.15)" stroke="#2c2c2c"',
+            '<rect x="256" y="131" width="96" height="61" fill="rgba(255,106,19,0.12)" stroke="#ff6a13"',
             "at most one bar",
         ),
         (
             "gridline: a full-width rule repeats values every bar already prints",
-            '<rect x="112" y="192" width="96" height="228" fill="#f8f8f8"/>',
+            '<rect x="112" y="192" width="96" height="228" fill="#eceef0"/>',
             '<line x1="80" y1="325" x2="960" y2="325" stroke="rgba(23,23,23,0.08)" stroke-width="0.8"/>'
-            '<rect x="112" y="192" width="96" height="228" fill="#f8f8f8"/>',
+            '<rect x="112" y="192" width="96" height="228" fill="#eceef0"/>',
             "horizontal rule",
         ),
         (
             "y-axis line: a vertical axis repeats values every bar already prints",
-            '<rect x="112" y="192" width="96" height="228" fill="#f8f8f8"/>',
-            '<line x1="80" y1="40" x2="80" y2="420" stroke="#616161" stroke-width="1"/>'
-            '<rect x="112" y="192" width="96" height="228" fill="#f8f8f8"/>',
+            '<rect x="112" y="192" width="96" height="228" fill="#eceef0"/>',
+            '<line x1="80" y1="40" x2="80" y2="420" stroke="#606060" stroke-width="1"/>'
+            '<rect x="112" y="192" width="96" height="228" fill="#eceef0"/>',
             "y-axis line",
         ),
         (
             "tick label: a y-axis scale repeats values every bar already prints",
-            '<rect x="112" y="192" width="96" height="228" fill="#f8f8f8"/>',
-            '<text x="72" y="329" fill="#4d4d4d" font-size="8" text-anchor="end">100</text>'
-            '<rect x="112" y="192" width="96" height="228" fill="#f8f8f8"/>',
+            '<rect x="112" y="192" width="96" height="228" fill="#eceef0"/>',
+            '<text x="72" y="329" fill="#2c2c2c" font-size="8" text-anchor="end">100</text>'
+            '<rect x="112" y="192" width="96" height="228" fill="#eceef0"/>',
             "tick label",
         ),
         (

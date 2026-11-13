@@ -12,9 +12,10 @@ without touching any type-specific logic.
 Three rules from the source system override what this skill shipped by default.
 They are not preferences; the rest of the file is written assuming them:
 
-1. **The accent never sets type.** It is a fill, an edge, and a ring. At 3.06:1
-   on the light paper it clears the 3:1 floor for an object and misses the
-   4.5:1 floor for a word.
+1. **The accent never sets type.** It is a fill, an edge, and a ring. At 2.47:1
+   on the light paper it misses even the 3:1 floor for an object, so on that
+   ground it is emphasis on a mark the reader already has, never the mark
+   itself.
 2. **There is no second chroma**, so the `link` role is gone. External and HTTP
    arrows are distinguished by stroke weight, not by hue.
 3. **One family, two cuts.** Inter and SF Mono. No serif.
@@ -27,21 +28,21 @@ To generate your own from a website URL, see [`onboarding.md`](onboarding.md).
 
 ### Semantic roles
 
-Every token is referred to by **semantic role**, not by its hex value. Type references (`type-*.md`) and SKILL.md say `accent`, not `#ef6306`.
+Every token is referred to by **semantic role**, not by its hex value. Type references (`type-*.md`) and SKILL.md say `accent`, not `#ff6a13`.
 
-| Role | Purpose | Source token | Light (`#f8f8f8` ground) | Dark (`#010102` ground) |
+| Role | Purpose | Source token | Light (`#eceef0` ground) | Dark (`#101214` ground) |
 |---|---|---|---|---|
-| `paper` | Page background, default node fill | `{colors.canvas}` | `#f8f8f8` | `#010102` |
-| `paper-2` | Diagram container bg, secondary fill | `{colors.surface-1}` | `#ffffff` | `#0f1011` |
+| `paper` | Page background, default node fill | `{colors.canvas}` | `#eceef0` | `#101214` |
+| `paper-2` | Diagram container bg, secondary fill | `{colors.surface-1}` | `#f7f8f8` | `#1a1c1d` |
 | `ink` | Primary text, primary stroke | `{colors.ink}` | `#171717` | `#f7f8f8` |
 | `ink-strong` | Text on the accent fill | `{colors.on-primary}` | `#171717` | `#171717` |
-| `muted` | Secondary text, default arrow stroke | `{colors.ink-muted}` | `#4d4d4d` | `#d0d6e0` |
-| `soft` | Sublabels, boundary labels, axes | `{colors.ink-subtle}` | `#616161` | `#8a8f98` |
-| `rule` | Hairline borders | `{colors.hairline}` | `#d9d9d9` | `#23252a` |
-| `rule-solid` | Stronger borders | `{colors.hairline-strong}` | `#c6c6c6` | `#34343a` |
-| `accent` | Focal / 1–2 max per diagram — **never text** | `{colors.primary}` | `#ef6306` | `#ef6306` |
-| `accent-tint` | Fill for accent-bordered boxes | derived | `rgba(239,99,6,0.10)` | `rgba(239,99,6,0.14)` |
-| `accent-deep` | Focus rings only | `{colors.primary-focus}` | `#d65905` | `#d65905` |
+| `muted` | Secondary text, default arrow stroke | `{colors.ink-muted}` | `#2c2c2c` | `#d0d6e0` |
+| `soft` | Sublabels, boundary labels, axes | `{colors.ink-subtle}` | `#606060` | `#8a8f98` |
+| `rule` | Hairline borders | `{colors.hairline}` | `#cbcdd4` | `#2b2d33` |
+| `rule-solid` | Stronger borders | `{colors.hairline-strong}` | `#b8b8bf` | `#3b3b41` |
+| `accent` | Focal / 1–2 max per diagram — **never text** | `{colors.primary}` | `#ff6a13` | `#ff6a13` |
+| `accent-tint` | Fill for accent-bordered boxes | derived | `rgba(255,106,19,0.10)` | `rgba(255,106,19,0.14)` |
+| `accent-deep` | Focus rings only | `{colors.primary-focus}` | `#de5100` | `#de5100` |
 
 > **Source system:** every value above except `accent-tint` is a literal from
 > `DESIGN-fabric.md`, at the role its name implies. The source declares
@@ -84,20 +85,27 @@ Every token must clear the threshold for each role it plays, against the backgro
 - **`accent` is exempt from the text row because it may not be text.** The
   shipped skin held it to 4.5:1 so it could label its own arrow; this one
   forbids the use instead. An accent arrow's label is `ink`. An accent node's
-  name is `ink`. Nothing is written in `#ef6306`, in either theme, at any size.
+  name is `ink`. Nothing is written in `#ff6a13`, in either theme, at any size.
+- **On the light paper the accent never stands alone.** It reads 2.47:1 there,
+  under the 3:1 an object needs when the object alone identifies something. So
+  an accent edge or fill always sits on a mark that `ink` already identifies:
+  the node has its `ink` name, the arrow its `ink` label. The one accent role
+  that must be seen against the ground, the focus ring, is `accent-deep`, which
+  clears 3.42:1. This is the source system's own dawn rule, and the gate holds
+  the light `accent` to it rather than to 3:1.
 - **Translucent colors are composited first.** An `rgba()` fill or stroke is blended over `paper` before its ratio is measured. A value that clears the bar at full strength can fail at 0.5 opacity.
 - **Surfaces other than `paper` cost contrast.** Inside an `accent-tint` box or on `paper-2` every ratio drops. Measure text placed there against that surface, not against `paper`.
-- **An essential mark may not be a hairline.** `rule` reads 1.33:1 light and
-  1.36:1 dark, `rule-solid` 1.61:1 and 1.69:1 — all four are far under the 3:1
+- **An essential mark may not be a hairline.** `rule` reads 1.37:1 light and
+  1.36:1 dark, `rule-solid` 1.70:1 and 1.69:1 — all four are far under the 3:1
   an essential mark needs. They are correct for a node border that merely
   encloses a label the reader can already see, and wrong for a chart axis, a
   baseline, a lifeline, or a boundary the reader has to trace. Those take
-  `soft`, which clears 5.83:1 light and 6.42:1 dark.
-- **Current values:** light `ink` 16.88:1, `muted` 7.96:1, `soft` 5.83:1,
-  `accent` 3.06:1 on `#f8f8f8`; dark `ink` 19.61:1, `muted` 14.28:1, `soft`
-  6.42:1, `accent` 6.42:1 on `#010102`. `ink-strong` on the accent fill is
-  5.51:1 in both. Inside `accent-tint`, `ink` holds 15.10:1 light and 17.35:1
-  dark; `accent` drops to 2.74:1 light, which is the second reason it is not a
+  `soft`, which clears 5.41:1 light and 5.78:1 dark.
+- **Current values:** light `ink` 15.41:1, `muted` 12.01:1, `soft` 5.41:1,
+  `accent` 2.47:1 on `#eceef0`; dark `ink` 17.64:1, `muted` 12.85:1, `soft`
+  5.78:1, `accent` 6.55:1 on `#101214`. `ink-strong` on the accent fill is
+  6.25:1 in both. Inside `accent-tint`, `ink` holds 14.02:1 light and 14.88:1
+  dark; `accent` drops to 2.24:1 light, which is the second reason it is not a
   label.
 
 ### The two polarities are not an inversion
@@ -105,14 +113,15 @@ Every token must clear the threshold for each role it plays, against the backgro
 The shipped skin derived dark from light by flipping RGB at fixed opacities.
 This one does not: both themes are declared in full, because the source system
 declares them in full and the asymmetry is deliberate. `paper-2` is a lift
-above `paper` on both grounds — `#ffffff` over `#f8f8f8`, `#0f1011` over
-`#010102` — but the light ground's remaining surfaces step *down* into the
+above `paper` on both grounds — `#f7f8f8` over `#eceef0`, `#1a1c1d` over
+`#101214` — but the light ground's remaining surfaces step *down* into the
 canvas while the dark ground's step up, so a value interpolated between the two
 is in neither system.
 
-The accent does not shift between them. One hue, `#ef6306`, at one value, on
+The accent does not shift between them. One hue, `#ff6a13`, at one value, on
 both grounds. That costs the dark theme more separation than a fill needs
-(6.42:1) and leaves the light theme the least it can have (3.06:1); the source
+(6.55:1) and leaves the light theme less than an object alone needs (2.47:1),
+which is why it never stands alone there; the source
 system argues the trade at length and the diagrams inherit it, because a brand
 hue that changes with the reader's OS setting is not one brand.
 
@@ -368,9 +377,9 @@ Semantic role combinations — reference these by name in type specs.
 
 **`backend` is `paper-2`, not white.** The shipped skin hard-coded `#ffffff` for
 the one node type that needed to read as lifted off the paper. On the light
-ground `paper-2` *is* `#ffffff`, so nothing changes; on the dark ground white
-would be a hole burned in the page. `paper-2` is the lift in both — `#0f1011`
-over `#010102` — which is the whole reason the source system expresses depth as
+ground `paper-2` is `#f7f8f8`, a step below white that still lifts off
+`#eceef0`; on the dark ground white would be a hole burned in the page. `paper-2` is the lift in both — `#1a1c1d`
+over `#101214` — which is the whole reason the source system expresses depth as
 a surface level rather than a shadow.
 
 The seven treatments above are the only place color distinguishes node kinds,
@@ -396,8 +405,8 @@ Four options:
 - **One accent, one value, both themes**: two accents erases the focal signal, and a per-theme accent is two brands.
 - **No second chroma**: if your brand ships 8 colors, pick 3 (paper, ink, accent). The rest become `muted` and `soft`. There is no `link`, no series palette, and no semantic red/green/amber.
 - **One sans, one mono**: Inter and SF Mono. Two families, not three. Weight and size carry the register change the serif used to.
-- **Paper is one of the two declared grounds**: `#f8f8f8` or `#010102`. Neither is warm; the shipped skin's "pick a cream with a hint of warmth" does not apply to a system whose only warmth is the accent.
-- **No shadows, in either theme.** Depth is `paper-2` plus a 1px `rule`. A shadow on `#010102` is invisible and on `#f8f8f8` it is a second depth mechanism.
+- **Paper is one of the two declared grounds**: `#eceef0` or `#101214`. Neither is warm; the shipped skin's "pick a cream with a hint of warmth" does not apply to a system whose only warmth is the accent.
+- **No shadows, in either theme.** Depth is `paper-2` plus a 1px `rule`. A shadow on `#101214` is invisible and on `#eceef0` it is a second depth mechanism.
 - **Dot pattern is off, not optional**: the 22×22 dot pattern reads as texture, and the source system expresses separation by changing surface level. Use `paper-2` where the shipped skin would have used dots.
 - **Container is clean by default**: the diagram sits directly on the page paper, no secondary container background or border. A framed variant (`paper-2` bg + `rule` border + `radius-md` + padding) is available as an opt-in for card-heavy layouts, but don't reach for it by default — the extra chrome fights the figure.
 
@@ -405,11 +414,11 @@ Four options:
 
 ## Known Gaps
 
-- **The accent reads 3.06:1 on the light paper.** It clears the 3:1 an object
-  needs and misses the 4.5:1 a word needs, by a margin thin enough that a nudge
-  either way crosses a line. `verify-contrast.py` holds the floor by classifying
-  the role as non-text, so a lighter accent fails CI — but nothing in the skill
-  stops an author painting a word in it. No gate reads the drawn text: the
+- **The accent reads 2.47:1 on the light paper.** It misses the 3:1 an object
+  needs, so the light skin leans on a usage rule: the accent never stands alone.
+  `verify-contrast.py` holds the dark accent to 3:1 and the light one to
+  nothing, so no gate catches a light diagram whose only cue for a mark is the
+  accent, and nothing in the skill stops an author painting a word in it. No gate reads the drawn text: the
   upstream repository checked its own preview script for the misuse, and that
   script is not part of a vendored skill, so every diagram here is uncovered.
 - **Three of four type roles are below every declared step.** 8px and 9px labels

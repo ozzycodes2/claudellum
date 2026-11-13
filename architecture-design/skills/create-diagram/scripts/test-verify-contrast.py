@@ -9,8 +9,10 @@ name every token that failed, on the skin it failed on.
 
 Cases:
 - the shipped style guide passes (green);
-- the retired palette fails on exactly the four tokens that were under their
-  bars: light accent and soft, dark soft and link (red);
+- swapping a role's columns fails it on both skins, because the two
+  polarities are not an inversion (red);
+- the light accent is emphasis and is not measured, while the dark accent is
+  still held to 3:1 (green, then red);
 - a translucent value is composited over paper before it is measured, so a
   token that passes opaque fails at low alpha (red), and an rgba() at alpha 1
   measures the same as its hex (green);
@@ -44,9 +46,9 @@ PARSE_COLOR = NS["parse_color"]
 SHIPPED = STYLE_GUIDE.read_text(encoding="utf-8")
 
 ROWS = {
-    "soft": "| `soft` | Sublabels, boundary labels, axes | `{colors.ink-subtle}` | `#616161` | `#8a8f98` |",
-    "accent": "| `accent` | Focal / 1–2 max per diagram — **never text** | `{colors.primary}` | `#ef6306` | `#ef6306` |",
-    "accent-deep": "| `accent-deep` | Focus rings only | `{colors.primary-focus}` | `#d65905` | `#d65905` |",
+    "soft": "| `soft` | Sublabels, boundary labels, axes | `{colors.ink-subtle}` | `#606060` | `#8a8f98` |",
+    "accent": "| `accent` | Focal / 1–2 max per diagram — **never text** | `{colors.primary}` | `#ff6a13` | `#ff6a13` |",
+    "accent-deep": "| `accent-deep` | Focus rings only | `{colors.primary-focus}` | `#de5100` | `#de5100` |",
     "ink-strong": "| `ink-strong` | Text on the accent fill | `{colors.on-primary}` | `#171717` | `#171717` |",
 }
 
@@ -78,42 +80,55 @@ def mentions(findings: list[str], skin: str, role: str) -> bool:
 def test_shipped_palette_passes() -> None:
     rows, findings = CHECK(SHIPPED)
     ok(not findings, f"the shipped style guide has no contrast findings ({findings})")
-    ok(len(rows) == 18, f"every text and non-text use is measured in both skins ({len(rows)} rows)")
+    ok(len(rows) == 17, f"every text and non-text use is measured in both skins ({len(rows)} rows)")
 
 
 def test_swapped_polarities_fail_on_each_token() -> None:
     """The two skins are not an inversion of each other.
 
     Carrying a value across the polarity line is the authoring mistake this
-    gate exists for: `soft` reads 5.83:1 on light paper and 6.42:1 on dark, but
-    each value lands at about 3.1 and 3.4 on the *other* ground, under the 4.5
+    gate exists for: `soft` reads 5.41:1 on light paper and 5.78:1 on dark, but
+    each value lands at about 2.8 and 3.0 on the *other* ground, under the 4.5
     its own row asks for. The accent is the exception — one chroma serves both
     polarities, so swapping its columns is a no-op and must stay unreported.
     """
     source = with_row(SHIPPED, "soft",
-                      "| `soft` | Sublabels, boundary labels, axes | `{colors.ink-subtle}` | `#8a8f98` | `#616161` |")
+                      "| `soft` | Sublabels, boundary labels, axes | `{colors.ink-subtle}` | `#8a8f98` | `#606060` |")
     findings = findings_for(source)
     for skin in ("light", "dark"):
         ok(mentions(findings, skin, "soft"), f"swapped {skin} `soft` is reported")
     ok(not mentions(findings, "light", "accent"), "the shared accent is not reported")
-    ok(any("light: `soft` as text is 3.06:1" in f for f in findings),
-       "the swapped light soft fails the 4.5:1 text bar at 3.06:1")
+    ok(any("light: `soft` as text is 2.79:1" in f for f in findings),
+       "the swapped light soft fails the 4.5:1 text bar at 2.79:1")
     code = run_cli(source)
     ok(code == 1, "the CLI exits 1 on a swapped polarity")
 
-    lifted = with_row(SHIPPED, "accent",
-                      "| `accent` | Focal / 1–2 max per diagram — **never text** | `{colors.primary}` | `#f26a0a` | `#ef6306` |")
-    ok(any("light: `accent` as non-text is 2.89:1" in f for f in findings_for(lifted)),
-       "an accent one step lighter fails the 3:1 non-text bar at 2.89:1")
+
+
+def test_light_accent_is_emphasis_and_dark_accent_is_an_object() -> None:
+    # On light paper the accent never stands alone, so no value there is a
+    # finding; on dark it may identify a mark by itself and keeps the 3:1 floor.
+    rows, _ = CHECK(SHIPPED)
+    ok(not any(skin == "light" and role == "accent" for skin, role, *_ in rows),
+       "the light accent is not measured")
+    ok(any(skin == "dark" and role == "accent" for skin, role, *_ in rows),
+       "the dark accent is measured")
+    faded = with_row(SHIPPED, "accent",
+                     "| `accent` | Focal / 1–2 max per diagram — **never text** | `{colors.primary}` | `#e4e4e4` | `#ff6a13` |")
+    ok(not findings_for(faded), "a light accent near the paper is not a finding")
+    sunk = with_row(SHIPPED, "accent",
+                    "| `accent` | Focal / 1–2 max per diagram — **never text** | `{colors.primary}` | `#ff6a13` | `#a03c00` |")
+    ok(any("dark: `accent` as non-text is 2.81:1" in f for f in findings_for(sunk)),
+       "a dark accent sunk toward the paper fails the 3:1 non-text bar at 2.81:1")
 
 
 def test_alpha_is_composited_over_paper() -> None:
     translucent = with_row(SHIPPED, "soft",
-                           "| `soft` | Sublabels, boundary labels, axes | `{colors.ink-subtle}` | `rgba(97,97,97,0.5)` | `#8a8f98` |")
+                           "| `soft` | Sublabels, boundary labels, axes | `{colors.ink-subtle}` | `rgba(96,96,96,0.5)` | `#8a8f98` |")
     ok(mentions(findings_for(translucent), "light", "soft"),
        "soft at 0.5 opacity fails although the opaque value passes")
     opaque = with_row(SHIPPED, "soft",
-                      "| `soft` | Sublabels, boundary labels, axes | `{colors.ink-subtle}` | `rgba(97,97,97,1)` | `#8a8f98` |")
+                      "| `soft` | Sublabels, boundary labels, axes | `{colors.ink-subtle}` | `rgba(96,96,96,1)` | `#8a8f98` |")
     ok(not findings_for(opaque), "rgba() at alpha 1 measures the same as its hex")
     flat = COMPOSITE((0, 0, 0), 0.5, (255, 255, 255))
     ok(flat == (127.5, 127.5, 127.5), "compositing blends channels linearly by alpha")
@@ -121,13 +136,13 @@ def test_alpha_is_composited_over_paper() -> None:
 
 def test_text_use_is_held_to_text_bar() -> None:
     # `soft` carries both an axis and a sublabel, so it is the role where the
-    # two bars diverge: #8a8f98 on light paper is enough for a stroke and not
+    # two bars diverge: #7a7a7a on light paper is enough for a stroke and not
     # enough for a label.
-    rgb, _ = PARSE_COLOR("`#8a8f98`")
-    ratio = CONTRAST(rgb, (248, 248, 248))
+    rgb, _ = PARSE_COLOR("`#7a7a7a`")
+    ratio = CONTRAST(rgb, (236, 238, 240))
     ok(3.0 <= ratio < 4.5, f"fixture soft sits between the bars ({ratio:.2f}:1)")
     source = with_row(SHIPPED, "soft",
-                      "| `soft` | Sublabels, boundary labels, axes | `{colors.ink-subtle}` | `#8a8f98` | `#8a8f98` |")
+                      "| `soft` | Sublabels, boundary labels, axes | `{colors.ink-subtle}` | `#7a7a7a` | `#8a8f98` |")
     findings = findings_for(source)
     ok(any("light: `soft` as text" in f for f in findings),
        "a soft that clears 3:1 still fails as text")
@@ -136,7 +151,7 @@ def test_text_use_is_held_to_text_bar() -> None:
 
 
 def test_ink_strong_is_measured_on_accent_fill() -> None:
-    # #5a5a5a on paper is 6.49:1, but on the solid accent fill it is 2.12:1.
+    # #5a5a5a on paper is 5.93:1, but on the solid accent fill it is 2.41:1.
     source = with_row(SHIPPED, "ink-strong",
                       "| `ink-strong` | Text on the accent fill | `{colors.on-primary}` | `#5a5a5a` | `#171717` |")
     ok(mentions(findings_for(source), "light", "ink-strong"),
@@ -170,6 +185,7 @@ def run_cli(source: str) -> int:
 def main() -> int:
     test_shipped_palette_passes()
     test_swapped_polarities_fail_on_each_token()
+    test_light_accent_is_emphasis_and_dark_accent_is_an_object()
     test_alpha_is_composited_over_paper()
     test_text_use_is_held_to_text_bar()
     test_ink_strong_is_measured_on_accent_fill()

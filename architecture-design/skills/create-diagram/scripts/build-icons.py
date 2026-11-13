@@ -482,13 +482,13 @@ GALLERY_TEMPLATE = """<!DOCTYPE html>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --color-paper:   #f8f8f8;
-      --color-paper-2: #ffffff;
+      --color-paper:   #eceef0;
+      --color-paper-2: #f7f8f8;
       --color-ink:     #171717;
-      --color-muted:   #4d4d4d;
-      --color-soft:    #616161;
+      --color-muted:   #2c2c2c;
+      --color-soft:    #606060;
       --color-rule:    rgba(23,23,23,0.12);
-      --color-accent:  #ef6306;
+      --color-accent:  #ff6a13;
       --font-sans:     'Inter', system-ui, sans-serif;
       --font-mono:     'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     }

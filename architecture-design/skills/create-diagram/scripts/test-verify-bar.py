@@ -25,11 +25,11 @@ SHIPPED = sorted((ROOT / "assets").glob("example-bar*.html"))
 GOOD_TEXT = (ROOT / "assets/example-bar.html").read_text(encoding="utf-8")
 FAKE = Path("example-bar-fixture.html")
 
-S1_RECT = ('<rect x="99" y="192" width="72" height="228" fill="rgba(77,77,77,0.15)" '
-           'stroke="#4d4d4d" stroke-width="1" data-name="S1" data-value="72"/>')
+S1_RECT = ('<rect x="99" y="192" width="72" height="228" fill="rgba(44,44,44,0.15)" '
+           'stroke="#2c2c2c" stroke-width="1" data-name="S1" data-value="72"/>')
 S1_LABEL = 'data-for="S1">72</text>'
 GROUP = '<g data-plot="bar" data-orient="vertical" data-domain="0 120" data-baseline="420" data-top="40">'
-REF = ('<line x1="80" y1="103.3" x2="960" y2="103.3" stroke="#616161" stroke-width="1" '
+REF = ('<line x1="80" y1="103.3" x2="960" y2="103.3" stroke="#606060" stroke-width="1" '
        'stroke-dasharray="4,3" data-reference="100"/>')
 
 failures = 0
@@ -97,7 +97,7 @@ def main() -> int:
               REF, REF + '<line x1="80" y1="230" x2="960" y2="230" stroke="rgba(23,23,23,0.08)"/>',
               "draws the same number twice")
     must_fire("value-axis line beside the bars",
-              REF, REF + '<line x1="80" y1="40" x2="80" y2="420" stroke="#616161"/>',
+              REF, REF + '<line x1="80" y1="40" x2="80" y2="420" stroke="#606060"/>',
               "value-axis line")
     must_fire("tick labels beside the bars",
               REF, REF + '<text x="72" y="361" text-anchor="end">20</text>', "numeric tick label")
@@ -177,7 +177,7 @@ def main() -> int:
     horizontal = (
         '<svg><g data-plot="bar" data-orient="horizontal" data-domain="0 100" '
         'data-baseline="200" data-top="600">'
-        '<line x1="200" y1="40" x2="200" y2="200" stroke="#616161"/>'
+        '<line x1="200" y1="40" x2="200" y2="200" stroke="#606060"/>'
         '<rect x="200" y="50" width="200" height="20" data-name="A" data-value="50"/>'
         '<text x="410" y="64" data-for="A">50</text>'
         '<rect x="200" y="90" width="400" height="20" data-name="B" data-value="100"/>'

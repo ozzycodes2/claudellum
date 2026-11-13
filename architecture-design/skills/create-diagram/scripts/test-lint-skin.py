@@ -96,7 +96,7 @@ def main() -> int:
         )
 
         def src(inner: str, attrs: str = 'data-role="source"') -> str:
-            return f'<text {attrs} x="30" y="580" fill="#4d4d4d" font-size="8">{inner}</text>'
+            return f'<text {attrs} x="30" y="580" fill="#2c2c2c" font-size="8">{inner}</text>'
 
         good = "Source: team tracker, 8 sprints to Oct 2026. Story points."
         expect_clean(d, "example-bar", src(good))

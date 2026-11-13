@@ -782,11 +782,11 @@ def main() -> int:
     errors = []
     verify.check_line_dark_skin(
         errors,
-        line_dark.replace("--color-paper:#010102", "--color-paper:#f8f8f8", 1),
+        line_dark.replace("--color-paper:#101214", "--color-paper:#eceef0", 1),
     )
     expected = (
         "example-line-dark.html lost canonical dark-skin token "
-        "'--color-paper:#010102'"
+        "'--color-paper:#101214'"
     )
     if errors != [expected]:
         raise AssertionError(f"light-skin regression was not reported: {errors}")

@@ -403,7 +403,7 @@ class ContractTests(unittest.TestCase):
 
     def test_shipped_boundary_labels_use_soft(self):
         # type-architecture.md: zone labels use `soft`, never ink at an opacity.
-        soft = {"": "#616161", "-dark": "#8a8f98", "-full": "#616161"}
+        soft = {"": "#606060", "-dark": "#8a8f98", "-full": "#606060"}
         for suffix, colour in soft.items():
             path = ROOT / f"assets/example-architecture-containment{suffix}.html"
             scanner = checker.Scanner()

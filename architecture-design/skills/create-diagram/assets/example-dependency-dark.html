@@ -8,10 +8,10 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --color-paper:   #010102;
+      --color-paper:   #101214;
       --color-ink:     #f7f8f8;
       --color-muted:   #d0d6e0;
-      --color-accent:  #ef6306;
+      --color-accent:  #ff6a13;
       --font-sans:     'Inter', system-ui, sans-serif;
       --font-mono:     'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     }
@@ -65,11 +65,11 @@
           <polygon points="0 0, 8 3, 0 6" fill="#d0d6e0"/>
         </marker>
         <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-          <polygon points="0 0, 8 3, 0 6" fill="#ef6306"/>
+          <polygon points="0 0, 8 3, 0 6" fill="#ff6a13"/>
         </marker>
       </defs>
 
-      <rect width="100%" height="100%" fill="#010102"/>
+      <rect width="100%" height="100%" fill="#101214"/>
 
       <!-- Rank labels (left margin) -->
       <text x="40" y="108" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace">Rank 0</text>
@@ -103,12 +103,12 @@
 
       <!-- Cycle back-edge: utils -> shared-types, routed below the tokens/utils row and above the legend hairline -->
       <!-- Hop on the accent (dashed, less-important) stroke where it crosses the ui-kit->tokens connector at (196,468) -->
-      <path d="M 440,496 V 500 Q 440,508 432,508 H 204 Q 196,508 196,500 V 476 a 8,8 0 0,0 0,-16 V 356 Q 196,348 204,348 H 320" fill="none" stroke="#ef6306" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#arrow-accent)"/>
-      <rect x="204" y="504" width="40" height="12" rx="2" fill="#010102"/>
+      <path d="M 440,496 V 500 Q 440,508 432,508 H 204 Q 196,508 196,500 V 476 a 8,8 0 0,0 0,-16 V 356 Q 196,348 204,348 H 320" fill="none" stroke="#ff6a13" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#arrow-accent)"/>
+      <rect x="204" y="504" width="40" height="12" rx="2" fill="#101214"/>
       <text x="224" y="513" fill="#f7f8f8" font-size="8" font-family="'SF Mono', monospace" text-anchor="middle">Cycle</text>
 
       <!-- web -->
-      <rect x="320" y="80" width="160" height="56" rx="6" fill="#010102"/>
+      <rect x="320" y="80" width="160" height="56" rx="6" fill="#101214"/>
       <rect x="320" y="80" width="160" height="56" rx="6" fill="rgba(247,248,248,0.04)" stroke="#f7f8f8" stroke-width="1"/>
       <rect x="328" y="86" width="28" height="12" rx="2" fill="transparent" stroke="rgba(247,248,248,0.40)" stroke-width="0.8"/>
       <text x="342" y="95" fill="#f7f8f8" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.08em">APP</text>
@@ -118,7 +118,7 @@
       <text x="400" y="130" fill="#d0d6e0" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">apps/web</text>
 
       <!-- admin -->
-      <rect x="520" y="80" width="160" height="56" rx="6" fill="#010102"/>
+      <rect x="520" y="80" width="160" height="56" rx="6" fill="#101214"/>
       <rect x="520" y="80" width="160" height="56" rx="6" fill="rgba(247,248,248,0.04)" stroke="#f7f8f8" stroke-width="1"/>
       <rect x="528" y="86" width="28" height="12" rx="2" fill="transparent" stroke="rgba(247,248,248,0.40)" stroke-width="0.8"/>
       <text x="542" y="95" fill="#f7f8f8" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.08em">APP</text>
@@ -128,7 +128,7 @@
       <text x="600" y="130" fill="#d0d6e0" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">apps/admin</text>
 
       <!-- api -->
-      <rect x="320" y="200" width="160" height="56" rx="6" fill="#010102"/>
+      <rect x="320" y="200" width="160" height="56" rx="6" fill="#101214"/>
       <rect x="320" y="200" width="160" height="56" rx="6" fill="rgba(247,248,248,0.04)" stroke="#f7f8f8" stroke-width="1"/>
       <rect x="328" y="206" width="28" height="12" rx="2" fill="transparent" stroke="rgba(247,248,248,0.40)" stroke-width="0.8"/>
       <text x="342" y="215" fill="#f7f8f8" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.08em">SVC</text>
@@ -138,7 +138,7 @@
       <text x="400" y="250" fill="#d0d6e0" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">services/api</text>
 
       <!-- ui-kit -->
-      <rect x="520" y="200" width="160" height="56" rx="6" fill="#010102"/>
+      <rect x="520" y="200" width="160" height="56" rx="6" fill="#101214"/>
       <rect x="520" y="200" width="160" height="56" rx="6" fill="rgba(247,248,248,0.04)" stroke="#f7f8f8" stroke-width="1"/>
       <rect x="528" y="206" width="28" height="12" rx="2" fill="transparent" stroke="rgba(247,248,248,0.40)" stroke-width="0.8"/>
       <text x="542" y="215" fill="#f7f8f8" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.08em">PKG</text>
@@ -148,7 +148,7 @@
       <text x="600" y="250" fill="#d0d6e0" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">packages/ui-kit</text>
 
       <!-- shared-types (highest fan-in) -->
-      <rect x="320" y="320" width="160" height="56" rx="6" fill="#010102"/>
+      <rect x="320" y="320" width="160" height="56" rx="6" fill="#101214"/>
       <rect x="320" y="320" width="160" height="56" rx="6" fill="rgba(247,248,248,0.04)" stroke="#f7f8f8" stroke-width="1"/>
       <rect x="328" y="326" width="28" height="12" rx="2" fill="transparent" stroke="rgba(247,248,248,0.40)" stroke-width="0.8"/>
       <text x="342" y="335" fill="#f7f8f8" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.08em">PKG</text>
@@ -158,7 +158,7 @@
       <text x="400" y="370" fill="#d0d6e0" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">packages/shared-types</text>
 
       <!-- db -->
-      <rect x="520" y="320" width="160" height="56" rx="6" fill="#010102"/>
+      <rect x="520" y="320" width="160" height="56" rx="6" fill="#101214"/>
       <rect x="520" y="320" width="160" height="56" rx="6" fill="rgba(247,248,248,0.04)" stroke="#f7f8f8" stroke-width="1"/>
       <rect x="528" y="326" width="28" height="12" rx="2" fill="transparent" stroke="rgba(247,248,248,0.40)" stroke-width="0.8"/>
       <text x="542" y="335" fill="#f7f8f8" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.08em">SVC</text>
@@ -168,7 +168,7 @@
       <text x="600" y="370" fill="#d0d6e0" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">services/db</text>
 
       <!-- tokens (leaf) -->
-      <rect x="220" y="440" width="160" height="56" rx="6" fill="#010102"/>
+      <rect x="220" y="440" width="160" height="56" rx="6" fill="#101214"/>
       <rect x="220" y="440" width="160" height="56" rx="6" fill="rgba(247,248,248,0.05)" stroke="#d0d6e0" stroke-width="0.8"/>
       <rect x="228" y="446" width="28" height="12" rx="2" fill="transparent" stroke="rgba(247,248,248,0.40)" stroke-width="0.8"/>
       <text x="242" y="455" fill="#f7f8f8" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.08em">PKG</text>
@@ -178,7 +178,7 @@
       <text x="300" y="490" fill="#d0d6e0" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">packages/tokens</text>
 
       <!-- utils (holds the outgoing cycle edge) -->
-      <rect x="420" y="440" width="160" height="56" rx="6" fill="#010102"/>
+      <rect x="420" y="440" width="160" height="56" rx="6" fill="#101214"/>
       <rect x="420" y="440" width="160" height="56" rx="6" fill="rgba(247,248,248,0.04)" stroke="#f7f8f8" stroke-width="1"/>
       <rect x="428" y="446" width="28" height="12" rx="2" fill="transparent" stroke="rgba(247,248,248,0.40)" stroke-width="0.8"/>
       <text x="442" y="455" fill="#f7f8f8" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.08em">PKG</text>
@@ -188,7 +188,7 @@
       <text x="500" y="490" fill="#d0d6e0" font-size="9" font-family="'SF Mono', monospace" text-anchor="middle">packages/utils</text>
 
       <!-- zod (external) -->
-      <rect x="620" y="440" width="160" height="56" rx="6" fill="#010102"/>
+      <rect x="620" y="440" width="160" height="56" rx="6" fill="#101214"/>
       <rect x="620" y="440" width="160" height="56" rx="6" fill="rgba(247,248,248,0.03)" stroke="rgba(247,248,248,0.30)" stroke-width="1"/>
       <rect x="628" y="446" width="28" height="12" rx="2" fill="transparent" stroke="rgba(247,248,248,0.40)" stroke-width="0.8"/>
       <text x="642" y="455" fill="#f7f8f8" font-size="7" font-family="'SF Mono', monospace" text-anchor="middle" letter-spacing="0.08em">EXT</text>
@@ -209,7 +209,7 @@
       <rect x="380" y="556" width="16" height="12" rx="2" fill="rgba(247,248,248,0.05)" stroke="#d0d6e0" stroke-width="0.8"/>
       <text x="404" y="565" fill="#d0d6e0" font-size="8.5" font-family="'Inter', sans-serif">Leaf (no outgoing)</text>
 
-      <line x1="552" y1="562" x2="580" y2="562" stroke="#ef6306" stroke-width="1.2" stroke-dasharray="5,4"/>
+      <line x1="552" y1="562" x2="580" y2="562" stroke="#ff6a13" stroke-width="1.2" stroke-dasharray="5,4"/>
       <text x="588" y="565" fill="#d0d6e0" font-size="8.5" font-family="'Inter', sans-serif">Cycle (back-edge)</text>
 
       <text x="700" y="565" fill="#d0d6e0" font-size="8.5" font-family="'Inter', sans-serif" font-style="italic">Badges show fan-in — a tree can't express convergence.</text>

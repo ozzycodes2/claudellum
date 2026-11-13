@@ -8,10 +8,10 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --color-paper:   #f8f8f8;
+      --color-paper:   #eceef0;
       --color-ink:     #171717;
-      --color-muted:   #4d4d4d;
-      --color-accent:  #ef6306;
+      --color-muted:   #2c2c2c;
+      --color-accent:  #ff6a13;
       --font-sans:     'Inter', system-ui, sans-serif;
       --font-mono:     'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     }
@@ -60,13 +60,13 @@
     <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="radar-title radar-desc">
       <title id="radar-title">MinIO leads on three of five capabilities</title>
       <desc id="radar-desc">MinIO leads on three of five capabilities. Radar chart comparing MinIO, Amazon S3, Ceph, and Google Cloud Storage across five storage capabilities.</desc>
-        <rect width="100%" height="100%" fill="#f8f8f8"/>
+        <rect width="100%" height="100%" fill="#eceef0"/>
 
         <!-- Grid rings at 0.25 / 0.5 / 0.75 / 1.0 of the scale (2.5, 5, 7.5, 10). Outer ring is the traced maximum, so it takes soft; inner rings and spokes are ink at 0.08. -->
         <polygon points="500,200 538,228 524,272 476,272 462,228" fill="none" stroke="rgba(23,23,23,0.08)" stroke-width="0.8"/>
         <polygon points="500,160 576,215 547,305 453,305 424,215" fill="none" stroke="rgba(23,23,23,0.08)" stroke-width="0.8"/>
         <polygon points="500,120 614,203 571,337 429,337 386,203" fill="none" stroke="rgba(23,23,23,0.08)" stroke-width="0.8"/>
-        <polygon points="500,80 652,191 594,369 406,369 348,191" fill="none" stroke="#616161" stroke-width="1"/>
+        <polygon points="500,80 652,191 594,369 406,369 348,191" fill="none" stroke="#606060" stroke-width="1"/>
 
         <!-- Axis spokes -->
         <line x1="500" y1="240" x2="500" y2="80" stroke="rgba(23,23,23,0.08)" stroke-width="1"/>
@@ -83,41 +83,41 @@
         <text x="331" y="189" fill="#171717" font-size="11" font-weight="600" font-family="'Inter', sans-serif" text-anchor="end">Iceberg integration</text>
 
         <!-- Scale ticks on the first (top) axis only -->
-        <text x="494" y="82" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">10</text>
-        <text x="494" y="122" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">7.5</text>
-        <text x="494" y="162" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">5</text>
-        <text x="494" y="202" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">2.5</text>
+        <text x="494" y="82" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">10</text>
+        <text x="494" y="122" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">7.5</text>
+        <text x="494" y="162" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">5</text>
+        <text x="494" y="202" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">2.5</text>
 
         <!-- Non-focal series, smallest first. Strokes follow the style-guide series table: ink solid, muted 6,3, soft 2,3. No second hue. -->
         <!-- Ceph - muted dashed 6,3 - [7,7,7,4,6] -->
-        <polygon points="500,128 607,205 566,331 462,292 409,210" fill="rgba(77,77,77,0.06)" stroke="#4d4d4d" stroke-width="1.5" stroke-dasharray="6,3"/>
+        <polygon points="500,128 607,205 566,331 462,292 409,210" fill="rgba(44,44,44,0.06)" stroke="#2c2c2c" stroke-width="1.5" stroke-dasharray="6,3"/>
         <!-- Google Cloud Storage - soft dotted 2,3 - [6,9,8,6,7] -->
-        <polygon points="500,144 637,196 575,344 444,318 393,205" fill="rgba(97,97,97,0.06)" stroke="#616161" stroke-width="1.5" stroke-dasharray="2,3"/>
+        <polygon points="500,144 637,196 575,344 444,318 393,205" fill="rgba(96,96,96,0.06)" stroke="#606060" stroke-width="1.5" stroke-dasharray="2,3"/>
         <!-- Amazon S3 - ink solid - [6,10,9,5,8] -->
         <polygon points="500,144 652,191 585,356 453,305 378,200" fill="rgba(23,23,23,0.06)" stroke="#171717" stroke-width="1.5"/>
 
         <!-- Focal series - MinIO - accent - [9,8,9,9,9] -->
-        <polygon points="500,96 622,200 585,356 415,356 363,196" fill="rgba(239,99,6,0.10)" stroke="#ef6306" stroke-width="1.8"/>
+        <polygon points="500,96 622,200 585,356 415,356 363,196" fill="rgba(255,106,19,0.10)" stroke="#ff6a13" stroke-width="1.8"/>
 
         <!-- Focal vertex dots (only on the focal series) -->
-        <circle cx="500" cy="96" r="4" fill="#ef6306"/>
-        <circle cx="622" cy="200" r="4" fill="#ef6306"/>
-        <circle cx="585" cy="356" r="4" fill="#ef6306"/>
-        <circle cx="415" cy="356" r="4" fill="#ef6306"/>
-        <circle cx="363" cy="196" r="4" fill="#ef6306"/>
+        <circle cx="500" cy="96" r="4" fill="#ff6a13"/>
+        <circle cx="622" cy="200" r="4" fill="#ff6a13"/>
+        <circle cx="585" cy="356" r="4" fill="#ff6a13"/>
+        <circle cx="415" cy="356" r="4" fill="#ff6a13"/>
+        <circle cx="363" cy="196" r="4" fill="#ff6a13"/>
 
         <!-- Direct series labels with leaders, each at the series' most distinctive vertex (replaces the legend) -->
-        <line x1="652" y1="191" x2="680" y2="149" stroke="#616161" stroke-width="0.8"/>
+        <line x1="652" y1="191" x2="680" y2="149" stroke="#606060" stroke-width="0.8"/>
         <text x="684" y="152" fill="#171717" font-size="11" font-weight="500" font-family="'Inter', sans-serif" text-anchor="start">Amazon S3</text>
-        <line x1="462" y1="292" x2="334" y2="297" stroke="#616161" stroke-width="0.8"/>
+        <line x1="462" y1="292" x2="334" y2="297" stroke="#606060" stroke-width="0.8"/>
         <text x="330" y="300" fill="#171717" font-size="11" font-weight="500" font-family="'Inter', sans-serif" text-anchor="end">Ceph</text>
-        <line x1="393" y1="205" x2="334" y2="145" stroke="#616161" stroke-width="0.8"/>
+        <line x1="393" y1="205" x2="334" y2="145" stroke="#606060" stroke-width="0.8"/>
         <text x="330" y="148" fill="#171717" font-size="11" font-weight="500" font-family="'Inter', sans-serif" text-anchor="end">Google Cloud Storage</text>
-        <line x1="415" y1="356" x2="334" y2="369" stroke="#616161" stroke-width="0.8"/>
+        <line x1="415" y1="356" x2="334" y2="369" stroke="#606060" stroke-width="0.8"/>
         <text x="330" y="372" fill="#171717" font-size="11" font-weight="500" font-family="'Inter', sans-serif" text-anchor="end">MinIO, recommended</text>
 
         <!-- Source line -->
-        <text data-role="source" x="40" y="472" fill="#4d4d4d" font-size="8" font-family="'SF Mono', monospace">Source: illustrative storage review scores, Q3 2026. Scale 0 to 10 per axis, higher is better.<tspan x="40" dy="12">Axes run clockwise from the top. Read vertices on each axis, not polygon area.</tspan></text>
+        <text data-role="source" x="40" y="472" fill="#2c2c2c" font-size="8" font-family="'SF Mono', monospace">Source: illustrative storage review scores, Q3 2026. Scale 0 to 10 per axis, higher is better.<tspan x="40" dy="12">Axes run clockwise from the top. Read vertices on each axis, not polygon area.</tspan></text>
       </svg>
   </div>
 </body>

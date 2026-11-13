@@ -97,7 +97,7 @@ TICK_LABEL_MAX_X = 79
 MAX_SUBTOTALS = 1
 # Fabric carries one accent across both polarities, so this is a
 # one-member set rather than the light/dark pair a reader may expect.
-ACCENT_STROKES = {"#ef6306"}
+ACCENT_STROKES = {"#ff6a13"}
 SIGN_CHARS = {"+": 1, "-": -1, "\u2212": -1}
 
 
@@ -483,8 +483,8 @@ def check_sign_treatment(bars: list[Bar], errors: list[str], paper: str) -> None
     # Only the two shipped themes have a documented pair; an unrecognised paper
     # falls through to the relative checks below rather than failing the file.
     THEME_TREATMENTS = {
-        "#010102": ("rgba(208,214,224,0.15)", "#d0d6e0"),
-        "#f8f8f8": ("rgba(77,77,77,0.15)", "#4d4d4d"),
+        "#101214": ("rgba(208,214,224,0.15)", "#d0d6e0"),
+        "#eceef0": ("rgba(44,44,44,0.15)", "#2c2c2c"),
     }
     if paper in THEME_TREATMENTS:
         tint, stroke = THEME_TREATMENTS[paper]

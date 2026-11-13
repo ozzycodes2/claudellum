@@ -271,7 +271,7 @@ Only these differ between modes, and only in opacity:
 | Label col divider | `ink @ 0.20` | `ink @ 0.22` | ditto |
 | Focal chip fill | `accent @ 0.20` | `accent @ 0.22` | ditto |
 | Focal node fill | `accent @ 0.08` | `accent @ 0.12` | ditto |
-| Default node fill | `#ffffff` (white) | `ink @ 0.04` | White is opaque; on dark paper the node lifts off the ground instead |
+| Default node fill | `paper-2` | `ink @ 0.04` | `paper-2` is opaque; on dark paper the node lifts off the ground instead |
 | Default node stroke | `ink @ 0.25` | `ink @ 0.20` | Light ink on dark paper reads stronger at equal opacity |
 
 Unchanged across modes: dividers `ink @ 0.12`, default chip fill `ink @ 0.12`, focal node stroke `accent`, and the §4 concern wash, which is a role at an opacity in either polarity.
@@ -330,7 +330,7 @@ the two letters do all the discriminating:
 
 The code is `ink` in every chip, never paper and never the accent: text contrast
 is measured against the page paper, where paper type reads 1:1 and the accent
-reads 3.06:1.
+reads 2.47:1.
 
 Spend focus on the node, not the payload. The focal node's role badge takes
 `accent @ 0.25` (§2.3); its data chips stay at the common wash, because a payload

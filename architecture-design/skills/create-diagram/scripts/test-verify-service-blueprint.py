@@ -68,28 +68,28 @@ def main() -> int:
         ),
         (
             "drop the visibility line",
-            '<line x1="96" y1="268" x2="1200" y2="268" stroke="#616161" stroke-width="2" data-role="visibility"/>',
+            '<line x1="96" y1="268" x2="1200" y2="268" stroke="#606060" stroke-width="2" data-role="visibility"/>',
             "",
             "visibility",
             False,
         ),
         (
             "put the visibility line above the customer row",
-            '<line x1="96" y1="268" x2="1200" y2="268" stroke="#616161" stroke-width="2" data-role="visibility"/>',
-            '<line x1="96" y1="50" x2="1200" y2="50" stroke="#616161" stroke-width="2" data-role="visibility"/>',
+            '<line x1="96" y1="268" x2="1200" y2="268" stroke="#606060" stroke-width="2" data-role="visibility"/>',
+            '<line x1="96" y1="50" x2="1200" y2="50" stroke="#606060" stroke-width="2" data-role="visibility"/>',
             "visibility",
             False,
         ),
         (
             "shift one cell off its column",
-            '<rect x="544" y="128" width="208" height="64" rx="4" fill="#ffffff" stroke="#171717" stroke-width="1" data-stage="hit-limit" data-name="Retry payment"/>',
-            '<rect x="568" y="128" width="208" height="64" rx="4" fill="#ffffff" stroke="#171717" stroke-width="1" data-stage="hit-limit" data-name="Retry payment"/>',
+            '<rect x="544" y="128" width="208" height="64" rx="4" fill="#f7f8f8" stroke="#171717" stroke-width="1" data-stage="hit-limit" data-name="Retry payment"/>',
+            '<rect x="568" y="128" width="208" height="64" rx="4" fill="#f7f8f8" stroke="#171717" stroke-width="1" data-stage="hit-limit" data-name="Retry payment"/>',
             "stage grid",
             False,
         ),
         (
             "drop a backstage cell",
-            '<rect x="96" y="272" width="208" height="64" rx="4" fill="rgba(23,23,23,0.06)" stroke="#4d4d4d" stroke-width="1" data-stage="sign-up" data-name="CRM write"/>',
+            '<rect x="96" y="272" width="208" height="64" rx="4" fill="rgba(23,23,23,0.06)" stroke="#2c2c2c" stroke-width="1" data-stage="sign-up" data-name="CRM write"/>',
             "",
             "census",
             False,
@@ -119,15 +119,15 @@ def main() -> int:
         ),
         (
             "move one customer cell below the visibility line",
-            '<rect x="544" y="128" width="208" height="64" rx="4" fill="#ffffff" stroke="#171717" stroke-width="1" data-stage="hit-limit" data-name="Retry payment"/>',
-            '<rect x="544" y="400" width="208" height="64" rx="4" fill="#ffffff" stroke="#171717" stroke-width="1" data-stage="hit-limit" data-name="Retry payment"/>',
+            '<rect x="544" y="128" width="208" height="64" rx="4" fill="#f7f8f8" stroke="#171717" stroke-width="1" data-stage="hit-limit" data-name="Retry payment"/>',
+            '<rect x="544" y="400" width="208" height="64" rx="4" fill="#f7f8f8" stroke="#171717" stroke-width="1" data-stage="hit-limit" data-name="Retry payment"/>',
             "visibility: customer cell 'Retry payment'",
             False,
         ),
         (
             "widen one cell into the next stage",
-            '<rect x="544" y="128" width="208" height="64" rx="4" fill="#ffffff" stroke="#171717" stroke-width="1" data-stage="hit-limit" data-name="Retry payment"/>',
-            '<rect x="544" y="128" width="400" height="64" rx="4" fill="#ffffff" stroke="#171717" stroke-width="1" data-stage="hit-limit" data-name="Retry payment"/>',
+            '<rect x="544" y="128" width="208" height="64" rx="4" fill="#f7f8f8" stroke="#171717" stroke-width="1" data-stage="hit-limit" data-name="Retry payment"/>',
+            '<rect x="544" y="128" width="400" height="64" rx="4" fill="#f7f8f8" stroke="#171717" stroke-width="1" data-stage="hit-limit" data-name="Retry payment"/>',
             "runs past its stage column",
             False,
         ),
@@ -140,8 +140,8 @@ def main() -> int:
         ),
         (
             "second cell painted with the accent but no data-focal",
-            'fill="rgba(23,23,23,0.06)" stroke="#4d4d4d" stroke-width="1" data-stage="sign-up" data-name="CRM write"',
-            'fill="rgba(239,99,6,0.12)" stroke="#ef6306" stroke-width="1" data-stage="sign-up" data-name="CRM write"',
+            'fill="rgba(23,23,23,0.06)" stroke="#2c2c2c" stroke-width="1" data-stage="sign-up" data-name="CRM write"',
+            'fill="rgba(255,106,19,0.12)" stroke="#ff6a13" stroke-width="1" data-stage="sign-up" data-name="CRM write"',
             "painted with the accent",
             False,
         ),
@@ -175,8 +175,8 @@ def main() -> int:
         ),
         (
             "cell widened by an inline CSS width",
-            '<rect x="544" y="128" width="208" height="64" rx="4" fill="#ffffff" stroke="#171717" stroke-width="1" data-stage="hit-limit" data-name="Retry payment"/>',
-            '<rect x="544" y="128" width="208" height="64" rx="4" fill="#ffffff" stroke="#171717" stroke-width="1" data-stage="hit-limit" data-name="Retry payment" style="width:400px"/>',
+            '<rect x="544" y="128" width="208" height="64" rx="4" fill="#f7f8f8" stroke="#171717" stroke-width="1" data-stage="hit-limit" data-name="Retry payment"/>',
+            '<rect x="544" y="128" width="208" height="64" rx="4" fill="#f7f8f8" stroke="#171717" stroke-width="1" data-stage="hit-limit" data-name="Retry payment" style="width:400px"/>',
             "sets its size in CSS",
             False,
         ),
@@ -189,8 +189,8 @@ def main() -> int:
         ),
         (
             "classed cell widened from the stylesheet",
-            '<rect x="544" y="128" width="208" height="64" rx="4" fill="#ffffff" stroke="#171717" stroke-width="1" data-stage="hit-limit" data-name="Retry payment"/>',
-            '<rect x="544" y="128" width="208" height="64" rx="4" fill="#ffffff" stroke="#171717" stroke-width="1" data-stage="hit-limit" data-name="Retry payment" class="wide"/><style>.wide { width: 400px; }</style>',
+            '<rect x="544" y="128" width="208" height="64" rx="4" fill="#f7f8f8" stroke="#171717" stroke-width="1" data-stage="hit-limit" data-name="Retry payment"/>',
+            '<rect x="544" y="128" width="208" height="64" rx="4" fill="#f7f8f8" stroke="#171717" stroke-width="1" data-stage="hit-limit" data-name="Retry payment" class="wide"/><style>.wide { width: 400px; }</style>',
             "CSS 'width' declaration can resize",
             False,
         ),
@@ -211,7 +211,7 @@ def main() -> int:
         (
             "cells widened by an attribute selector with a hash in its value",
             "  </style>",
-            '    [fill="#ffffff"] { width: 400px; }\n  </style>',
+            '    [fill="#f7f8f8"] { width: 400px; }\n  </style>',
             "CSS 'width' declaration can resize",
             False,
         ),
@@ -303,7 +303,7 @@ def main() -> int:
         # Single-quoted attributes are valid SVG; a cell written that way
         # must still be checked. Evidence cells are not in the census, so a
         # skipped one could sit below the line without any finding.
-        retry = '<rect x="96" y="80" width="208" height="48" rx="4" fill="#ffffff" stroke="#171717" stroke-width="1" data-stage="sign-up" data-name="Welcome email"/>'
+        retry = '<rect x="96" y="80" width="208" height="48" rx="4" fill="#f7f8f8" stroke="#171717" stroke-width="1" data-stage="sign-up" data-name="Welcome email"/>'
         moved = retry.replace('y="80"', 'y="400"').replace('"', "'")
         if retry not in source:
             failures.append("could not build the single-quoted-cell fixture (anchor missing)")

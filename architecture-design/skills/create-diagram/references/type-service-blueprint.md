@@ -56,7 +56,7 @@ No `transform`, geometry `style`, or `<style>` rules that move marks.
       font-family="'Inter', system-ui, sans-serif" text-anchor="middle">Sign up</text>
 
 <g data-layer="customer">
-  <rect x="544" y="128" width="208" height="64" rx="5" fill="#ffffff" stroke="#171717"
+  <rect x="544" y="128" width="208" height="64" rx="5" fill="#f7f8f8" stroke="#171717"
         stroke-width="1" data-stage="hit-limit" data-name="Retry payment"/>
   <text x="648" y="164" fill="#171717" font-size="12" font-family="'Inter', system-ui, sans-serif"
         text-anchor="middle">Retry payment</text>
@@ -65,18 +65,18 @@ No `transform`, geometry `style`, or `<style>` rules that move marks.
 <!-- Line of visibility: `soft`, not an ink wash. The reader traces it to decide
      which side of the service a step falls on, which makes it an essential mark
      at 3:1 — every hairline here is under that. -->
-<line x1="96" y1="268" x2="1200" y2="268" stroke="#616161" stroke-width="2"
+<line x1="96" y1="268" x2="1200" y2="268" stroke="#606060" stroke-width="2"
       data-role="visibility"/>
 
 <g data-layer="backstage">
-  <rect x="544" y="272" width="208" height="64" rx="5" fill="rgba(239,99,6,0.10)"
-        stroke="#ef6306" stroke-width="1" data-stage="hit-limit"
+  <rect x="544" y="272" width="208" height="64" rx="5" fill="rgba(255,106,19,0.10)"
+        stroke="#ff6a13" stroke-width="1" data-stage="hit-limit"
         data-name="dunning-job timeout" data-focal="true"/>
   <!-- The focal name is ink at 600, not accent. The accent-stroked box beside it
        is already spending the one focal mark this cell gets. -->
   <text x="648" y="300" fill="#171717" font-size="12" font-weight="600"
         font-family="'Inter', system-ui, sans-serif" text-anchor="middle">dunning-job timeout</text>
-  <text x="648" y="318" fill="#4d4d4d" font-size="8" font-family="'SF Mono', ui-monospace, monospace"
+  <text x="648" y="318" fill="#2c2c2c" font-size="8" font-family="'SF Mono', ui-monospace, monospace"
         text-anchor="middle">dunning-job · 4h</text>
 </g>
 ```

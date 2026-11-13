@@ -371,7 +371,7 @@ Only these differ between modes:
 |---|---|---|---|
 | Muted text | `muted` | `ink @ 0.65` | Dark mode softens secondary text by opacity rather than by hue |
 | Dashed border | `ink @ 0.20` | `ink @ 0.22` | A hairline needs marginally more presence on dark paper |
-| Node fill | `#ffffff` (white) | `ink @ 0.06` | White is opaque; on dark paper the node lifts off the ground instead |
+| Node fill | `paper-2` | `ink @ 0.06` | `paper-2` is opaque; on dark paper the node lifts off the ground instead |
 | Node stroke | `ink @ 0.25` | `ink @ 0.20` | Light ink on dark paper reads stronger at equal opacity |
 | Focal fill | `accent @ 0.08` | `accent @ 0.12` | ditto |
 

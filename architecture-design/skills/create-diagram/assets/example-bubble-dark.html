@@ -8,10 +8,10 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --color-paper:  #010102;
+      --color-paper:  #101214;
       --color-ink:    #f7f8f8;
       --color-muted:  #d0d6e0;
-      --color-accent: #ef6306;
+      --color-accent: #ff6a13;
       --font-sans:    'Inter', system-ui, sans-serif;
       --font-mono:    'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     }
@@ -35,7 +35,7 @@
     <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="bubble-dark-title bubble-dark-desc">
       <title id="bubble-dark-title">The biggest risk is not the slowest service</title>
       <desc id="bubble-dark-desc">The biggest risk is not the slowest service. Bubble chart of nine services by p95 latency and error rate on zero-based axes, bubble area proportional to requests per second; Payments carries near-peak traffic at the highest error rate.</desc>
-      <rect width="100%" height="100%" fill="#010102"/>
+      <rect width="100%" height="100%" fill="#101214"/>
 
       <!-- Axis titles are horizontal: y above its axis, left-aligned to it; x below, left-aligned to its axis. -->
       <text x="172" y="140" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace">Error rate, %</text>
@@ -58,23 +58,23 @@
       <text data-ref="budget" data-role="label" x="960" y="271.5" fill="#d0d6e0" font-size="8" font-family="'SF Mono', monospace" text-anchor="end">Error budget, 1.5%</text>
 
       <!-- BUBBLES, largest first. AREA carries the third value, never radius: r = K·√v with K = 1.4. One uniform fill (ink at 0.14) on every non-focal bubble: tone is not an encoding here. The paper underlay keeps the reference line from showing through a translucent fill. -->
-      <circle cx="229.6" cy="372.5" r="42" fill="#010102"/>
+      <circle cx="229.6" cy="372.5" r="42" fill="#101214"/>
       <circle data-name="Gateway" data-x="85" data-y="0.5" data-size="900" cx="229.6" cy="372.5" r="42" fill="rgba(247,248,248,0.14)" stroke="#d0d6e0" stroke-width="1"/>
-      <circle cx="537.6" cy="154" r="38.6" fill="#010102"/>
-      <circle data-name="Payments" data-x="260" data-y="2.8" data-size="760" cx="537.6" cy="154" r="38.6" fill="rgba(239,99,6,0.15)" stroke="#ef6306" stroke-width="1.2"/>
-      <circle cx="326.4" cy="334.5" r="34.9" fill="#010102"/>
+      <circle cx="537.6" cy="154" r="38.6" fill="#101214"/>
+      <circle data-name="Payments" data-x="260" data-y="2.8" data-size="760" cx="537.6" cy="154" r="38.6" fill="rgba(255,106,19,0.15)" stroke="#ff6a13" stroke-width="1.2"/>
+      <circle cx="326.4" cy="334.5" r="34.9" fill="#101214"/>
       <circle data-name="Auth" data-x="140" data-y="0.9" data-size="620" cx="326.4" cy="334.5" r="34.9" fill="rgba(247,248,248,0.14)" stroke="#d0d6e0" stroke-width="1"/>
-      <circle cx="396.8" cy="353.5" r="32.5" fill="#010102"/>
+      <circle cx="396.8" cy="353.5" r="32.5" fill="#101214"/>
       <circle data-name="Catalog" data-x="180" data-y="0.7" data-size="540" cx="396.8" cy="353.5" r="32.5" fill="rgba(247,248,248,0.14)" stroke="#d0d6e0" stroke-width="1"/>
-      <circle cx="643.2" cy="315.5" r="30.7" fill="#010102"/>
+      <circle cx="643.2" cy="315.5" r="30.7" fill="#101214"/>
       <circle data-name="Search" data-x="320" data-y="1.1" data-size="480" cx="643.2" cy="315.5" r="30.7" fill="rgba(247,248,248,0.14)" stroke="#d0d6e0" stroke-width="1"/>
-      <circle cx="484.8" cy="287" r="25.4" fill="#010102"/>
+      <circle cx="484.8" cy="287" r="25.4" fill="#101214"/>
       <circle data-name="Media" data-x="230" data-y="1.4" data-size="330" cx="484.8" cy="287" r="25.4" fill="rgba(247,248,248,0.14)" stroke="#d0d6e0" stroke-width="1"/>
-      <circle cx="819.2" cy="268" r="20.3" fill="#010102"/>
+      <circle cx="819.2" cy="268" r="20.3" fill="#101214"/>
       <circle data-name="Recommender" data-x="420" data-y="1.6" data-size="210" cx="819.2" cy="268" r="20.3" fill="rgba(247,248,248,0.14)" stroke="#d0d6e0" stroke-width="1"/>
-      <circle cx="247.2" cy="211" r="17.1" fill="#010102"/>
+      <circle cx="247.2" cy="211" r="17.1" fill="#101214"/>
       <circle data-name="Notifications" data-x="95" data-y="2.2" data-size="150" cx="247.2" cy="211" r="17.1" fill="rgba(247,248,248,0.14)" stroke="#d0d6e0" stroke-width="1"/>
-      <circle cx="889.6" cy="334.5" r="10.8" fill="#010102"/>
+      <circle cx="889.6" cy="334.5" r="10.8" fill="#101214"/>
       <circle data-name="Reports" data-x="460" data-y="0.9" data-size="60" cx="889.6" cy="334.5" r="10.8" fill="rgba(247,248,248,0.14)" stroke="#d0d6e0" stroke-width="1"/>
 
       <!-- Labels: the focal bubble plus the two poles of the area story. Each is bound by data-name. -->

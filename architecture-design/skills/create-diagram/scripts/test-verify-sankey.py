@@ -43,12 +43,12 @@ REFERENCE = ROOT / "references/type-sankey.md"
 # The first ribbon of the shipped figure (Budget → Unit tests), in full and as
 # the opening fragment mutations prepend attributes to.
 RIBBON = ('<path d="M132,120 C316,120 316,120 500,120 L500,224 '
-          'C316,224 316,224 132,224 Z" fill="rgba(77,77,77,0.18)"/>')
+          'C316,224 316,224 132,224 Z" fill="rgba(44,44,44,0.18)"/>')
 RIBBON_ANCHOR = '<path d="M132,120 C316,120 316,120 500,120'
-RIBBON_FILL = 'fill="rgba(77,77,77,0.18)"'
+RIBBON_FILL = 'fill="rgba(44,44,44,0.18)"'
 # The accent-path leader line — the only stroked, stroke-width-bearing element the
 # stroke grammar cases can anchor on, since shipped ribbons carry no stroke.
-SWATCH = 'stroke="#616161" stroke-width="1"'
+SWATCH = 'stroke="#606060" stroke-width="1"'
 # The Failed node bar — last stage, 32px for 1,600 min at 50 min/px.
 BAR = '<rect x="880" y="344" width="12" height="32" fill="#171717"/>'
 # Insertion point for extra paths: just before the source line.
@@ -246,7 +246,7 @@ def main() -> int:
         case(
             failures, directory, "swatch-in-plot",
             source.replace(ANNOT,
-                '      <rect x="600" y="300" width="16" height="8" fill="#f8f8f8"/>\n'
+                '      <rect x="600" y="300" width="16" height="8" fill="#eceef0"/>\n'
                 + ANNOT, 1),
             source, "neither a node bar",
             "a swatch-sized rect parked inside the plot band",
@@ -254,7 +254,7 @@ def main() -> int:
         case(
             failures, directory, "swatch-below-band",
             source.replace(ANNOT,
-                '      <rect x="40" y="496" width="16" height="8" fill="#f8f8f8"/>\n'
+                '      <rect x="40" y="496" width="16" height="8" fill="#eceef0"/>\n'
                 + ANNOT, 1),
             source, "neither a node bar",
             "a legend swatch below the band, which the figure no longer draws",
@@ -433,7 +433,7 @@ def main() -> int:
             failures, directory, "fat-attr",
             source.replace(
                 RIBBON_FILL + "/>",
-                RIBBON_FILL + ' stroke="#f8f8f8" stroke-width="30"/>', 1),
+                RIBBON_FILL + ' stroke="#eceef0" stroke-width="30"/>', 1),
             source, "paints",
             "a ribbon with a fat stroke-width attribute",
         )
@@ -525,7 +525,7 @@ def main() -> int:
         for name, repl in (
             ("inv-none", 'fill="none"'),
             ("inv-transparent", 'fill="transparent"'),
-            ("inv-alpha0", 'fill="rgba(77,77,77,0)"'),
+            ("inv-alpha0", 'fill="rgba(44,44,44,0)"'),
         ):
             case(
                 failures, directory, name,
@@ -547,7 +547,7 @@ def main() -> int:
         #     stroke-width fuzz on the first legend swatch, the only shipped
         #     element that declares one.
         malformed = (
-            (RIBBON_FILL, 'fill="rgba(77,77,77,zz)"', "a non-numeric rgba alpha"),
+            (RIBBON_FILL, 'fill="rgba(44,44,44,zz)"', "a non-numeric rgba alpha"),
             (SWATCH, SWATCH.replace('stroke-width="1"', 'stroke-width="abc"'), "a non-numeric stroke-width"),
             (SWATCH, SWATCH.replace('stroke-width="1"', 'stroke-width="1.2.3"'), "a malformed stroke-width"),
             (SWATCH, SWATCH.replace('stroke-width="1"', 'stroke-width=""'), "an empty stroke-width"),
@@ -785,7 +785,7 @@ def main() -> int:
                 ("aud-charref", altered(RIBBON_FILL, 'fill="&#110;one"'),
                  "paints no fill", "a fill of none written as a character reference"),
                 ("aud-singlequote", altered(RIBBON_FILL,
-                                            "fill='rgba(77,77,77,0.18)' style='stroke-width:30'"),
+                                            "fill='rgba(44,44,44,0.18)' style='stroke-width:30'"),
                  "carries style", "a single-quoted style, invisible to a double-quote scan"),
                 ("aud-duplicate", altered("<path ", '<path fill="none" '),
                  "paints no fill", "a duplicate fill, where the browser keeps the first"),
@@ -793,21 +793,21 @@ def main() -> int:
                  "does not read", "a > inside a quoted value, which truncates a [^>]* capture"),
                 # Ink that is not a ribbon.
                 ("aud-fat-line", alongside('<line x1="150" y1="90" x2="150" y2="460" '
-                                           'stroke="#f8f8f8" stroke-width="40"/>'),
+                                           'stroke="#eceef0" stroke-width="40"/>'),
                  "reads as a band", "a <line> wide enough to read as volume"),
                 ("aud-cover", alongside('<rect x="600" y="90" width="300" height="380" '
-                                        'fill="#f8f8f8"/>'),
+                                        'fill="#eceef0"/>'),
                  "neither a node bar", "a rect painted over the figure"),
                 # A dash that is not a dash.
                 ("aud-zero-gap", alongside('<path d="M300,470 L700,470" fill="none" '
-                                           'stroke="#4d4d4d" stroke-width="1" '
+                                           'stroke="#2c2c2c" stroke-width="1" '
                                            'stroke-dasharray="4000 0"/>'),
                  "neither a readable ribbon", "a dash pattern with no gap, which renders solid"),
                 # The source line and the event marker are the only places the
                 # annotation attributes and a tspan are read. Each is refused
                 # anywhere else; the shipped example proves they pass in place.
                 ("aud-tspan-loose", alongside('<text x="40" y="470"><tspan x="40" dy="12" '
-                                              'fill="#f8f8f8">cover</tspan></text>'),
+                                              'fill="#eceef0">cover</tspan></text>'),
                  "outside a <text data-role", "a tspan outside the source line"),
                 ("aud-role-other", alongside('<text data-role="label" x="40" y="470">note</text>'),
                  "reads only as", "a data-role other than source"),

@@ -323,7 +323,7 @@ def run_cases(h):
         "renamed layer paths missing data-values fail closed, not skipped",
         PLAIN_HEAD.replace("<title>t</title>", "<title>Build minutes by team</title>")
         + '  <path data-layer="Docs" d="M 80 230 L 160 230 Z" fill="#171717"/>\n'
-        + '  <path data-layer="Unit" d="M 80 240 L 160 240 Z" fill="#4d4d4d"/>\n'
+        + '  <path data-layer="Unit" d="M 80 240 L 160 240 Z" fill="#2c2c2c"/>\n'
         + TAIL,
         r"presents as a streamgraph but declares 0 verifiable layer",
         name="figure.html",

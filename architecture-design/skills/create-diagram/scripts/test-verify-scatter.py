@@ -53,33 +53,33 @@ def build() -> str:
     circles = []
     for i, (x, y) in enumerate(PTS):
         name = ' data-name="Gamma"' if (x, y) == (9, 9) else ""
-        circles.append('<circle cx="%g" cy="%g" r="5" fill="#f8f8f8"/>' % (cx(x), cy(y)))
-        circles.append('<circle data-x="%g" data-y="%g"%s cx="%g" cy="%g" r="5" fill="rgba(77,77,77,0.2)" '
+        circles.append('<circle cx="%g" cy="%g" r="5" fill="#eceef0"/>' % (cx(x), cy(y)))
+        circles.append('<circle data-x="%g" data-y="%g"%s cx="%g" cy="%g" r="5" fill="rgba(44,44,44,0.2)" '
                        'stroke="%s" stroke-width="1"/>'
-                       % (x, y, name, cx(x), cy(y), "#ef6306" if name else "#4d4d4d"))
+                       % (x, y, name, cx(x), cy(y), "#ff6a13" if name else "#2c2c2c"))
     ticks = []
     for v in (1, 9):
-        ticks.append('<text data-tick="x" data-value="%d" x="%g" y="448" fill="#4d4d4d" font-size="8" %s '
+        ticks.append('<text data-tick="x" data-value="%d" x="%g" y="448" fill="#2c2c2c" font-size="8" %s '
                      'text-anchor="middle">%d</text>' % (v, cx(v), MONO, v))
     for v in (2, 9):
-        ticks.append('<text data-tick="y" data-value="%d" x="136" y="%g" fill="#4d4d4d" font-size="8" %s '
+        ticks.append('<text data-tick="y" data-value="%d" x="136" y="%g" fill="#2c2c2c" font-size="8" %s '
                      'text-anchor="end">%d</text>' % (v, cy(v) + 3, MONO, v))
     return """<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><title>t</title></head><body>
 <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img">
   <title>t</title>
-  <rect width="100%%" height="100%%" fill="#f8f8f8"/>
-  <text x="124" y="84" fill="#4d4d4d" font-size="8" %(M)s>Lead time, days</text>
-  <line data-axis="y" x1="124" y1="%(ay1)g" x2="124" y2="%(ay2)g" stroke="#616161" stroke-width="1"/>
-  <line data-axis="x" x1="%(ax1)g" y1="432" x2="%(ax2)g" y2="432" stroke="#616161" stroke-width="1"/>
+  <rect width="100%%" height="100%%" fill="#eceef0"/>
+  <text x="124" y="84" fill="#2c2c2c" font-size="8" %(M)s>Lead time, days</text>
+  <line data-axis="y" x1="124" y1="%(ay1)g" x2="124" y2="%(ay2)g" stroke="#606060" stroke-width="1"/>
+  <line data-axis="x" x1="%(ax1)g" y1="432" x2="%(ax2)g" y2="432" stroke="#606060" stroke-width="1"/>
   %(ticks)s
-  <line data-ref="median" data-value="5.5" x1="%(ax1)g" y1="%(my)g" x2="%(ax2)g" y2="%(my)g" stroke="#616161" stroke-width="1" stroke-dasharray="4,3"/>
-  <text data-ref="median" data-role="label" x="%(ax1)g" y="%(myl)g" fill="#4d4d4d" font-size="8" %(M)s>Median: 5.5 days</text>
-  <line data-trend="ols" x1="%(tx1)g" y1="%(ty1)g" x2="%(tx2)g" y2="%(ty2)g" stroke="#616161" stroke-width="1.2"/>
-  <text data-trend="ols" data-role="label" x="150" y="300" fill="#4d4d4d" font-size="8" %(M)s>Least squares fit</text>
+  <line data-ref="median" data-value="5.5" x1="%(ax1)g" y1="%(my)g" x2="%(ax2)g" y2="%(my)g" stroke="#606060" stroke-width="1" stroke-dasharray="4,3"/>
+  <text data-ref="median" data-role="label" x="%(ax1)g" y="%(myl)g" fill="#2c2c2c" font-size="8" %(M)s>Median: 5.5 days</text>
+  <line data-trend="ols" x1="%(tx1)g" y1="%(ty1)g" x2="%(tx2)g" y2="%(ty2)g" stroke="#606060" stroke-width="1.2"/>
+  <text data-trend="ols" data-role="label" x="150" y="300" fill="#2c2c2c" font-size="8" %(M)s>Least squares fit</text>
   %(circles)s
   <text data-name="Gamma" data-role="label" x="%(gx)g" y="%(gy)g" fill="#171717" font-size="8" %(M)s text-anchor="middle">Gamma</text>
-  <text data-role="source" x="124" y="488" fill="#4d4d4d" font-size="8" %(M)s>Source: test. Solid line: least squares fit. Dashed line: median.</text>
+  <text data-role="source" x="124" y="488" fill="#2c2c2c" font-size="8" %(M)s>Source: test. Solid line: least squares fit. Dashed line: median.</text>
 </svg></body></html>
 """ % {
         "M": MONO, "ay1": cy(9), "ay2": cy(2), "ax1": cx(1), "ax2": cx(9), "ticks": "\n  ".join(ticks),
@@ -193,7 +193,7 @@ def run_cases(h: Harness) -> int:
             mut(CLEAN, 'x2="260" y2="%g"' % cy(a + b * 9), 'x2="320" y2="%g"' % cy(a + b * 12)),
             "outside the data range")
     h.flags("an unbound diagonal line is refused as a hand-drawn trend",
-            add(CLEAN, '<line x1="100" y1="400" x2="260" y2="330" stroke="#616161" stroke-dasharray="4,3"/>'),
+            add(CLEAN, '<line x1="100" y1="400" x2="260" y2="330" stroke="#606060" stroke-dasharray="4,3"/>'),
             "not a bound fit")
     h.flags("a trend method other than ols is refused",
             mut(CLEAN, 'data-trend="ols" x1', 'data-trend="eyeball" x1'), "unsupported trend method")
@@ -225,7 +225,7 @@ def run_cases(h: Harness) -> int:
     h.flags("a reference with no value is refused",
             mut(CLEAN, 'data-value="5.5"', 'data-value=""'), "numeric x1/y1/x2/y2 and data-value")
     h.clean("a vertical target reference on the x scale passes",
-            add(CLEAN, '<line data-ref="target" data-value="5" x1="180" y1="330" x2="180" y2="400" stroke="#616161" stroke-dasharray="4,3"/>'
+            add(CLEAN, '<line data-ref="target" data-value="5" x1="180" y1="330" x2="180" y2="400" stroke="#606060" stroke-dasharray="4,3"/>'
                 '<text data-ref="target" data-role="label" x="184" y="326" font-size="8">Target</text>'))
 
     # --- labels ------------------------------------------------------------
@@ -263,9 +263,9 @@ def run_cases(h: Harness) -> int:
     h.flags("vertical writing mode is caught",
             mut(CLEAN, '<text x="124" y="84"', '<text writing-mode="vertical-rl" x="124" y="84"'), "vertical text")
     h.flags("accent text is caught",
-            mut(CLEAN, 'fill="#171717" font-size="8"', 'fill="#ef6306" font-size="8"'), "accent")
+            mut(CLEAN, 'fill="#171717" font-size="8"', 'fill="#ff6a13" font-size="8"'), "accent")
     h.flags("a second accent point is caught",
-            mut(CLEAN, 'r="5" fill="rgba(77,77,77,0.2)" stroke="#4d4d4d"', 'r="5" fill="rgba(77,77,77,0.2)" stroke="#ef6306"'),
+            mut(CLEAN, 'r="5" fill="rgba(44,44,44,0.2)" stroke="#2c2c2c"', 'r="5" fill="rgba(44,44,44,0.2)" stroke="#ff6a13"'),
             "more than one accent point")
     h_line = '<line x1="100" y1="%d" x2="260" y2="%d" stroke="rgba(23,23,23,0.08)"/>'
     v_line = '<line x1="%d" y1="330" x2="%d" y2="420" stroke="rgba(23,23,23,0.08)"/>'
@@ -276,7 +276,7 @@ def run_cases(h: Harness) -> int:
     h.flags("a fifth gridline is caught",
             add(CLEAN, "".join(h_line % (y, y) for y in (340, 350, 360, 370, 390))), "5 gridlines")
     h.flags("a strong gridline is caught",
-            add(CLEAN, '<line x1="100" y1="350" x2="260" y2="350" stroke="#616161"/>'), "ink at 0.08 or fainter")
+            add(CLEAN, '<line x1="100" y1="350" x2="260" y2="350" stroke="#606060"/>'), "ink at 0.08 or fainter")
     def capped(extra_count: int) -> list:
         extra = "".join('<circle data-x="%d" data-y="%d" cx="%d" cy="%d" r="2"/>'
                         % (1 + i % 9, 2 + i % 7, cx(1 + i % 9), cy(2 + i % 7))

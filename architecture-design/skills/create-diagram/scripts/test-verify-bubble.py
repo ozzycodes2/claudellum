@@ -55,7 +55,7 @@ def radius(size: float) -> float:
 
 
 def bubble(name: str, x: float, y: float, size: float, drawn_cx=None,
-           drawn_cy=None, drawn_r=None, stroke: str = "#4d4d4d",
+           drawn_cy=None, drawn_r=None, stroke: str = "#2c2c2c",
            omit: str = "", extra: str = "") -> str:
     parts = []
     if omit != "data-name":
@@ -104,7 +104,7 @@ def honest_block(rows=None, focal: str = "Edge") -> str:
     body = ""
     for name, x, y, size in sorted(BUBBLES if rows is None else rows,
                                    key=lambda row: -row[3]):
-        stroke = "#ef6306" if name == focal else "#4d4d4d"
+        stroke = "#ff6a13" if name == focal else "#2c2c2c"
         body += bubble(name, x, y, size, stroke=stroke)
     return body
 
@@ -113,13 +113,13 @@ def honest_block(rows=None, focal: str = "Edge") -> str:
 # on the fixture's own K (1.4), a source line stating it, and a labelled
 # comparison line on the y scale. `document(..., extras=False)` leaves it off.
 EXTRAS = (
-    '  <circle data-key-size="100" cx="40" cy="40" r="14" fill="none" stroke="#4d4d4d"/>\n'
+    '  <circle data-key-size="100" cx="40" cy="40" r="14" fill="none" stroke="#2c2c2c"/>\n'
     '  <text data-key-size="100" x="40" y="60">100</text>\n'
-    '  <circle data-key-size="400" cx="100" cy="40" r="28" fill="none" stroke="#4d4d4d"/>\n'
+    '  <circle data-key-size="400" cx="100" cy="40" r="28" fill="none" stroke="#2c2c2c"/>\n'
     '  <text data-key-size="400" x="100" y="80">400</text>\n'
     '  <text data-role="source" x="40" y="488">Area, K = 1.4 px per root unit.</text>\n'
     '  <line data-ref="budget" data-value="1.5" x1="80" y1="%g" x2="960" y2="%g" '
-    'stroke="#616161" stroke-width="1" stroke-dasharray="4,3"/>\n'
+    'stroke="#606060" stroke-width="1" stroke-dasharray="4,3"/>\n'
     '  <text data-ref="budget" data-role="label" x="960" y="%g">Error budget</text>\n'
 ) % (cy(1.5), cy(1.5), cy(1.5) - 6)
 
@@ -375,7 +375,7 @@ def run_cases(h: Harness) -> int:
 
     # ── Focal discipline ──────────────────────────────────────────────────
     two_accents = honest_block() + bubble("Rogue", 250, 2.5, 300,
-                                          stroke="#ef6306")
+                                          stroke="#ff6a13")
     h.expect_finding(
         "a second accent bubble is reported — one focal claim per figure",
         document(two_accents, TICKS),
@@ -399,14 +399,14 @@ def run_cases(h: Harness) -> int:
         r"size key has 0 reference circle",
     )
     one_key = EXTRAS.replace(
-        '  <circle data-key-size="400" cx="100" cy="40" r="28" fill="none" stroke="#4d4d4d"/>\n', "")
+        '  <circle data-key-size="400" cx="100" cy="40" r="28" fill="none" stroke="#2c2c2c"/>\n', "")
     h.expect_finding(
         "a size key of one circle is reported",
         document(honest_block(), TICKS, extras=False).replace("</svg>", one_key + "</svg>"),
         r"size key has 1 reference circle",
     )
     four_key = EXTRAS + "".join(
-        '  <circle data-key-size="%d" cx="%d" cy="40" r="%g" fill="none" stroke="#4d4d4d"/>\n'
+        '  <circle data-key-size="%d" cx="%d" cy="40" r="%g" fill="none" stroke="#2c2c2c"/>\n'
         '  <text data-key-size="%d" x="%d" y="60">%d</text>\n'
         % (v, v, radius(v), v, v, v) for v in (200, 300))
     h.expect_finding(

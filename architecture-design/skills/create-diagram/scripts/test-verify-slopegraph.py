@@ -595,7 +595,7 @@ def run_cases(h: Harness) -> int:
         "axis rules and legend swatches without data-series are skipped silently",
         document(honest_rows_block()
                  + '  <line x1="320" y1="40" x2="320" y2="420" stroke="#171717"/>\n'
-                   '  <line x1="40" y1="492" x2="64" y2="492" stroke="#ef6306"/>\n'),
+                   '  <line x1="40" y1="492" x2="64" y2="492" stroke="#ff6a13"/>\n'),
     )
 
     for label in ("left", "right"):
