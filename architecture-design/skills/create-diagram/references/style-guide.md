@@ -3,7 +3,8 @@
 **The single source of truth for colors, typography, and tokens.** Every diagram draws from this — not from hex values inlined in other reference files. If you want to change the visual skin of Diagram Design, change this file.
 
 The skin is **Fabric** — two polarities of one token vocabulary, carried over
-from the author's Fabric design system. Near-black
+from the author's [Fabric design system](https://github.com/ozzycodes2/fabric-theme) (v0.2.3; every value is on the
+[Fabric site](https://github.com/ozzycodes2/fabric-site)). Near-black
 ground or off-white ground, the same eleven diagram roles at two sets of values,
 and one shared signal orange across both. Swap these values (or run
 [`onboarding.md`](onboarding.md)) and every new diagram inherits the new skin

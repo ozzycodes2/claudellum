@@ -48,7 +48,8 @@ automatic spacing and routing.
 ## create-diagram
 
 A fork of Cathryn Lavery's [diagram-design](https://github.com/cathrynlavery/diagram-design)
-(v2.6, MIT), reskinned to Fabric. The layout grammar is unchanged — same
+(v2.6, MIT), reskinned to [Fabric](https://github.com/ozzycodes2/fabric-theme) v0.2.3, whose values are all on the
+[Fabric site](https://github.com/ozzycodes2/fabric-site). The layout grammar is unchanged — same
 forty-five visual types, same six connector rules, same nine-node / twelve-arrow
 budget, same 217 worked examples at the same coordinates. Three skin rules
 override what upstream ships:
