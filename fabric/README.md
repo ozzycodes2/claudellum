@@ -70,8 +70,10 @@ to its `user`. The spinner word is `shimmer`, and its sweep lifts that colour to
   `fabric-*` pane ids.
 - Once a turn that ran `/review:review` ends with an answer, a green `reviewed` pill
   sits on the row above the prompt; `/review:fix` adds an orange `fixed` pill. These
-  colours are fixed whatever the skin. The pills last until `/clear` and hide while
-  skins are off or a survey holds the band.
+  colours are fixed whatever the skin. The pills belong to the branch's pull request,
+  as `gh pr view` names it when they are earned: they go once it merges, checked every
+  minute and straight after a `gh pr merge`. Without `gh` or a pull request they last
+  until `/clear`. They hide while skins are off or a survey holds the band.
 
 ## Development
 

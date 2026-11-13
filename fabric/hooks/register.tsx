@@ -89,6 +89,11 @@ const BADGE_SKILLS: ReadonlyMap<string, Badge> = new Map([
   ['review:fix', 'fixed'],
 ])
 const BADGE_ORDER: readonly Badge[] = ['reviewed', 'fixed']
+// The pull request the pills were earned on, by number; they go once it merges. Null when the
+// branch had none, or gh could not say: the pills then last until /clear.
+const badgePrAtom = atom({ plugin: 'fabric', key: 'badgePr' } as const, null as number | null)
+const MERGE_POLL_MS = 60_000
+const MERGES = /\bgh\s+pr\s+merge\b/
 
 const EDITS = new Set(['Edit', 'MultiEdit', 'Write'])
 const WRITES = new Set([...EDITS, 'NotebookEdit'])
@@ -215,6 +220,49 @@ async function followTheme($: EngineInterface, theme?: unknown): Promise<void> {
         })
       })
     : undefined
+}
+
+// The branch's pull request, or the one numbered. Undefined when gh is missing, signed out or
+// finds none.
+async function viewPr($: EngineInterface, which?: number): Promise<{ number: number; state: string } | undefined> {
+  try {
+    const argv = ['gh', 'pr', 'view', ...(which === undefined ? [] : [String(which)]), '--json', 'number,state']
+    const { exitCode, stdout } = await $.process.run(argv, { cwd: await cwdOf($), timeoutMs: 10_000 })
+    const pr = exitCode === 0 ? (JSON.parse(stdout) as { number?: unknown; state?: unknown }) : {}
+
+    return typeof pr.number === 'number' && typeof pr.state === 'string' ? { number: pr.number, state: pr.state } : undefined
+  } catch {
+    return undefined
+  }
+}
+
+// Asks after the pills' pull request on a timer while there is one; a merge clears both.
+let mergeWatch: Timer | undefined
+
+async function checkMerged($: EngineInterface): Promise<void> {
+  const pr = await read($, badgePrAtom)
+
+  if (pr !== null && (await viewPr($, pr))?.state === 'MERGED') {
+    await update($, badgesAtom, () => [])
+    await update($, badgePrAtom, () => null)
+  }
+
+  if ((await read($, badgePrAtom)) === null) {
+    mergeWatch?.cancel()
+    mergeWatch = undefined
+  }
+}
+
+async function watchMerge($: EngineInterface): Promise<void> {
+  mergeWatch?.cancel()
+  mergeWatch =
+    (await read($, badgePrAtom)) === null
+      ? undefined
+      : $.clock.every(MERGE_POLL_MS, () => {
+          void checkMerged($).catch((error: unknown) => {
+            $.ui.log(error instanceof Error ? error.message : String(error), { to: 'debug' })
+          })
+        })
 }
 
 // Every surface's element table names Svg, but the terminal draws it as nothing, so
@@ -622,6 +670,7 @@ export const register: Register = on => {
     loadedFor = await sessionId($)
     await load($)
     await followTheme($)
+    await watchMerge($)
 
     // Only the spinner reads the frame, so a tick redraws the spinner and nothing else.
     ticker?.cancel()
@@ -692,6 +741,15 @@ export const register: Register = on => {
 
       if (earned.length > 0) {
         await update($, badgesAtom, badges => BADGE_ORDER.filter(badge => badges.includes(badge) || earned.includes(badge)))
+        // Not awaited: gh takes a second or more, and the turn's end should not wait on it.
+        void viewPr($)
+          .then(async pr => {
+            await update($, badgePrAtom, () => pr?.number ?? null)
+            await watchMerge($)
+          })
+          .catch((error: unknown) => {
+            $.ui.log(error instanceof Error ? error.message : String(error), { to: 'debug' })
+          })
       }
     }
 
@@ -741,6 +799,11 @@ export const register: Register = on => {
 
     if (e.agentId === undefined && e.tool !== DESIGN && ran.deny === undefined) {
       stats = { tools: stats.tools + 1 }
+    }
+
+    // Asked now rather than at the next poll; an `--auto` merge lands later, and the poll finds it.
+    if (SHELLS.has(e.tool) && ran.deny === undefined && MERGES.test(commandOf(e))) {
+      await checkMerged($)
     }
 
     return ran
@@ -1240,7 +1303,7 @@ export const register: Register = on => {
     return (
       <Box flexDirection="column">
         {theirs}
-        {badgeRow(look, badges)}
+        <Box paddingX={SIDE_PAD}>{badgeRow(look, badges)}</Box>
       </Box>
     )
   })

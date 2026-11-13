@@ -134,6 +134,7 @@ declare module 'claude-code' {
       settle: number
       lastReply: string
       badges: Badge[]
+      badgePr: number | null
     }
   }
 }

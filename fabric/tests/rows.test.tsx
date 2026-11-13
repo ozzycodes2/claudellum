@@ -809,6 +809,76 @@ test('a finished /review:review and /review:fix each put a pill above the prompt
   expect(await pills(), 'skins off draws Claude Code’s own band').toEqual([])
 })
 
+test('the pills sit inside the side padding and go once their pull request merges', async ($, on) => {
+  const clock = stubEngine(on)
+  let state = 'OPEN'
+  let hasPr = true
+  const asked: string[][] = []
+  on('process.run', ($, e) => {
+    // The theme's appearance probes run here too.
+    if (e.argv[0] !== 'gh') {
+      return { value: { exitCode: 1, stdout: '', stderr: '' } as never }
+    }
+
+    asked.push([...e.argv])
+    const pr = e.argv[3] === '--json' ? { number: 7, state: 'OPEN' } : { number: Number(e.argv[3]), state }
+
+    return { value: (hasPr ? { exitCode: 0, stdout: JSON.stringify(pr), stderr: '' } : { exitCode: 1, stdout: '', stderr: 'no pull requests found' }) as never }
+  })
+  on('tool.call', () => ({ result: 'ok' }) as never)
+  on('turn.complete', ($, e) => ({ text: e.answer }))
+  await startDesktop($, on)
+
+  const earn = async (skill: string) => {
+    await $.tool.call({ tool: 'Skill', skill })
+    await $.turn.complete({ durationMs: 1000, isAborted: false, reason: 'answer', turnId: 't', answer: 'ok' })
+    await clock.settle()
+  }
+  const band = async () => {
+    const ui = await $.ui.mount({
+      ...SITE,
+      surface: 'terminal',
+      component: 'AbovePrompt',
+      requestId: 'above',
+      props: { hasSurvey: false, isWorking: false, maxRows: 10, bodyColumns: 80, scroll: { offset: 0, bodyRows: 9 }, view: {} },
+    })
+    const padded = ((await ui.findAll({ type: 'Box' })) as { props: { paddingX?: number } }[]).some(box => box.props.paddingX === 1)
+    const pills = ((await ui.findAll({ type: 'Text', text: /^ (reviewed|fixed) $/ })) as { props: { backgroundColor?: string } }[]).filter(
+      el => el.props.backgroundColor !== undefined,
+    ).length
+    await ui.unmount()
+
+    return { padded, pills }
+  }
+
+  await earn('review:review')
+  expect(await band()).toEqual({ padded: true, pills: 1 })
+  expect(asked.at(-1), 'the branch’s pull request, asked once the pill is earned').toEqual(['gh', 'pr', 'view', '--json', 'number,state'])
+
+  await clock.advance(60_000)
+  expect(asked.at(-1), 'the poll asks after that pull request by number').toEqual(['gh', 'pr', 'view', '7', '--json', 'number,state'])
+  expect((await band()).pills, 'still open').toBe(1)
+
+  state = 'MERGED'
+  await $.tool.call({ tool: 'Bash', command: 'gh pr merge 7 --squash' } as never)
+  expect((await band()).pills, 'a merge run from the shell clears the pills at once').toBe(0)
+
+  const polls = asked.length
+  await clock.advance(120_000)
+  expect(asked.length, 'nothing left to watch').toBe(polls)
+
+  state = 'OPEN'
+  await earn('review:fix')
+  state = 'MERGED'
+  await clock.advance(60_000)
+  expect((await band()).pills, 'a merge found by the poll clears them too').toBe(0)
+
+  hasPr = false
+  await earn('review:review')
+  await clock.advance(60_000)
+  expect((await band()).pills, 'a branch with no pull request keeps its pills').toBe(1)
+})
+
 test('the settings pane picks a skin, switches the rail and paints a slot', async ($, on) => {
   stubEngine(on)
 
