@@ -2,6 +2,7 @@ import { atom, read, update } from 'claude-code'
 import type { EngineInterface, Register, Timer } from 'claude-code'
 
 import type { Card } from '../types'
+import { detectNerdFont } from './nerd-font'
 import { clockTime, coldReason, defaultTtl, isRetryable, isTtl, parseBullets, plan } from './schedule'
 import type { Plan, Ttl } from './schedule'
 
@@ -17,6 +18,13 @@ const CARD_PROMPT = [
 const PING_PROMPT = '[ember] Automatic keep-warm request. Reply with exactly: ok'
 
 const MAX_RETRIES = 3
+
+// The banner's marks: warm, cooling, the time it was kept at, and the ping count.
+type Glyphs = { warm: string; cold: string; clock: string; pings: string }
+
+const UNICODE: Glyphs = { warm: '♨', cold: '❄', clock: '◷', pings: '↻' }
+// Material Design icons from the Nerd Font set: fire, snowflake, clock-outline, refresh.
+const NERD: Glyphs = { warm: '\u{f0238}', cold: '\u{f0717}', clock: '\u{f0954}', pings: '\u{f0450}' }
 
 type Warmer = {
   maxHours: number
@@ -114,9 +122,11 @@ async function arm($: EngineInterface, w: Warmer) {
 
 export const register: Register = (on, options) => {
   const w: Warmer = { maxHours: typeof options.maxHours === 'number' ? options.maxHours : 8, isOff: false, epoch: 0 }
+  let glyphs = UNICODE
 
   on('session.start', async ($, e, next) => {
     await $.command.register({ name: 'ember', description: 'Prompt-cache warming: status, or `off` / `on` for this session', argumentHint: '[off|on]' })
+    glyphs = (await detectNerdFont($, { name: 'EMBER_ICONS', value: await $.env.get('EMBER_ICONS') })).isFound ? NERD : UNICODE
 
     return next(e)
   })
@@ -172,13 +182,13 @@ export const register: Register = (on, options) => {
     const { Box, Text } = $.ui.resolve(e)
     const status =
       shown.stopped === undefined
-        ? `warm · kept at ${clockTime(shown.warmedAt)} · ${shown.pings} ping${shown.pings === 1 ? '' : 's'}`
-        : `cooling · ${shown.stopped}`
+        ? `${glyphs.warm} ember · ${glyphs.clock} ${clockTime(shown.warmedAt)} · ${glyphs.pings} ${shown.pings} ping${shown.pings === 1 ? '' : 's'}`
+        : `${glyphs.cold} ember · ${shown.stopped}`
 
     return (
       <Box flexDirection="column">
         <Box flexDirection="column" borderStyle="round" paddingX={1}>
-          <Text dimColor>ember · {status}</Text>
+          <Text dimColor>{status}</Text>
           {shown.bullets.map(bullet => (
             <Text>• {bullet}</Text>
           ))}

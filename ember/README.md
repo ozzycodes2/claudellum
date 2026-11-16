@@ -12,8 +12,16 @@ lifetime. The fork adds nothing to the conversation.
 
 The first fork after your last turn asks for 4 to 6 terse bullets: goal, done,
 in progress, waiting on you, next step. They are drawn in a card above the
-prompt. Later forks ask only for `ok` and update the card's `kept at HH:MM`
-line. Typing anything clears the card and stops the timer.
+prompt. Later forks ask only for `ok` and update the card's banner, which reads
+`♨ ember · ◷ 16:05 · ↻ 2 pings` while warm and `❄ ember · <reason>` once it
+stops. Typing anything clears the card and stops the timer.
+
+The banner draws Nerd Font icons (fire, snowflake, clock, refresh) where the
+terminal is known to draw them: Ghostty, WezTerm and kitty ship the symbols,
+and iTerm2 counts when a profile's font is a Nerd Font. Elsewhere it keeps the
+Unicode marks above. `EMBER_ICONS=nerd` or `EMBER_ICONS=unicode` overrides the
+check. The fabric mod's `/skin fonts` reports what was found, and
+`/skin fonts install` installs Symbols Nerd Font with Homebrew.
 
 | Cache lifetime | Ping every | Stops after |
 | --- | --- | --- |

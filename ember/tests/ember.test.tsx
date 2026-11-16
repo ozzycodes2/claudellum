@@ -2,6 +2,7 @@ import { expect, mock, test } from 'claude-code/testing'
 import type { On } from 'claude-code'
 import type { Engine } from 'claude-code/testing'
 
+import { isNerdName, itermFonts } from '../hooks/nerd-font'
 import { coldReason, defaultTtl, isRetryable, isTtl, parseBullets, plan } from '../hooks/schedule'
 
 const MINUTE = 60_000
@@ -154,7 +155,7 @@ test('a ping that finds the cache cold stops and says so on the card', async ($,
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   await $.turn.complete(turn())
   await clock.advance(8 * MINUTE)
-  expect(await bandText($)).toContain('cooling · the cache was already cold')
+  expect(await bandText($)).toContain('❄ ember · the cache was already cold')
 
   await clock.advance(60 * MINUTE)
   expect(prompts).toHaveLength(2)
@@ -230,4 +231,44 @@ test('a survey keeps the band', async ($, on) => {
   await ui.unmount()
 
   expect(await bandText($), 'the card sits above what the band already drew').toMatch(/• a[\s\S]*engine/)
+})
+
+test('Nerd Font names are told apart from plain ones, PostScript spellings included', () => {
+  expect(['JetBrainsMono Nerd Font', 'MesloLGS NF', 'MesloLGS-NF-Regular 13', 'JetBrainsMonoNFM-Regular', 'Hack NFP'].every(isNerdName)).toBe(true)
+  expect(['Menlo-Regular 12', 'SF Mono', 'Inconsolata', 'UNFORMATTED'].some(isNerdName)).toBe(false)
+  expect(itermFonts('{ "Normal Font" = "Menlo-Regular 12"; "Non Ascii Font" = "SymbolsNFM 12"; }')).toEqual(['Menlo-Regular 12', 'SymbolsNFM 12'])
+})
+
+const warmLine = async ($: Engine, on: On, env: Record<string, string>, plist?: string) => {
+  const { clock } = stubEngine(on, { ttl: '1h', env, forks: [answered('- a')] })
+  on('process.run', () => ({ value: (plist === undefined ? { exitCode: 1, stdout: '', stderr: '' } : { exitCode: 0, stdout: plist, stderr: '' }) as never }))
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.turn.complete(turn())
+  await clock.advance(55 * MINUTE)
+
+  return (await bandText($)).split('\n').find(line => line.includes('ember'))
+}
+
+test('the banner draws Unicode marks where no Nerd Font is known', async ($, on) => {
+  expect(await warmLine($, on, { TERM_PROGRAM: 'Apple_Terminal' })).toMatch(/^♨ ember · ◷ \d\d:55 · ↻ 1 ping$/)
+})
+
+test('the banner draws Nerd Font marks in a terminal that ships them', async ($, on) => {
+  expect(await warmLine($, on, { TERM_PROGRAM: 'ghostty' })).toMatch(/^\u{f0238} ember · \u{f0954} \d\d:55 · \u{f0450} 1 ping$/u)
+})
+
+test('kitty ships them too', async ($, on) => {
+  expect(await warmLine($, on, { KITTY_WINDOW_ID: '1' })).toContain('\u{f0238} ember')
+})
+
+test('iTerm2 draws Nerd Font marks when a profile uses a Nerd Font', async ($, on) => {
+  expect(await warmLine($, on, { TERM_PROGRAM: 'iTerm.app' }, '{ "Normal Font" = "MesloLGS-NF-Regular 13"; }')).toContain('\u{f0238} ember')
+})
+
+test('iTerm2 without one, or with its profiles unreadable, keeps Unicode', async ($, on) => {
+  expect(await warmLine($, on, { TERM_PROGRAM: 'iTerm.app' })).toContain('♨ ember')
+})
+
+test('EMBER_ICONS overrides what the terminal says', async ($, on) => {
+  expect(await warmLine($, on, { TERM_PROGRAM: 'ghostty', EMBER_ICONS: 'unicode' })).toContain('♨ ember')
 })
