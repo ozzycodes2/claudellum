@@ -1,6 +1,6 @@
 {
   "name": "ember",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Keeps the prompt cache warm while you are away: forks the session just before its cache expires and leaves a bulleted status card above the prompt for when you return.",
   "repository": "https://github.com/ozzycodes2/claude-market-private",
   "license": "MIT",
