@@ -2,6 +2,7 @@ import { atom, memberOf, read, update } from 'claude-code'
 import type { EngineInterface, Register, RenderElement, RenderSurface, Timer } from 'claude-code'
 
 import type { Badge, CustomSkin, Disclosure, Prefs, SkinSlot, SkinsMarkdownArgs, Touch, TurnStats } from '../types'
+import { fontsReport, installNerdFont } from './fonts'
 import { DEFAULT_PREFS, listing, nextTables, parsePrefs, runSkinCommand, TOGGLES, withCalm } from './command'
 import { buildCustom, resolveSkin, skinNames, withSlot } from './custom'
 import { forTheme, gnomeDark, macDark, resolveLight, windowsDark } from './light'
@@ -648,7 +649,7 @@ export const register: Register = on => {
     await $.command.register({
       name: 'skin',
       description: 'Open the skin settings, or /skin <name | list | help | off>',
-      argumentHint: '[help | gallery | copy | copy code | name | list | off | calm | pin | unpin | share | rail | tables | shimmer | clip | markdown | quiet | charts | math | commands | shell | highlight | links | fold | expand | icons | prompt | words]',
+      argumentHint: '[help | gallery | copy | copy code | name | list | off | calm | pin | unpin | share | rail | tables | shimmer | clip | markdown | quiet | charts | math | commands | shell | highlight | links | fold | expand | icons | fonts | fonts install | prompt | words]',
       immediate: true,
     })
     const designTool = $.tool
@@ -847,6 +848,10 @@ export const register: Register = on => {
       }
 
       return {}
+    }
+
+    if (word === 'fonts' || word === 'fonts install') {
+      return { text: word === 'fonts' ? await fontsReport($) : await installNerdFont($) }
     }
 
     if (word === 'pin' || word === 'unpin' || word === 'share') {

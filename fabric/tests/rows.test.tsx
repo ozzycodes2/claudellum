@@ -809,6 +809,47 @@ test('a finished /review:review and /review:fix each put a pill above the prompt
   expect(await pills(), 'skins off draws Claude Code’s own band').toEqual([])
 })
 
+test('/skin fonts reports the Nerd Font and /skin fonts install runs Homebrew only when it is missing', async ($, on) => {
+  stubEngine(on, { env: true })
+  const env: Record<string, string> = { TERM_PROGRAM: 'Apple_Terminal' }
+  on('env.get', ($, e) => ({ value: env[e.name] }))
+  let brew: 'ok' | 'fails' | 'missing' = 'ok'
+  const ran: string[][] = []
+  on('process.run', ($, e) => {
+    if (e.argv[0] !== 'brew') {
+      return { value: { exitCode: 1, stdout: '', stderr: '' } as never }
+    }
+
+    ran.push([...e.argv])
+    if (brew === 'missing') {
+      throw new Error('spawn brew ENOENT')
+    }
+
+    return { value: (brew === 'ok' ? { exitCode: 0, stdout: '', stderr: '' } : { exitCode: 1, stdout: '', stderr: 'Error: no network\nCould not download' }) as never }
+  })
+  await startDesktop($, on)
+  const text = async (args: string) => ((await runSkin($, args)) as { text?: string }).text ?? ''
+
+  expect(await text('fonts')).toContain('Nerd Font: not found (Apple_Terminal not known to draw Nerd Font symbols)')
+  expect(await text('fonts')).toContain('`/skin fonts install`')
+
+  expect(await text('fonts install')).toContain('Installed Symbols Nerd Font')
+  expect(ran).toEqual([['brew', 'install', '--cask', 'font-symbols-only-nerd-font']])
+
+  brew = 'fails'
+  expect(await text('fonts install')).toContain('failed:\nError: no network\nCould not download')
+  brew = 'missing'
+  expect(await text('fonts install')).toContain('Homebrew is not available here')
+
+  env.TERM_PROGRAM = 'ghostty'
+  expect(await text('fonts')).toBe('Nerd Font: found (Ghostty ships Nerd Font symbols). The ember banner draws Nerd Font icons.')
+  expect(await text('fonts install')).toContain('nothing to install')
+  expect(ran, 'no install once one is drawn').toHaveLength(3)
+
+  env.EMBER_ICONS = 'unicode'
+  expect(await text('fonts')).toContain('not found (EMBER_ICONS=unicode)')
+})
+
 test('the pills sit inside the side padding and go once their pull request merges', async ($, on) => {
   const clock = stubEngine(on)
   let state = 'OPEN'

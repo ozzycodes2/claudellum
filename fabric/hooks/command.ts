@@ -210,6 +210,7 @@ export const helpText = (): string =>
         ['`/skin prompt left/right/plain`', 'which side your prompt\'s outline sits on, or a plain marker'],
         ['`/skin words claude/skin`', 'whose words the spinner and the turn footer show'],
         ['`/skin icons unicode/ascii`', 'the icon set'],
+        ['`/skin fonts` · `fonts install`', 'whether the terminal draws Nerd Font icons, or install them with Homebrew'],
         ['`/skin rail on/off`', 'the coloured rail beside tool rows'],
         ['`/skin shimmer on/off`', 'the band of light across the spinner word'],
         ['`/skin clip on/off`', 'trim Claude Code\'s own shell output to its head and tail'],

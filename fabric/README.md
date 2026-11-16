@@ -35,6 +35,9 @@ Do not install `skins@hellosverre-mods` alongside it: both register `/skin`.
 Commands and parts (`/skin list`, `/skin calm`, `/skin rail off`, and the rest) are the
 upstream ones; see its
 [README](https://github.com/hellosverre/claude-skins#use).
+`/skin fonts` is fabric's own: it reports whether the terminal draws Nerd Font icons, which
+the ember mod's banner follows, and `/skin fonts install` installs Symbols Nerd Font with
+Homebrew when it does not.
 Ask Claude to design a skin and the `skin-designer` skill drives the `mcp__fabric__design` tool.
 
 ## Palette
