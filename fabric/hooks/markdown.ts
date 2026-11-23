@@ -373,8 +373,8 @@ export function copyOf(reply: string, code: boolean): { text: string } | { messa
 // A table as it is drawn, boxed in monospace, for pasting where markdown does not render.
 export function tableArt(table: Table): string {
   const widths = table.header.map((cell, col) => Math.max(widthOf(cell), ...table.rows.map(row => widthOf(row[col] ?? ''))))
-  const rule = (left: string, mid: string, right: string) => `${left}${widths.map(width => '─'.repeat(width + 2)).join(mid)}${right}`
-  const row = (cells: readonly string[]) => `│${widths.map((width, col) => ` ${padCell(cells[col] ?? '', width, table.align[col] ?? 'left')} `).join('│')}│`
+  const rule = (left: string, mid: string, right: string) => `${left}${widths.map(width => '─'.repeat(width + 4)).join(mid)}${right}`
+  const row = (cells: readonly string[]) => `│${widths.map((width, col) => `  ${padCell(cells[col] ?? '', width, table.align[col] ?? 'left')}  `).join('│')}│`
 
   return [rule('╭', '┬', '╮'), row(table.header), rule('├', '┼', '┤'), ...table.rows.map(row), rule('╰', '┴', '╯')].join('\n')
 }

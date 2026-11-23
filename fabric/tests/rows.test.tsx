@@ -592,7 +592,7 @@ test('a terminal table sizes Korean, Chinese, Japanese and emoji cells to their 
   for (const cell of cells) {
     expect(await ui.find({ type: 'Text', text: cell })).toBeDefined()
     // Each cell's box holds its terminal width plus padding, so nothing is cut with an ellipsis.
-    expect(boxOf(root, cell)?.props?.width).toBe(widthOf('레일, 스피너') + 2)
+    expect(boxOf(root, cell)?.props?.width).toBe(widthOf('레일, 스피너') + 4)
   }
 
   expect(await ui.find({ type: 'Text', text: /…$/ })).toBeUndefined()
@@ -607,21 +607,24 @@ test('a terminal table that spans its row keeps each column at its own width', a
     node === undefined || typeof node === 'string' ? [] : [node, ...(node.children ?? []).flatMap(all)]
   const holds = (node: Node | string | undefined, text: string) =>
     typeof node !== 'string' && node?.children?.some(child => typeof child !== 'string' && child.type === 'Text' && child.children?.join('') === text) === true
-  // A spanning table's cells grow from nothing, so flex hands each column the row's inner
-  // width in proportion to its grow factor. The header row, found by its first cell.
+  // A spanning table's cells grow from nothing, so flex hands each column what the row's
+  // inner width leaves after the fixed one-cell column rules, in proportion to its grow
+  // factor. The header row, found by its first cell.
   const shares = (root: Node, first: string, inner: number): number[] => {
     const row = all(root).find(node => node.props?.flexDirection === 'row' && holds(node.children?.[0], first))
-    const grows = (row?.children ?? []).map(cell => (typeof cell === 'string' ? 0 : Number(cell.props?.flexGrow)))
+    const cells = (row?.children ?? []).filter((cell): cell is Node => typeof cell !== 'string')
+    const rules = cells.filter(cell => cell.props?.width === 1).length
+    const grows = cells.filter(cell => cell.props?.width !== 1).map(cell => Number(cell.props?.flexGrow))
     const total = grows.reduce((sum, grow) => sum + grow, 0)
 
-    return grows.map(grow => (inner * grow) / total)
+    return grows.map(grow => ((inner - rules) * grow) / total)
   }
 
   // Wide enough to span the 100 columns: the one-cell `#` column still needs its padding.
   const step = 'Install the plugin from the marketplace, then restart Claude Code so the hooks module loads and the skin draws'
   const wide = await $.ui.mount({ ...SITE, surface: 'terminal', component: 'AssistantMessage', requestId: 'span', props: { text: `| # | Step |\n|---|---|\n| 1 | ${step} |`, isFirstOfReply: true } })
   const [number = 0] = shares((await wide.find({ type: 'Box' })) as Node, '#', 100 - 2)
-  expect(number).toBeGreaterThanOrEqual(widthOf('#') + 2)
+  expect(number).toBeGreaterThanOrEqual(widthOf('#') + 4)
   await wide.unmount()
 
   // Beside a diagram a table gets its natural width, which also makes it span.
@@ -630,8 +633,8 @@ test('a terminal table that spans its row keeps each column at its own width', a
   const root = (await beside.find({ type: 'Box' })) as Node
   const placed = all(root).find(node => node.props?.columnGap === 2)?.children?.[0] as Node | undefined
   const [name = 0, description = 0] = shares(root, 'Name', Number(placed?.props?.width) - 2)
-  expect(name).toBeGreaterThanOrEqual(widthOf('Name') + 2)
-  expect(description).toBeGreaterThanOrEqual(widthOf('short note here') + 2)
+  expect(name).toBeGreaterThanOrEqual(widthOf('Name') + 4)
+  expect(description).toBeGreaterThanOrEqual(widthOf('short note here') + 4)
 })
 
 test('the terminal spinner shimmers, the desktop one is an animated icon beside its step', async ($, on) => {
@@ -999,6 +1002,43 @@ test('a table wider than its share spans the column instead of running off it', 
     expect(await ui.find({ type: 'Text', text: /^a long description/ })).toBeDefined()
     await ui.unmount()
   }
+})
+
+test('a terminal table rules its columns and header, joined to the frame, and stripes alternate rows', async ($, on) => {
+  stubEngine(on)
+
+  type Node = { type?: string; props?: Record<string, unknown>; children?: readonly (Node | string)[] }
+  const all = (node: Node | string | undefined): Node[] =>
+    node === undefined || typeof node === 'string' ? [] : [node, ...(node.children ?? []).flatMap(all)]
+  const glyphs = (node: Node | undefined) => all(node).filter(n => n.type === 'Text').map(n => n.children?.join(''))
+  const text = `| Skin | Note |\n|---|---|\n| fabric | ${'one chroma for every role the skin has '.repeat(4)} |\n| nord | polar |\n| noir | white |`
+  const ui = await $.ui.mount({ ...SITE, surface: 'terminal', component: 'AssistantMessage', requestId: 'ruled', props: { text, isFirstOfReply: true } })
+  const frame = all((await ui.find({ type: 'Box' })) as Node).find(node => node.props?.borderStyle === 'round')
+  const [header, rule, first, second, last] = (frame?.children ?? []) as Node[]
+  const ruleOf = (row: Node | undefined) => row?.children?.find(cell => typeof cell !== 'string' && cell.props?.width === 1) as Node | undefined
+
+  // Two spaces either side of every cell.
+  expect(header?.children?.[0]).toMatchObject({ props: { paddingX: 2 } })
+  // The header's column rule meets the top border, the last row's the bottom one.
+  expect(glyphs(ruleOf(header))).toEqual(['│', '┬'])
+  expect(all(ruleOf(header)).find(n => n.props?.position === 'absolute')?.props?.top).toBe(-1)
+  expect(glyphs(ruleOf(last))).toEqual(['│', '┴'])
+  // A wrapped cell's row draws its column rule down every line it takes.
+  const lines = all(first?.children?.[2] as Node).filter(n => n.type === 'Text').length
+  expect(lines).toBeGreaterThan(1)
+  expect(glyphs(ruleOf(first))).toEqual(Array(lines).fill('│'))
+  // Under the header a rule crosses the columns and joins the frame's sides.
+  expect(glyphs(rule)).toEqual([expect.stringMatching(/^─+$/), '┼', expect.stringMatching(/^─+$/), '├', '┤'])
+  // The header sits on the surface band; every other row is striped.
+  expect([header, first, second, last].map(row => row?.props?.backgroundColor)).toEqual([expect.any(String), undefined, expect.any(String), undefined])
+  await ui.unmount()
+
+  // A table with no rows ends on its header, with no rule under it.
+  const bare = await $.ui.mount({ ...SITE, surface: 'terminal', component: 'AssistantMessage', requestId: 'bare', props: { text: '| a | b |\n|---|---|', isFirstOfReply: true } })
+  const lone = all((await bare.find({ type: 'Box' })) as Node).find(node => node.props?.borderStyle === 'round')
+  expect(lone?.children?.filter(child => typeof child !== 'string')).toHaveLength(1)
+  expect(glyphs(ruleOf(lone?.children?.[0] as Node))).toEqual(['│', '┬', '┴'])
+  await bare.unmount()
 })
 
 test('a terminal table wraps long cells within their column in full, with no … (#59)', async ($, on) => {

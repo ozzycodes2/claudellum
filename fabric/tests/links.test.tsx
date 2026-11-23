@@ -167,7 +167,7 @@ test('a table copies as markdown or as drawn, and /skin copy off takes the butto
   await ui.press({ key: 'copy-0-art' })
   expect(copied[0]).toBe('| Skin | Accent |\n| --- | --- |\n| noir | white |\n| nord | frost |')
   expect(copied[1]).toBe(tableArt({ kind: 'table', header: ['Skin', 'Accent'], align: ['left', 'left'], rows: [['noir', 'white'], ['nord', 'frost']] }))
-  expect(copied[1]?.split('\n')[0]).toBe('╭──────┬────────╮')
+  expect(copied[1]?.split('\n').slice(0, 3)).toEqual(['╭────────┬──────────╮', '│  Skin  │  Accent  │', '├────────┼──────────┤'])
   await ui.unmount()
 
   const desktop = await $.ui.mount(reply(TABLE, 'desktop', 'm3'))

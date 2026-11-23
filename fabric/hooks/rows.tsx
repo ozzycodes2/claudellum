@@ -81,7 +81,13 @@ const KIND_LABEL: Readonly<Record<Kind, string>> = {
   other: 'Other',
 }
 
-const CELL_PAD = 1
+const CELL_PAD = 2
+
+// A terminal table's column widths: two frame borders, each column's padding and the
+// one-cell rule between columns come out of `maxWidth`.
+const cellWidths = (table: Table, maxWidth: number) => columnWidths(table, maxWidth - 2 - CELL_PAD * 2, CELL_PAD * 2 + 1)
+
+const tableWidth = (widths: readonly number[]) => widths.reduce((sum, width) => sum + width + CELL_PAD * 2, 1 + widths.length)
 
 const HEX = /^#[0-9a-f]{6}$/i
 
@@ -364,26 +370,68 @@ export function tableRows(look: Look, table: Table, maxWidth: number, control?: 
   const { Box, Text } = look.ui
   const rows = table.rows.slice(0, shownCount(look, foldKey, table.rows.length, FOLD_ROWS))
   const { palette } = look.skin
-  const widths = columnWidths(table, maxWidth - 4, CELL_PAD * 2)
-  const natural = widths.reduce((sum, width) => sum + width + CELL_PAD * 2, 2)
-  const isFluid = natural > maxWidth * NATURAL_SHARE
+  const widths = cellWidths(table, maxWidth)
+  const isFluid = tableWidth(widths) > maxWidth * NATURAL_SHARE
   // A fluid column grows from nothing, padding included, so its share counts the padding
   // too: by text width alone a narrow column gets less than it needs, or no room at all.
   const size = (i: number) =>
     isFluid
       ? { width: 0, flexGrow: (widths[i] ?? 0) + CELL_PAD * 2, flexShrink: 1 }
       : { width: (widths[i] ?? 0) + CELL_PAD * 2, flexShrink: 0 }
-  const row = (cells: readonly string[], isHeader: boolean, band: string | undefined) => (
-    <Box flexDirection="row" {...(band === undefined ? {} : { backgroundColor: band })}>
-      {cells.map((cell, i) => (
-        <Box {...size(i)} flexDirection="column" paddingX={CELL_PAD} alignItems={JUSTIFY[table.align[i] ?? 'left']}>
-          {wrapLines(cell, widths[i] ?? 0, Infinity).map(line => (
-            <Text color={palette.fg} bold={isHeader} mono={!isHeader && isMonoCell(cell)} wrap="truncate-end">
-              {line}
-            </Text>
-          ))}
-        </Box>
-      ))}
+  const line = (glyph: string) => <Text color={palette.muted}>{glyph}</Text>
+  // A junction laid over the frame's border where a rule meets it. Box has no per-side
+  // border, so the rules are cells of their own; where a terminal draws the border over
+  // the junction (#54), the border shows unbroken.
+  const cap = (glyph: string, at: Record<string, number>) => (
+    <Box position="absolute" {...at}>
+      {line(glyph)}
+    </Box>
+  )
+  const between = (cells: readonly unknown[], gap: (i: number) => ReturnType<Ui['Box']>, cell: (i: number) => ReturnType<Ui['Box']>) =>
+    cells.flatMap((_, i) => (i === 0 ? [cell(i)] : [gap(i), cell(i)]))
+  const row = (cells: readonly string[], isHeader: boolean, isLast: boolean, band: string | undefined) => {
+    const wrapped = cells.map((cell, i) => wrapLines(cell, widths[i] ?? 0, Infinity))
+    const height = Math.max(1, ...wrapped.map(lines => lines.length))
+    const rule = () => (
+      <Box width={1} flexShrink={0} flexDirection="column">
+        {Array.from({ length: height }, () => line('│'))}
+        {isHeader ? cap('┬', { top: -1 }) : ''}
+        {isLast ? cap('┴', { bottom: -1 }) : ''}
+      </Box>
+    )
+
+    return (
+      <Box flexDirection="row" {...(band === undefined ? {} : { backgroundColor: band })}>
+        {between(cells, rule, i => (
+          <Box {...size(i)} flexDirection="column" paddingX={CELL_PAD} alignItems={JUSTIFY[table.align[i] ?? 'left']}>
+            {(wrapped[i] ?? []).map(text => (
+              <Text color={palette.fg} bold={isHeader} mono={!isHeader && isMonoCell(cells[i] ?? '')} wrap="truncate-end">
+                {text}
+              </Text>
+            ))}
+          </Box>
+        ))}
+      </Box>
+    )
+  }
+  // A fluid column's width is the layout's, so its rule is cut to it rather than counted.
+  const headerRule = (
+    <Box flexDirection="row">
+      {between(
+        table.header,
+        () => (
+          <Box width={1} flexShrink={0}>
+            {line('┼')}
+          </Box>
+        ),
+        i => (
+          <Box {...size(i)} height={1} overflow="hidden">
+            {line('─'.repeat(isFluid ? maxWidth : (widths[i] ?? 0) + CELL_PAD * 2))}
+          </Box>
+        ),
+      )}
+      {cap('├', { top: 0, left: -1 })}
+      {cap('┤', { top: 0, right: -1 })}
     </Box>
   )
 
@@ -391,8 +439,9 @@ export function tableRows(look: Look, table: Table, maxWidth: number, control?: 
   const frame = onBorder(
     look,
     <Box flexDirection="column" borderStyle="round" borderColor={palette.muted}>
-      {row(table.header, true, palette.surface)}
-      {rows.map((cells, i) => row(cells, false, i % 2 === 1 ? palette.zebra : undefined))}
+      {row(table.header, true, rows.length === 0, palette.surface)}
+      {rows.length === 0 ? '' : headerRule}
+      {rows.map((cells, i) => row(cells, false, i === rows.length - 1, i % 2 === 1 ? palette.zebra : undefined))}
     </Box>,
     { control, box: { marginY: fold === '' ? 1 : 0, ...(isFluid ? { width: '100%' } : { alignSelf: 'flex-start' }) } },
   )
@@ -689,7 +738,7 @@ const BESIDE_MIN_CARD = 75
 // for any other block.
 function besideWidth(look: Look, segment: Segment, maxWidth: number, Svg?: SvgElement): number | null {
   if (segment.kind === 'table') {
-    return Svg !== undefined ? 0 : columnWidths(segment, maxWidth - 4, CELL_PAD * 2).reduce((sum, width) => sum + width + CELL_PAD * 2, 2)
+    return Svg !== undefined ? 0 : tableWidth(cellWidths(segment, maxWidth))
   }
 
   if (segment.kind !== 'code' || segment.lang !== 'mermaid' || !look.prefs.charts) {
