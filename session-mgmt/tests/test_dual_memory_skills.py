@@ -187,5 +187,25 @@ class RecallFocus(unittest.TestCase):
         self.assertIn("plan mode", self.body)
 
 
+class StartSession(unittest.TestCase):
+    """start-session runs recall-focus's recall half and still stops before planning."""
+
+    def setUp(self):
+        self.fm, self.body = _skill("start-session")
+
+    def test_invokes_recall_focus_before_report(self):
+        _assert_before(self, self.body, "session-mgmt:recall-focus", "### Phase 4")
+        self.assertIn("recall-focus", self.fm["description"])
+
+    def test_stops_before_step_6(self):
+        self.assertIn("steps 1–5 only", self.body)
+        self.assertIn("Stop before its step 6", self.body)
+
+    def test_report_carries_sources_line(self):
+        report = self.body[self.body.index("### Phase 4"):]
+        self.assertIn("Sources — trivia:", report)
+        self.assertIn("· Hindsight:", report)
+
+
 if __name__ == "__main__":
     unittest.main()

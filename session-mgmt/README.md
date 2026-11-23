@@ -8,7 +8,8 @@ Manage the lifecycle of a Claude Code working session — open one cleanly with
   follows into the worktree — no `cd` flood), places it under `.claude/worktrees/`,
   reports what untracked state the worktree inherited and whether it has a stack of its
   own, and if the name is a JIRA key (e.g. `ABC-123`) loads that story with the Atlassian
-  CLI (`acli`) and summarizes the implementation ask. Then it stops and waits — it sets up
+  CLI (`acli`) and summarizes the implementation ask, and runs `recall-focus`'s recall
+  steps so the project's focus and lessons are on screen. Then it stops and waits — it sets up
   the workspace, it doesn't start coding.
 - **`exit-session`** — tear down the ephemeral resources a session spun up **permission-free**
   (in accept-edits mode — see [Permission mode](#permission-mode)), then quit the CLI, so you

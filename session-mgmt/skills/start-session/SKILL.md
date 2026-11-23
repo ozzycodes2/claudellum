@@ -12,8 +12,9 @@ description: >-
   points at the main checkout's stack. If the argument is a JIRA key (e.g.
   ABC-123, PROJ-1505), also loads that story with the Atlassian CLI (`acli`) when
   available and summarizes the implementation ask. Also renames the session to the
-  argument (the same effect as `/rename <NAME>`) so it's easy to find in `/resume`.
-  Then stops and waits — it sets up the workspace and context, it does not implement.
+  argument (the same effect as `/rename <NAME>`) so it's easy to find in `/resume`,
+  and recalls the project's focus and lessons from trivia and Hindsight via
+  session-mgmt:recall-focus. Then stops and waits — it sets up the workspace and context, it does not implement.
 license: MIT
 compatibility: >-
   Requires a git repo (EnterWorktree branches off a fresh origin default; honors
@@ -69,7 +70,7 @@ user types another word.
    several.
 7. **Execute silently; report once.** Don't narrate phase transitions, tool calls, or
    intermediate checks ("Preconditions pass...", "Now Phase 2.5...", "Verifying...").
-   Run Phases 0-3 without commentary. The only output is the Phase 4 report — unless a
+   Run Phases 0-3.5 without commentary. The only output is the Phase 4 report — unless a
    real precondition fails and needs a user decision (that's a stop, not narration).
 
 ## Workflow
@@ -212,9 +213,28 @@ All read-only. Do not run `docker`, `just migrate`, or any stack command to dete
    - **Acceptance criteria** if present, as a short checklist.
    - Notable links (design, parent epic, blocked-by) if any.
 
+### Phase 3.5 — Recall project memory
+
+Invoke `session-mgmt:recall-focus` with the Skill tool, in the new worktree, and run
+its steps 1–5 only: derive the slug, detect trivia and Hindsight, recall the seeds and
+lessons from both stores. When a ticket was loaded, its implementation ask stands in for
+the focus's NEXT when choosing themes and probes.
+
+Two overrides, because this skill sets up and stops:
+
+- **Stop before its step 6.** No verification of NEXT claims, no tombstones, no plan
+  mode (Principle 3). Its step 5 question folds into the Phase 4 handoff instead of
+  being asked separately.
+- **Split its slug pipeline** (Principle 6). Run `git config --get trivia.slug` and
+  `git rev-parse --path-format=absolute --git-common-dir` as separate calls, then take
+  the basename of the result's parent and normalise it yourself.
+
+Either store missing is a one-line note, as `recall-focus` says; both missing is one
+line too. Never block the report on it.
+
 ### Phase 4 — Report once, then stop
 
-This is the *only* narration Phases 0-3 produce. Print a short summary, then wait:
+This is the *only* narration Phases 0-3.5 produce. Print a short summary, then wait:
 
 - Worktree: `.claude/worktrees/<NAME>` · branch `worktree-<NAME>` · based on
   `origin/<default>`.
@@ -226,7 +246,11 @@ This is the *only* narration Phases 0-3 produce. Print a short summary, then wai
   `just test` at the wrong database.
 - If a ticket was loaded: the story summary and implementation ask from Phase 3.
 - If not a ticket, or JIRA skipped: say so in one line.
-- End with an explicit handoff, e.g. *"Workspace ready. What would you like to build?"*
+- Recalled memory, from Phase 3.5: the current focus in a sentence or two and the lessons
+  that bear on it, each marked "(trivia)" or "(Hindsight)", with any disagreement named.
+- End with an explicit handoff that asks whether the recalled focus (or the ticket) is
+  this session's work, e.g. *"Workspace ready. Last focus was X; still the plan?"*
+- Last line: `Sources — trivia: <items or none> · Hindsight: <items or none>`.
 
 **Then stop.** Do not begin implementation, exploration, or planning until the user
 gives the next instruction.
