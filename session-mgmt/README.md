@@ -13,6 +13,40 @@ Manage the lifecycle of a Claude Code working session — open one cleanly with
 - **`exit-session`** — tear down the ephemeral resources a session spun up **permission-free**
   (in accept-edits mode — see [Permission mode](#permission-mode)), then quit the CLI, so you
   can wrap up with a single command and get a clean machine back.
+- **`recall-focus`** — open a session by recalling the project's current focus and
+  lessons from both memory stores, verifying the focus's forward claims against the code,
+  confirming direction, and entering plan mode.
+- **`write-handoff`** / **`read-handoff`** — hand a half-finished session to a fresh
+  agent through a standalone document, and resume from it with a drift check.
+
+## Memory skills: trivia and Hindsight
+
+`recall-focus`, `write-handoff` and `read-handoff` replace `trivium:session-start`,
+`relay:handoff` and `relay:pickup`. They ask [trivia](https://github.com/chrisdickinson/trivia)
+and Hindsight at the same steps, so neither store is favoured by the instructions alone.
+Each store is optional: one that is missing is skipped with a note and the other still
+runs.
+
+| Step | Trivia | Hindsight |
+|---|---|---|
+| Write a handoff | `memorize` the `<slug>/handoff` pointer | `hindsight_ingest_document` with the document |
+| Find a handoff | `recall` the pointer | `hindsight_search_knowledge_pages` |
+| Finish a pickup | mark the pointer consumed | ingest `Correction: handoff consumed` |
+| Recall focus and lessons | `recall` focus, conventions, hubs, probes | page search on the same topics; `hindsight_reflect` only when pages come back empty |
+| Rate what helped | `rate` | cite with the `From Hindsight memory` blockquote |
+
+Each skill ends its report with `Sources — trivia: … · Hindsight: …`, naming what each
+store contributed.
+
+```
+> what were we working on?
+> /session-mgmt:write-handoff finish the retry jitter tomorrow
+> /session-mgmt:read-handoff
+```
+
+Handoff documents land in `./tmp/` when it exists, otherwise `.claude/relay/`, as
+`handoff-<yyyy-mm-dd>-<hhmm>.md`. The rest of trivium (`session-retro`, `research`,
+`memory-gardening`, `project-trivia-setup`) stays a separate install.
 
 ## start-session
 
