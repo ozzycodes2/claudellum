@@ -439,7 +439,7 @@ export function tableRows(look: Look, table: Table, maxWidth: number, control?: 
   const frame = onBorder(
     look,
     <Box flexDirection="column" borderStyle="round" borderColor={palette.muted}>
-      {row(table.header, true, rows.length === 0, palette.surface)}
+      {row(table.header, true, rows.length === 0, undefined)}
       {rows.length === 0 ? '' : headerRule}
       {rows.map((cells, i) => row(cells, false, i === rows.length - 1, i % 2 === 1 ? palette.zebra : undefined))}
     </Box>,

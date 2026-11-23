@@ -175,9 +175,9 @@ test('the terminal skin paints rows in the terminal\u2019s ANSI colours and band
   expect(spanColor((await row.find({ type: 'Text', text: /Bash/ })) as Found, 'Bash')).toBe('ansi256(3)')
   await row.unmount()
 
-  const table = await $.ui.mount(tableReply('terminal'))
+  const table = await $.ui.mount({ ...tableReply('terminal'), props: { text: '| a | b |\n|---|---|\n| 1 | 2 |\n| 3 | 4 |', isFirstOfReply: true } })
   const bands = ((await table.findAll({ type: 'Box' })) as { props: { backgroundColor?: unknown } }[]).map(box => box.props.backgroundColor)
-  expect(bands).toContain('userMessageBackground')
+  expect(bands).toContain('bashMessageBackgroundColor')
   await table.unmount()
 
   const desktop = await $.ui.mount(toolUse(call('Bash', { command: 'pnpm test' }), 'desktop'))
@@ -1029,8 +1029,8 @@ test('a terminal table rules its columns and header, joined to the frame, and st
   expect(glyphs(ruleOf(first))).toEqual(Array(lines).fill('│'))
   // Under the header a rule crosses the columns and joins the frame's sides.
   expect(glyphs(rule)).toEqual([expect.stringMatching(/^─+$/), '┼', expect.stringMatching(/^─+$/), '├', '┤'])
-  // The header sits on the surface band; every other row is striped.
-  expect([header, first, second, last].map(row => row?.props?.backgroundColor)).toEqual([expect.any(String), undefined, expect.any(String), undefined])
+  // The header sits on the ground like the first row; every other row is striped.
+  expect([header, first, second, last].map(row => row?.props?.backgroundColor)).toEqual([undefined, undefined, expect.any(String), undefined])
   await ui.unmount()
 
   // A table with no rows ends on its header, with no rule under it.
