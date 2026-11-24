@@ -10,5 +10,6 @@
         ]
       }
     ]
-  }
+  },
+  "modules": ["./register.ts"]
 }

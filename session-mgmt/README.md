@@ -172,6 +172,29 @@ stack. The plugin can't flip the mode for you — no hook output field sets the 
 mode, and the `setMode` permission update is reachable only from the SDK permission bridge
 — so the keystroke is the only lever.
 
+## Worktree placement
+
+`hooks/register.ts` is a function-hook module (a mod; needs Claude Code 2.1.287 or later).
+Its `tool.call` hook on `Bash` refuses a `git worktree add` whose path is outside the owning
+repository's `.claude/worktrees/` or a temp dir (`/tmp`, `/private/tmp`, `/var/folders`).
+The refusal names the path to use instead, so the agent retries there.
+
+It covers subagents too. `isolation: "worktree"` only worktrees the session's own
+repository, so an agent sent to edit another one is handed a hand-written
+`git worktree add`, and without a rule its path drifts to a sibling such as
+`../repo-feature` that nothing looks in.
+
+- A relative path resolves against `-C`, then any `cd` earlier in the command, then the
+  session directory.
+- A path holding `$`, a backtick or a leading `~` is let through: it cannot be judged
+  before the shell expands it.
+- A path with two `.claude/worktrees/` segments, a worktree nested in a worktree, is
+  refused and pointed at the main checkout's.
+- If the guard itself throws, the engine skips it and the command runs.
+
+exit-session sweeps only the session repository's worktrees; one placed in another
+repository is left for that repository's own sessions.
+
 ## Permissions
 
 For the sweep to run permission-free, the teardown verbs must be allow-listed in your
